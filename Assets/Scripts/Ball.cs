@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour
         nodeCleared = 0;
         pathBufferReference = path;
         nodeCount = count;
-        currentDirection = pathBufferReference[nodeCleared].direction;
+        //currentDirection = pathBufferReference[nodeCleared].direction;
         currentTarget = pathBufferReference[nodeCleared].target;
     }
 
@@ -65,7 +65,7 @@ public class Ball : MonoBehaviour
                 if (nodeCleared < nodeCount)
                 {
                     currentTarget = pathBufferReference[nodeCleared].target;
-                    currentDirection = pathBufferReference[nodeCleared].direction;
+                    //currentDirection = pathBufferReference[nodeCleared].direction;
                 }
             }
 
