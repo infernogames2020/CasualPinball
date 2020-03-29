@@ -39,11 +39,12 @@ public class Gun : MonoBehaviour
 	Touch _inputManager;
 	Touch inputManager { get { if (_inputManager == null) _inputManager = new Touch(); return _inputManager; } }
 
+
 	void Start()
 	{
 		PathBuffer = new List<Node>();
 		readyToShoot = true;
-		inputManager.Player.Aim.performed += OnAim; 
+		inputManager.Player.Aim.performed += OnAim;
 		inputManager.Player.Shoot.performed += OnShoot;
 	}
 
@@ -86,18 +87,8 @@ public class Gun : MonoBehaviour
 
 	void Update()
 	{
-		//worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		worldPoint.y = ball.transform.position.y;
 		direction = worldPoint - ball.transform.position;
-
-		//if (readyToShoot)
-		//{
-		//	if (Input.GetMouseButtonDown(1))
-		//	{
-		//		shoot = true;
-		//		readyToShoot = false;
-		//	}
-		//}
 	}
 
 	void FixedUpdate()
@@ -120,22 +111,24 @@ public class Gun : MonoBehaviour
 				PathBuffer.Add(node);
 			}
 			count = 1;
-			RecursiveRaycast(direction.normalized, ball.transform.position,count);
+			RecursiveRaycast(direction.normalized, ball.transform.position, count);
 			DrawTracer(count);
 		}
 
-		if(shoot)
+		if (shoot)
 		{
-			ball.GetComponent<Ball>().Shot(PathBuffer,count);
-			shoot = false; 
+			ball.GetComponent<Ball>().Shot(PathBuffer, count);
+			shoot = false;
 		}
 	}
 
-	void RecursiveRaycast(Vector3 direction, Vector3 origin,int nodeAdded)
+	void RecursiveRaycast(Vector3 direction, Vector3 origin, int nodeAdded)
 	{
 		ray = new Ray(origin, direction.normalized);
-		Physics.Raycast (ray, out hit);
-		
+		//LayerMask mask = LayerMask.GetMask("Flap","Hole","Wall"); 
+		//Physics.Raycast(ray, out hit,Mathf.Infinity, mask);
+		Physics.Raycast(ray, out hit);
+
 		if (hit.collider != null)
 		{
 			Debug.DrawRay(hit.point, hit.normal, Color.red);
@@ -144,26 +137,26 @@ public class Gun : MonoBehaviour
 			PathBuffer[nodeAdded - 1].target = hit.point;
 
 			reflectedDirection = Vector3.Reflect(direction.normalized, hit.normal);
+
 			if (count < PathBuffer.Count)
 			{
-				//PathBuffer[count].direction = reflectedDirection;
 				PathBuffer[count].origin = hit.point;
 
 			}
 			else
 			{
 				var node = new Node();
-				//node.direction = reflectedDirection;
 				node.target = hit.point;
 				PathBuffer.Add(node);
 			}
 			count++;
 			Debug.DrawRay(hit.point, reflectedDirection, Color.green);
-			
+
 			if (hit.collider.tag.Equals("Hole") || hit.collider.tag.Equals("Wall"))
 				return;
 
-			RecursiveRaycast(reflectedDirection, hit.point,count);
+			RecursiveRaycast(reflectedDirection, hit.point, count);
+
 		}
 	}
 
@@ -172,7 +165,7 @@ public class Gun : MonoBehaviour
 		tracer.positionCount = count;
 		if (PathBuffer.Count > 0)
 		{
-			for(int i = 0;i < count; i++)
+			for (int i = 0; i < count; i++)
 			{
 				tracer.SetPosition(i, PathBuffer[i].origin);
 			}

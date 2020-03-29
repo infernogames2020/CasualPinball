@@ -48,9 +48,10 @@ public class Ball : MonoBehaviour
         nodeCount = count;
         //currentDirection = pathBufferReference[nodeCleared].direction;
         currentTarget = pathBufferReference[nodeCleared].target;
+        Game.Instance.StopMovement();
     }
 
-    void Update()
+    void Update() 
     {
         if (shot)
         {

@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
 	public int totalLevels;
 	public int currentLevel;
 
+	public List<GameObject> flaps;
 
 	void Start()
 	{
@@ -19,6 +20,12 @@ public class Game : MonoBehaviour
 	public void Reload()
 	{
 		SceneManager.LoadScene("Level" + currentLevel);
+	}
+
+	public void StopMovement()
+	{
+		for(int i = 0; i < flaps.Count;i++)
+			flaps[i].SendMessage("Stop");
 	}
 
 	public void LoadNextLevel()
