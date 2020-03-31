@@ -17,10 +17,13 @@ public class Ball : MonoBehaviour
     int nodeCount;
     int nodeCleared;
     Transform cachedTransform;
+    Rigidbody cachedRigidbody;
+    Vector3 tempVector;
 
     private void Start()
     {
         cachedTransform = transform;
+        cachedRigidbody = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter (Collider collider)
@@ -51,14 +54,16 @@ public class Ball : MonoBehaviour
         Game.Instance.StopMovement();
     }
 
-    void Update() 
+    void FixedUpdate() 
     {
         if (shot)
         {
             //FuriousPlay.Mechanics.MovePosition(transform, currentTarget, ballSpeed);
             //FuriousPlay.Mechanics.MoveDirection(cachedTransform, currentDirection, ballSpeed);
-            
-            cachedTransform.position = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
+
+            //cachedTransform.position = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
+            tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
+            cachedRigidbody.MovePosition(tempVector);
 
             if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
             {
@@ -66,7 +71,6 @@ public class Ball : MonoBehaviour
                 if (nodeCleared < nodeCount)
                 {
                     currentTarget = pathBufferReference[nodeCleared].target;
-                    //currentDirection = pathBufferReference[nodeCleared].direction;
                 }
             }
 

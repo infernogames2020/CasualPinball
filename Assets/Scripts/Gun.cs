@@ -131,8 +131,8 @@ public class Gun : MonoBehaviour
 
 		if (hit.collider != null)
 		{
-			Debug.DrawRay(hit.point, hit.normal, Color.red);
-			Debug.DrawLine(origin, hit.point, Color.green);
+			//Debug.DrawRay(hit.point, hit.normal, Color.red);
+			//Debug.DrawLine(origin, hit.point, Color.green);
 
 			PathBuffer[nodeAdded - 1].target = hit.point;
 
@@ -150,7 +150,7 @@ public class Gun : MonoBehaviour
 				PathBuffer.Add(node);
 			}
 			count++;
-			Debug.DrawRay(hit.point, reflectedDirection, Color.green);
+			//Debug.DrawRay(hit.point, reflectedDirection, Color.green);
 
 			if (hit.collider.tag.Equals("Hole") || hit.collider.tag.Equals("Wall"))
 				return;
