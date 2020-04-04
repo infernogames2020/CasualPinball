@@ -39,4 +39,12 @@ public class Game : MonoBehaviour
 			SceneManager.LoadScene("Level" + (currentLevel+1));
 		}
 	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if(other.tag.Equals("Ball"))
+		{
+			Reload();
+		}
+	}
 }

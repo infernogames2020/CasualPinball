@@ -13,12 +13,16 @@ public class Ball : MonoBehaviour
     float force;
     Vector3 currentDirection;
     Vector3 currentTarget;
+	Vector3 nextTarget;
+	Vector3 nextDirection;
     List<Node> pathBufferReference;
     int nodeCount;
     int nodeCleared;
     Transform cachedTransform;
     Rigidbody cachedRigidbody;
     Vector3 tempVector;
+	Ray shootRay;
+	RaycastHit hit;
 
     private void Start()
     {
@@ -28,10 +32,10 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter (Collider collider)
     {
-		if (collider.tag.Equals("Wall"))
-		{
-			Game.Instance.Reload();
-		}
+		//if (collider.tag.Equals("Wall"))
+		//{
+		//	Game.Instance.Reload();
+		//}
 
 		if (collider.tag.Equals("Hole"))
 		{
@@ -39,8 +43,16 @@ public class Ball : MonoBehaviour
 		}
 	}
 
-    
-    public void Shot(List<Node> path,int count)
+	public void Shot(Vector3 target,float ballSpeed)
+	{
+		shot = true;
+		this.ballSpeed = ballSpeed;
+        currentTarget = target;
+		Game.Instance.StopMovement();
+	}
+
+
+	public void Shot(List<Node> path,int count)
     {
         if (path.Count < 0)
             return;
@@ -49,37 +61,60 @@ public class Ball : MonoBehaviour
         nodeCleared = 0;
         pathBufferReference = path;
         nodeCount = count;
-        //currentDirection = pathBufferReference[nodeCleared].direction;
         currentTarget = pathBufferReference[nodeCleared].target;
-        Game.Instance.StopMovement();
+        //Game.Instance.StopMovement();
     }
 
-    void FixedUpdate() 
-    {
-        if (shot)
-        {
-            //FuriousPlay.Mechanics.MovePosition(transform, currentTarget, ballSpeed);
-            //FuriousPlay.Mechanics.MoveDirection(cachedTransform, currentDirection, ballSpeed);
+	void FixedUpdate()
+	{
+		if (shot)
+		{
+			tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.fixedDeltaTime);
+			cachedRigidbody.MovePosition(tempVector);
 
-            //cachedTransform.position = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
-            tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
-            cachedRigidbody.MovePosition(tempVector);
+			if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
+			{
+				currentDirection = nextDirection;
+				currentTarget = nextTarget;
+			}
 
-            if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
-            {
-                nodeCleared++;
-                if (nodeCleared < nodeCount)
-                {
-                    currentTarget = pathBufferReference[nodeCleared].target;
-                }
-            }
+			currentDirection = currentTarget - cachedTransform.position;
+			shootRay = new Ray(cachedTransform.position, currentDirection.normalized);
+			Physics.SphereCast(shootRay, 2, out hit, ballSpeed  * Time.fixedDeltaTime);
 
-            for (int i = 0; i < nodeCount - 1; i++)
-            {
-                Debug.DrawLine(pathBufferReference[i].target, pathBufferReference[i + 1].target, Color.green);
-            }
-        }
-    }
+			if(hit.collider != null)
+			{
+				nextDirection = Vector3.Reflect(currentDirection.normalized, hit.normal);
+				Physics.Raycast(hit.point,nextDirection, out hit);
+				if(hit.collider != null)
+				{
+					nextTarget = hit.point;
+				}
+			}
+		}
+	}
 
+ //	  void FixedUpdate() 
+ //   {
+ //       if (shot)
+ //       {
+ //           tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
+ //           cachedRigidbody.MovePosition(tempVector);
+
+ //           if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
+ //           {
+ //               nodeCleared++;
+ //               if (nodeCleared < nodeCount)
+ //               {
+ //                   currentTarget = pathBufferReference[nodeCleared].target;
+ //               }
+ //           }
+
+ //           for (int i = 0; i < nodeCount - 1; i++)
+ //           {
+ //               Debug.DrawLine(pathBufferReference[i].target, pathBufferReference[i + 1].target, Color.green);
+ //           }
+ //       }
+ //   }
   
 }
