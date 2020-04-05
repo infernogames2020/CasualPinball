@@ -32,10 +32,10 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter (Collider collider)
     {
-		//if (collider.tag.Equals("Wall"))
-		//{
-		//	Game.Instance.Reload();
-		//}
+		if (collider.tag.Equals("Wall"))
+		{
+			//Game.Instance.Reload();
+		}
 
 		if (collider.tag.Equals("Hole"))
 		{
@@ -48,6 +48,7 @@ public class Ball : MonoBehaviour
 		shot = true;
 		this.ballSpeed = ballSpeed;
         currentTarget = target;
+		currentDirection = currentTarget - cachedTransform.position;
 		Game.Instance.StopMovement();
 	}
 
@@ -78,9 +79,10 @@ public class Ball : MonoBehaviour
 				currentTarget = nextTarget;
 			}
 
-			currentDirection = currentTarget - cachedTransform.position;
+
 			shootRay = new Ray(cachedTransform.position, currentDirection.normalized);
-			Physics.SphereCast(shootRay, 2, out hit, ballSpeed  * Time.fixedDeltaTime);
+			Physics.Raycast(shootRay,out hit, ballSpeed * Time.fixedDeltaTime);
+
 
 			if(hit.collider != null)
 			{

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475827771656263988}
   - component: {fileID: 475827771656263979}
+  - component: {fileID: 1870380164}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -44,5 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalLevels: 5
-  currentLevel: 4
+  currentLevel: 1
   flaps: []
+--- !u!65 &1870380164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475827771656263978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 20, z: 60}
+  m_Center: {x: 0, y: 0, z: 0}
