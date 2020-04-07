@@ -5,13 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField]
+	[SerializeField]
+	float rotationSpeed;
+	[SerializeField]
     float ballSpeed;
     [SerializeField]
     bool shot;
     [SerializeField]
     float force;
+	[SerializeField]
+	float ballLife;
+
     Vector3 currentDirection;
+	Vector3 rotationAxis;
+	Quaternion deltaRotation;
     Vector3 currentTarget;
 	Vector3 nextTarget;
 	Vector3 nextDirection;
@@ -20,36 +27,46 @@ public class Ball : MonoBehaviour
     int nodeCleared;
     Transform cachedTransform;
     Rigidbody cachedRigidbody;
+	SphereCollider cachedCollider;
     Vector3 tempVector;
 	Ray shootRay;
 	RaycastHit hit;
+	
 
     private void Start()
     {
         cachedTransform = transform;
         cachedRigidbody = GetComponent<Rigidbody>();
-    }
+        cachedCollider = GetComponent<SphereCollider>();
 
-    private void OnTriggerEnter (Collider collider)
-    {
-		if (collider.tag.Equals("Wall"))
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.collider.tag.Equals("Wall") || collision.collider.tag.Equals("Flap"))
 		{
-			//Game.Instance.Reload();
+			var contact = collision.GetContact(0);
+			nextDirection = Vector3.Reflect(currentDirection.normalized, contact.normal);
+			rotationAxis = Vector3.Cross(nextDirection, Vector3.up);
+			deltaRotation = Quaternion.Euler(rotationSpeed * Time.fixedDeltaTime * rotationAxis);
+			currentDirection = nextDirection;
 		}
 
-		if (collider.tag.Equals("Hole"))
+		if (collision.collider.tag.Equals("Hole"))
 		{
 			Game.Instance.LoadNextLevel();
 		}
 	}
 
-	public void Shot(Vector3 target,float ballSpeed)
+	public void Shot(Vector3 direction,float ballSpeed,float rotationSpeed)
 	{
-		shot = true;
-		this.ballSpeed = ballSpeed;
-        currentTarget = target;
-		currentDirection = currentTarget - cachedTransform.position;
+		this.ballSpeed     = ballSpeed;
+		this.rotationSpeed = rotationSpeed;
+		currentDirection   = direction;
+		rotationAxis  = Vector3.Cross(currentDirection, Vector3.up);
+		deltaRotation = Quaternion.Euler(rotationSpeed * Time.fixedDeltaTime * rotationAxis);
 		Game.Instance.StopMovement();
+		shot = true;
 	}
 
 
@@ -57,66 +74,23 @@ public class Ball : MonoBehaviour
     {
         if (path.Count < 0)
             return;
-
         shot = true;
         nodeCleared = 0;
         pathBufferReference = path;
         nodeCount = count;
         currentTarget = pathBufferReference[nodeCleared].target;
-        //Game.Instance.StopMovement();
     }
 
 	void FixedUpdate()
 	{
 		if (shot)
 		{
-			tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.fixedDeltaTime);
+			//tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.fixedDeltaTime);
+			tempVector = cachedTransform.position + (ballSpeed * Time.fixedDeltaTime * currentDirection);
 			cachedRigidbody.MovePosition(tempVector);
+			cachedRigidbody.MoveRotation(cachedRigidbody.rotation * deltaRotation);
 
-			if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
-			{
-				currentDirection = nextDirection;
-				currentTarget = nextTarget;
-			}
-
-
-			shootRay = new Ray(cachedTransform.position, currentDirection.normalized);
-			Physics.Raycast(shootRay,out hit, ballSpeed * Time.fixedDeltaTime);
-
-
-			if(hit.collider != null)
-			{
-				nextDirection = Vector3.Reflect(currentDirection.normalized, hit.normal);
-				Physics.Raycast(hit.point,nextDirection, out hit);
-				if(hit.collider != null)
-				{
-					nextTarget = hit.point;
-				}
-			}
 		}
 	}
-
- //	  void FixedUpdate() 
- //   {
- //       if (shot)
- //       {
- //           tempVector = Vector3.MoveTowards(cachedTransform.position, currentTarget, ballSpeed * Time.deltaTime);
- //           cachedRigidbody.MovePosition(tempVector);
-
- //           if (Vector3.Distance(cachedTransform.position, currentTarget) < 0.001f)
- //           {
- //               nodeCleared++;
- //               if (nodeCleared < nodeCount)
- //               {
- //                   currentTarget = pathBufferReference[nodeCleared].target;
- //               }
- //           }
-
- //           for (int i = 0; i < nodeCount - 1; i++)
- //           {
- //               Debug.DrawLine(pathBufferReference[i].target, pathBufferReference[i + 1].target, Color.green);
- //           }
- //       }
- //   }
   
 }

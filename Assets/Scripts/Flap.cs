@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Flap : MonoBehaviour
 {
     private Animator animator;
-    void Start()
+
+	void Start()
     {
-        animator = GetComponent<Animator>();
+		animator = GetComponent<Animator>();
     }
 
     public void Stop()

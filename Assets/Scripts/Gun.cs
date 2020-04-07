@@ -28,6 +28,8 @@ public class Gun : MonoBehaviour
 	[SerializeField]
 	float ballSpeed;
 	[SerializeField]
+	float ballRotationSpeed;
+	[SerializeField]
 	int count;
 	[SerializeField]
 	float aimSpeed;
@@ -113,7 +115,6 @@ public class Gun : MonoBehaviour
 		startDragPosition   = context.ReadValue<Vector2>();
 		startDragPosition.z = startDragPosition.y;
 		startDragPosition.y = ball.transform.position.y;
-		//Debug.Log("OnAimStart " + startDragPosition);
 	}
 
 	private void OnDrag(InputAction.CallbackContext context)
@@ -140,9 +141,8 @@ public class Gun : MonoBehaviour
 				shootRay.origin = ball.transform.position;
 				shootRay.direction = currentDirection.normalized;
 				previousDirection = currentDirection;
+				initialTarget.position = ball.transform.position + currentDirection.normalized * 100;
 			}
-			initialTarget.position = ball.transform.position + currentDirection.normalized * 100;
-
 			Physics.Linecast(ball.transform.position, initialTarget.position, out hit);
 
 			if (hit.collider == null)
@@ -197,14 +197,13 @@ public class Gun : MonoBehaviour
 				count = 1;
 				RecursiveRaycast(currentDirection.normalized, ball.transform.position, count);
 			}
-
 			DrawTracer(count);
 		}
 
 		if (shoot)
 		{
 			Debug.Log("PathBuffer Count : " + PathBuffer.Count);
-			ball.GetComponent<Ball>().Shot(PathBuffer[0].target,ballSpeed);
+			ball.GetComponent<Ball>().Shot((PathBuffer[0].target - ball.transform.position).normalized,ballSpeed,ballRotationSpeed);
 			tracer.enabled = false;
 			shoot = false;
 		}

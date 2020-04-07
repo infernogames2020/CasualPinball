@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 30840979}
   - component: {fileID: 30840978}
   m_Layer: 0
-  m_Name: wall (1)
+  m_Name: wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30840976}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -416,7 +416,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353799674}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1012,7 +1012,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891665778}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1353,7 +1353,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095353244}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1533,6 +1533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216431175952585451, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8216431175952585454, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
         type: 3}
@@ -1808,7 +1813,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322065274}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2071,7 +2076,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606608169}
   m_Material: {fileID: 13400000, guid: bff6d49ac3295c449b1e5b557dde9f35, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2134,6 +2139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216431175952585451, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8216431175952585454, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
         type: 3}
@@ -2374,6 +2384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8216431175952585451, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8216431175952585454, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2561,6 +2576,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8067452}
     m_Modifications:
+    - target: {fileID: 5613926716040979530, guid: 9727f8662a592b9438aa90162c61d1b9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5613926716040979531, guid: 9727f8662a592b9438aa90162c61d1b9,
         type: 3}
       propertyPath: m_Name
@@ -2649,6 +2669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216431175952585451, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8216431175952585454, guid: 93dd34ba8d6a4244cbe3fe943348ca63,
         type: 3}
