@@ -204,16 +204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff1fc358011c4943aca1becd164e7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathBuffer: []
   initialTarget: {fileID: 222292746949883203}
   tracer: {fileID: 6915923576761452378}
-  ballRadius: 0.5
   ball: {fileID: 7465384067008172014}
-  ballSpeed: 50
+  ballSpeed: 30
   ballRotationSpeed: 1000
-  count: 0
-  aimSpeed: 500
-  impactCount: 2
+  aimSpeed: 1000
+  impactCount: 1
   lineGradient:
     serializedVersion: 2
     key0: {r: 0.9339623, g: 0.34397668, b: 0, a: 1}
@@ -243,6 +240,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
+  pathBuffer: []
 --- !u!1001 &946137553823727455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +248,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4221995113819408617}
     m_Modifications:
+    - target: {fileID: 3510044248917095218, guid: 1d23d3f8b00ce484b89cdd20a4db177f,
+        type: 3}
+      propertyPath: m_Name
+      value: Impact
+      objectReference: {fileID: 0}
     - target: {fileID: 7690745559664292017, guid: 1d23d3f8b00ce484b89cdd20a4db177f,
         type: 3}
       propertyPath: m_Name
@@ -329,6 +332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690745559664292022, guid: 1d23d3f8b00ce484b89cdd20a4db177f,
+        type: 3}
+      propertyPath: ballType
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7690745559664292023, guid: 1d23d3f8b00ce484b89cdd20a4db177f,
         type: 3}

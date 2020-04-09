@@ -16,28 +16,25 @@ public class Node
 
 public class Gun : MonoBehaviour
 {
-	public List<Node> PathBuffer = new List<Node>();
 	[SerializeField]
 	Transform initialTarget;
 	[SerializeField]
 	LineRenderer tracer;
-	[SerializeField]
-	float ballRadius;
 	[SerializeField]
 	GameObject ball;
 	[SerializeField]
 	float ballSpeed;
 	[SerializeField]
 	float ballRotationSpeed;
-	[SerializeField]
+
 	int count;
 	[SerializeField]
 	float aimSpeed;
 	[SerializeField]
 	int impactCount;
-
 	[SerializeField]
 	Gradient lineGradient;
+	public List<Node> pathBuffer = new List<Node>();
 
 	Vector3 worldPoint;
 	Vector3 direction;
@@ -53,7 +50,6 @@ public class Gun : MonoBehaviour
 
 	void Start()
 	{
-		PathBuffer = new List<Node>();
 		readyToShoot = true;
 		inputManager.Player.Aim.performed += OnAim;
 		inputManager.Player.Shoot.performed += OnShoot;
@@ -62,15 +58,6 @@ public class Gun : MonoBehaviour
 		shootRay = new Ray();
 		previousDirection = Vector3.zero;
 		tracer.colorGradient = lineGradient;
-	}
-
-	public void OnValueChanged(string input)
-	{
-		float result;
-		if (float.TryParse(input, out result))
-		{
-			aimSpeed = result;
-		}
 	}
 
 	private void OnEnable()
@@ -147,22 +134,22 @@ public class Gun : MonoBehaviour
 
 			if (hit.collider == null)
 			{
-				if (PathBuffer.Count > 0)
+				if (pathBuffer.Count > 0)
 				{
-					PathBuffer[0].target = initialTarget.position;
-					PathBuffer[0].origin = ball.transform.position;
+					pathBuffer[0].target = initialTarget.position;
+					pathBuffer[0].origin = ball.transform.position;
 					count = 1;
-					if (PathBuffer.Count > 1)
+					if (pathBuffer.Count > 1)
 					{
-						PathBuffer[1].target = ball.transform.position;
-						PathBuffer[1].origin = initialTarget.position;
+						pathBuffer[1].target = ball.transform.position;
+						pathBuffer[1].origin = initialTarget.position;
 					}
 					else
 					{
 						var node = new Node();
 						node.target = ball.transform.position;
 						node.origin = initialTarget.position;
-						PathBuffer.Add(node);
+						pathBuffer.Add(node);
 					}
 					count = 2;
 				}
@@ -171,28 +158,28 @@ public class Gun : MonoBehaviour
 					var node = new Node();
 					node.target = initialTarget.position;
 					node.origin = ball.transform.position;
-					PathBuffer.Add(node);
+					pathBuffer.Add(node);
 
 					node = new Node();
 					node.target = ball.transform.position;
 					node.origin = initialTarget.position;
-					PathBuffer.Add(node);
+					pathBuffer.Add(node);
 					count = 2;
 				}
 			}
 			else
 			{
-				if (PathBuffer.Count > 0)
+				if (pathBuffer.Count > 0)
 				{
-					PathBuffer[0].target = hit.point;
-					PathBuffer[0].origin = ball.transform.position;
+					pathBuffer[0].target = hit.point;
+					pathBuffer[0].origin = ball.transform.position;
 				}
 				else
 				{
 					var node = new Node();
 					node.target = hit.point;
 					node.origin = ball.transform.position;
-					PathBuffer.Add(node);
+					pathBuffer.Add(node);
 				}
 				count = 1;
 				RecursiveRaycast(currentDirection.normalized, ball.transform.position, count);
@@ -202,8 +189,8 @@ public class Gun : MonoBehaviour
 
 		if (shoot)
 		{
-			Debug.Log("PathBuffer Count : " + PathBuffer.Count);
-			ball.GetComponent<Ball>().Shot((PathBuffer[0].target - ball.transform.position).normalized,ballSpeed,ballRotationSpeed);
+			//Debug.Log("PathBuffer Count : " + pathBuffer.Count);
+			ball.GetComponent<Ball>().Shot((pathBuffer[0].target - ball.transform.position).normalized,ballSpeed,ballRotationSpeed);
 			tracer.enabled = false;
 			shoot = false;
 		}
@@ -215,26 +202,27 @@ public class Gun : MonoBehaviour
 			return;
 
 		shootRay = new Ray(origin, direction.normalized);
-		Physics.Raycast(shootRay, out hit);
+		//Physics.Raycast(shootRay, out hit);
+		Physics.SphereCast (shootRay,ball.GetComponent<SphereCollider>().radius, out hit);
 
 		if (hit.collider != null)
 		{
 			//Debug.DrawRay(hit.point, hit.normal, Color.red);
 			//Debug.DrawLine(origin, hit.point, Color.green);
 
-			PathBuffer[nodeAdded - 1].target = hit.point;
+			pathBuffer[nodeAdded - 1].target = hit.point;
 
 			reflectedDirection = Vector3.Reflect(direction.normalized, hit.normal);
 
-			if (count < PathBuffer.Count)
+			if (count < pathBuffer.Count)
 			{
-				PathBuffer[count].origin = hit.point;
+				pathBuffer[count].origin = hit.point;
 			}
 			else
 			{
 				var node = new Node();
 				node.target = hit.point;
-				PathBuffer.Add(node);
+				pathBuffer.Add(node);
 			}
 			count++;
 
@@ -251,11 +239,11 @@ public class Gun : MonoBehaviour
 	{
 		//tracer.positionCount = Mathf.Min(3,count);
 		tracer.positionCount = count;
-		if (PathBuffer.Count > 0)
+		if (pathBuffer.Count > 0)
 		{
 			for (int i = 0; i < count; i++)
 			{
-				tracer.SetPosition(i, PathBuffer[i].origin);
+				tracer.SetPosition(i, pathBuffer[i].origin);
 			}
 		}
 	}
