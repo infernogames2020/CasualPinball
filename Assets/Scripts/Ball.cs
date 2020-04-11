@@ -80,16 +80,21 @@ public class Ball : MonoBehaviour,IDamageable
 			particleSystem.Play();
 		}
 
-		if (collision.collider.tag.Equals("Hole"))
-		{
-			Game.Instance.LoadNextLevel();
-		}
-
 		var damageble = collision.collider.GetComponent<IDamageable>();
 		if (damageble != null)
 			damageble.TakeDamage(data.damage);
-
 	}
+
+	public void Sink()
+	{
+		shot = false;
+		cachedRigidbody.constraints = RigidbodyConstraints.None;
+		cachedRigidbody.isKinematic = false;
+		cachedRigidbody.useGravity = true;
+		cachedRigidbody.AddForce(Vector3.down * cachedRigidbody.mass * 1000);
+	}
+
+	
 
 	public void Shot(Vector3 direction,float ballSpeed,float rotationSpeed)
 	{
