@@ -1,22 +1,34 @@
-﻿using System.Collections;
+﻿using FuriousPlay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-	public static Game Instance;
 	public int totalLevels;
 	public int currentLevel;
-
 	public List<GameObject> flaps;
 
-	void Start()
+	private void Start()
 	{
 		name = "Game";
-		Instance = this;
 	}
-	 
+
+	private void OnEnable()
+	{
+		ActionManager.SubscribeToEvent(GameEvents.LOAD_NEXT, LoadNextLevel);
+		ActionManager.SubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
+		ActionManager.SubscribeToEvent(GameEvents.STOP_PLATFORMS, StopMovement);
+
+	}
+	private void OnDisable()
+	{
+		ActionManager.UnsubscribeToEvent(GameEvents.LOAD_NEXT, LoadNextLevel);
+		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
+		ActionManager.UnsubscribeToEvent(GameEvents.STOP_PLATFORMS, StopMovement);
+	}
+
 	public void Reload()
 	{
 		SceneManager.LoadScene("Level" + currentLevel);

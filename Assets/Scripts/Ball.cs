@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FuriousPlay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,7 +36,7 @@ public class Ball : MonoBehaviour,IDamageable
     int nodeCleared;
     Transform cachedTransform;
     Rigidbody cachedRigidbody;
-	SphereCollider cachedCollider;
+	public SphereCollider cachedCollider;
     Vector3 tempVector;
 	Ray shootRay;
 	RaycastHit hit;
@@ -47,7 +48,6 @@ public class Ball : MonoBehaviour,IDamageable
         cachedTransform = transform;
         cachedRigidbody = GetComponent<Rigidbody>();
         cachedCollider = GetComponent<SphereCollider>();
-
 	    data = Resources.Load<BallData>(BALL_FOLDER + ballType.ToString());
 		hp = data.hp;
 		ballSpeed = data.speed;
@@ -63,6 +63,7 @@ public class Ball : MonoBehaviour,IDamageable
 		}
 		return impactParticles[1];
 	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.collider.tag.Equals("Wall") || collision.collider.tag.Equals("Flap"))
@@ -70,7 +71,6 @@ public class Ball : MonoBehaviour,IDamageable
 			var contact = collision.GetContact(0);
 			nextDirection = Vector3.Reflect(currentDirection.normalized, contact.normal);
 			rotationAxis = Vector3.Cross(nextDirection, Vector3.up);
-			//deltaRotation = Quaternion.Euler(rotationSpeed * Time.fixedDeltaTime * rotationAxis);
 			deltaRotation = Quaternion.AngleAxis(rotationSpeed * Time.fixedDeltaTime, -rotationAxis);
 			currentDirection = nextDirection;
 			ballSpeed -= (ballSpeed * data.deceleration);
@@ -85,16 +85,14 @@ public class Ball : MonoBehaviour,IDamageable
 			damageble.TakeDamage(data.damage);
 	}
 
-	public void Sink()
+	public void Sink(Vector3 direction)
 	{
 		shot = false;
 		cachedRigidbody.constraints = RigidbodyConstraints.None;
 		cachedRigidbody.isKinematic = false;
 		cachedRigidbody.useGravity = true;
-		cachedRigidbody.AddForce(Vector3.down * cachedRigidbody.mass * 1000);
+		cachedRigidbody.AddForce(direction * cachedRigidbody.mass * 10);
 	}
-
-	
 
 	public void Shot(Vector3 direction,float ballSpeed,float rotationSpeed)
 	{
@@ -103,10 +101,9 @@ public class Ball : MonoBehaviour,IDamageable
 		currentDirection   = direction;
 		rotationAxis  = Vector3.Cross(currentDirection.normalized, Vector3.up);
 		deltaRotation = Quaternion.AngleAxis(rotationSpeed * Time.fixedDeltaTime, -rotationAxis); //Quaternion.Euler();
-		Game.Instance.StopMovement();
+		ActionManager.TriggerEvent(GameEvents.STOP_PLATFORMS);
 		shot = true;
 	}
-
 
 	public void Shot(List<Node> path,int count)
     {
@@ -129,7 +126,7 @@ public class Ball : MonoBehaviour,IDamageable
 			cachedRigidbody.MoveRotation(cachedRigidbody.rotation * deltaRotation);
 
 			if (ballSpeed < 10)
-				Game.Instance.Reload();
+				ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
 		}
 	}
 
@@ -137,7 +134,7 @@ public class Ball : MonoBehaviour,IDamageable
 	{
 		hp -= damage;
 		if (hp < 0)
-			Game.Instance.Reload();
+			ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
 	}
 
 }

@@ -16,10 +16,10 @@ public class Tile : MonoBehaviour,IDamageable
 		animator = GetComponent<Animator>();
 		data = Resources.Load<TileData>(TILE_FOLDER+tileType.ToString());
 		hp = data.hp;
-		if(data != null)
-			Debug.Log("Found");
-		else
-			Debug.Log("Not Found");
+		//if(data != null)
+		//	Debug.Log("Found");
+		//else
+		//	Debug.Log("Not Found");
 	}
 
 	public void Stop()
