@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RUBBER
   m_EditorClassIdentifier: 
   type: 0
-  hp: 5
+  hp: 8
   speed: 50
   rotationSpeed: 1000
-  deceleration: 0.2
+  deceleration: 0.125
   damage: 1
