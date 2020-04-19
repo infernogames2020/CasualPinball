@@ -45,8 +45,8 @@ public class Gun : MonoBehaviour
 	Vector3 reflectedDirection;
 	bool shoot;
 	bool readyToShoot;
-	Touch _inputManager;
-	Touch inputManager { get { if (_inputManager == null) _inputManager = new Touch(); return _inputManager; } }
+	InputMap _inputManager;
+	InputMap inputManager { get { if (_inputManager == null) _inputManager = new InputMap(); return _inputManager; } }
 
 	void Start()
 	{

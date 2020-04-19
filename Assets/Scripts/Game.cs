@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-	public int totalLevels;
+	public static int totalLevels = 10;
 	public int currentLevel;
 	public List<GameObject> flaps;
 
