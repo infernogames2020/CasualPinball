@@ -7,47 +7,51 @@ using UnityEngine.InputSystem;
 
 public class InputTest : MonoBehaviour
 {
-	InputMap _inputManager;
-	InputMap inputManager { get { if (_inputManager == null) _inputManager = new InputMap(); return _inputManager; } }
+	StackItUp _inputManager;
+	StackItUp inputManager { get { if (_inputManager == null) _inputManager = new StackItUp(); return _inputManager; } }
 
-	// Start is called before the first frame update
+
+	private Vector3 screenPosition;
+	private Vector3 worldPosition;
+	private RaycastHit hit;
+	private GameObject hitGameObject;
+	private bool fireRay;
+
 	void Start()
     {
-		inputManager.Player.Aim.performed += OnAim;
-		inputManager.Player.Shoot.performed += OnShoot;
-		inputManager.Player.Drag.performed += OnDrag;
+		inputManager.Player.Click.performed += OnClick;
+		inputManager.Player.Drop.performed  += OnDrop;
+		inputManager.Player.Drag.performed  += OnDrag;
 	}
 
 	private void OnEnable()
 	{
-		Invoke("EnableInput", 5);
-	}
-	void EnableInput()
-	{
 		inputManager.Enable();
 	}
+
 	private void OnDisable()
 	{
 		inputManager.Disable();
 	}
 	private void OnDestroy()
 	{
-		inputManager.Player.Aim.performed -= OnAim;
-		inputManager.Player.Shoot.performed -= OnShoot;
-		inputManager.Player.Drag.performed -= OnDrag;
+		inputManager.Player.Click.performed -= OnClick;
+		inputManager.Player.Drop.performed  -= OnDrop;
+		inputManager.Player.Drag.performed  -= OnDrag;
 	}
 
-	private void OnDrag(InputAction.CallbackContext obj)
+	private void OnDrag(InputAction.CallbackContext inputContext)
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
 			Debug.LogError("[OnDrag] Pointer Over UI Element");
 			return;
 		}
-		Debug.LogError("On Drag");
+		screenPosition = inputContext.ReadValue<Vector2>();
+		//Debug.LogError("On Drag : " + screenPosition.ToString());
 	}
 
-	private void OnShoot(InputAction.CallbackContext obj)
+	private void OnDrop(InputAction.CallbackContext inputContext)
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
@@ -55,19 +59,56 @@ public class InputTest : MonoBehaviour
 			return;
 		}
 
-		Debug.LogError("On Shoot");
+		//Debug.LogError("On Drop : " + inputContext.ReadValue<UnityEngine.InputSystem.TouchPhase>());
 	}
 
-	private void OnAim(InputAction.CallbackContext obj)
+	private void OnClick(InputAction.CallbackContext inputContext)
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
 			Debug.LogError("[OnAim] Pointer Over UI Element");
 			return;
 		}
-
-		Debug.LogError("On Aim");
+		var value = inputContext.ReadValueAsButton();
+		//Debug.LogError(" [OnClick] Value : " + value);
+		fireRay = true;
 	}
 
-	
+
+	private void FixedUpdate()
+	{
+		if(fireRay)
+		{
+			var ray = Camera.main.ScreenPointToRay(screenPosition);
+			if(Physics.Raycast(ray, out hit))
+			{
+				if(hit.collider != null)
+				{
+					var gameobject = hit.collider.gameObject;
+					if (gameobject.layer.Equals(LayerMask.NameToLayer("Stack")))
+					{
+						Debug.LogError("Hit Stack : " + gameobject.name);
+						var stackPin = gameobject.GetComponent<StackPin>();
+						if (stackPin == null)
+							stackPin = gameobject.transform.parent.GetComponent<StackPin>();
+
+						if(stackPin != null)
+						{
+							if(StackPin.SelectedTile != null)
+							{
+								stackPin.PushTile(StackPin.SelectedTile);
+							}
+							else
+							{
+								stackPin.PopTile();
+							}
+						}
+						
+					}
+				}
+			}
+			fireRay = false;
+		}
+	}
+
 }

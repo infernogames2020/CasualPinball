@@ -6,35 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Version4/1.unity
-    guid: 7007fb49f1a081948ad88b00fd0e2dfb
-  - enabled: 1
-    path: Assets/Scenes/Version4/2.unity
-    guid: a5f3b9ee3fff4ce4385ae19b9531c1f7
-  - enabled: 1
-    path: Assets/Scenes/Version4/3.unity
-    guid: 08916ae57859c044d85968863d05d9be
-  - enabled: 1
-    path: Assets/Scenes/Version4/4.unity
-    guid: 75159a988af71fd41840394b1790abea
-  - enabled: 1
-    path: Assets/Scenes/Version4/5.unity
-    guid: 26cb6d8f248979c428f98fdda608e597
-  - enabled: 1
-    path: Assets/Scenes/Version4/6.unity
-    guid: 436b026cad510b64ea79dc06e58db87e
-  - enabled: 1
-    path: Assets/Scenes/Version4/7.unity
-    guid: ab2a8cdfdfef3ff40b3740768f8338ef
-  - enabled: 1
-    path: Assets/Scenes/Version4/8.unity
-    guid: b19e18c3604f35045bfdd49f69bf3d62
-  - enabled: 1
-    path: Assets/Scenes/Version4/9.unity
-    guid: eaee16c763227344cb53e7742e0980ac
-  - enabled: 1
-    path: Assets/Scenes/Version4/10.unity
-    guid: 7e62c55636b6497418d7848312fcbd2d
+    path: Assets/StackItUp/Scenes/Game.unity
+    guid: d0741dd88e0879a48a47e7544f7e2667
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 43f621166aedba24891b710ce8cf27f9,
       type: 2}

@@ -31,7 +31,9 @@ public class Game : MonoBehaviour
 
 	public void Reload()
 	{
-		SceneManager.LoadScene("Level" + currentLevel);
+		//SceneManager.LoadScene("Level" + currentLevel);
+		SceneManager.LoadScene("Game");
+
 	}
 
 	public void StopMovement()
