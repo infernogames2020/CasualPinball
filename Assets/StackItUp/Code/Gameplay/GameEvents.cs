@@ -11,5 +11,11 @@ public class GameEvents
 
 	public const string POP_TILE = "POP_TILE";
 	public const string PUSH_TILE = "PUSH_TILE";
+	public const string CHECK_COMPLETE = "CHECK_COMPLETE";
+	public const string STACK_LOAD_COMPLETE = "STACK_LOAD_COMPLETE";
+}
 
+public class UIEvents
+{
+	public const string RESULT = "result";
 }

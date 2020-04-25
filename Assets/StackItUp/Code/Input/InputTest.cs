@@ -10,7 +10,6 @@ public class InputTest : MonoBehaviour
 	StackItUp _inputManager;
 	StackItUp inputManager { get { if (_inputManager == null) _inputManager = new StackItUp(); return _inputManager; } }
 
-
 	private Vector3 screenPosition;
 	private Vector3 worldPosition;
 	private RaycastHit hit;
@@ -19,7 +18,7 @@ public class InputTest : MonoBehaviour
 
 	void Start()
     {
-		inputManager.Player.Click.performed += OnClick;
+		//inputManager.Player.Click.performed += OnClick;
 		inputManager.Player.Drop.performed  += OnDrop;
 		inputManager.Player.Drag.performed  += OnDrag;
 	}
@@ -35,7 +34,7 @@ public class InputTest : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-		inputManager.Player.Click.performed -= OnClick;
+		//inputManager.Player.Click.performed -= OnClick;
 		inputManager.Player.Drop.performed  -= OnDrop;
 		inputManager.Player.Drag.performed  -= OnDrag;
 	}
@@ -44,7 +43,7 @@ public class InputTest : MonoBehaviour
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
-			Debug.LogError("[OnDrag] Pointer Over UI Element");
+			//Debug.LogError("[OnDrag] Pointer Over UI Element");
 			return;
 		}
 		screenPosition = inputContext.ReadValue<Vector2>();
@@ -55,10 +54,9 @@ public class InputTest : MonoBehaviour
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
-			Debug.LogError("[OnShoot] Pointer Over UI Element");
+			//Debug.LogError("[OnShoot] Pointer Over UI Element");
 			return;
 		}
-
 		//Debug.LogError("On Drop : " + inputContext.ReadValue<UnityEngine.InputSystem.TouchPhase>());
 	}
 
@@ -66,7 +64,7 @@ public class InputTest : MonoBehaviour
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
-			Debug.LogError("[OnAim] Pointer Over UI Element");
+			//Debug.LogError("[OnAim] Pointer Over UI Element");
 			return;
 		}
 		var value = inputContext.ReadValueAsButton();
@@ -87,7 +85,7 @@ public class InputTest : MonoBehaviour
 					var gameobject = hit.collider.gameObject;
 					if (gameobject.layer.Equals(LayerMask.NameToLayer("Stack")))
 					{
-						Debug.LogError("Hit Stack : " + gameobject.name);
+						//Debug.LogError("Hit Stack : " + gameobject.name);
 						var stackPin = gameobject.GetComponent<StackPin>();
 						if (stackPin == null)
 							stackPin = gameobject.transform.parent.GetComponent<StackPin>();

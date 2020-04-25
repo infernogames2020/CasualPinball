@@ -13,7 +13,7 @@ public enum TileType
 	PORTAL
 }
 
-[CreateAssetMenu(fileName ="TileData",menuName = "Furious/ScriptableObjects/Tile Data",order = 1)]
+//[CreateAssetMenu(fileName ="TileData",menuName = "Furious/ScriptableObjects/Tile Data",order = 1)]
 public class TileData : ScriptableObject
 {
 	public TileType type;

@@ -13,7 +13,7 @@ using UnityEngine;
 		METAL
 	}
 
-	[CreateAssetMenu(fileName = "BallData", menuName = "Furious/ScriptableObjects/Ball Data", order = 2)]
+	//[CreateAssetMenu(fileName = "BallData", menuName = "Furious/ScriptableObjects/Ball Data", order = 2)]
 	public class BallData : ScriptableObject
 	{
 		public BallType type;

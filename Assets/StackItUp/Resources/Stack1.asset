@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6930fc9e42b44924398d556aaab780da, type: 3}
+  m_Name: Stack1
+  m_EditorClassIdentifier: 
+  meshes:
+  - index: 1
+    mesh: {fileID: 4300000, guid: f5f1c603d531ebd4fa4fc463163dc6a2, type: 2}
+  - index: 2
+    mesh: {fileID: 4300000, guid: 2ef0f9a7b25609e479f98da7e3fe762f, type: 2}
+  - index: 3
+    mesh: {fileID: 4300000, guid: 673720a995ca3fd4e80117a2c6645430, type: 2}
+  - index: 4
+    mesh: {fileID: 4300000, guid: cf836f5eccf4529449a9ce79a6423939, type: 2}
+  - index: 5
+    mesh: {fileID: 4300000, guid: 4cf6dfd28610ea944ae8222d41f68cf7, type: 2}
+  sequence: 0100000002000000030000000400000005000000
+  materials:
+  - {fileID: 2100000, guid: 543e8bb876180c140b857ec14d4a1ecd, type: 2}
