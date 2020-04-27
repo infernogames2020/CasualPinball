@@ -27,6 +27,7 @@ public class ViewController : MonoBehaviour
 	private void Awake()
 	{
 		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
+		ActionManager.SubscribeToEvent(UIEvents.SETTINGS, ShowResult);
 	}
 
 	private void Start()
@@ -42,9 +43,17 @@ public class ViewController : MonoBehaviour
 	private void OnDestroy()
 	{
 		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
+		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
 	}
 
 	private void ShowResult(Hashtable paramaters)
+	{
+		string eventId = paramaters["event"].ToString();
+		lookupMap[eventId].viewObject.Init(paramaters);
+		lookupMap[eventId].viewObject.Show();
+	}
+
+	private void ShowSettings(Hashtable paramaters)
 	{
 		string eventId = paramaters["event"].ToString();
 		lookupMap[eventId].viewObject.Init(paramaters);

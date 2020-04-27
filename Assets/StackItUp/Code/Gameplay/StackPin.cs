@@ -4,8 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class StackPin : MonoBehaviour
+public class StackPin : MonoBehaviour,IPointerUpHandler
 {
 	public static GameObject SelectedTile;
 	public GameObject pin;
@@ -37,7 +38,7 @@ public class StackPin : MonoBehaviour
 		ActionManager.UnsubscribeToEvent(GameEvents.STACK_LOAD_COMPLETE,StackLoadComplete);
 	}
 
-	private void StackLoadComplete()
+	private void StackLoadComplete(Hashtable parameters)
 	{
 		stackLoadComplete = true;
 	}
@@ -56,11 +57,30 @@ public class StackPin : MonoBehaviour
 		}
 	}
 
+	public void PushTile(GameObject tile)
+	{
+		if (!PushValid(CalculateNextPosition(tile),tile))
+		{
+			tile.GetComponent<StackTile>().PushInvalid();
+			return;
+		}
+
+		stack.Push(tile);
+		tile.transform.parent = transform;
+		tile.transform.localEulerAngles = Vector3.zero;
+		tile.transform.localScale = Vector3.one;
+		tile.GetComponent<StackTile>().PushTile(this);
+		tile.GetComponent<StackTile>().pinIndex = pinIndex;
+		SelectedTile = null;
+
+		if (stackLoadComplete)
+			ActionManager.TriggerEvent(GameEvents.CHECK_COMPLETE);
+	}
+
 	public bool CheckComplete()
 	{
 		if (stack.Count <= 0)
 		{
-			//Debug.LogError("0> Stack is empty " + gameObject.name);
 			return false;
 		}
 
@@ -73,7 +93,6 @@ public class StackPin : MonoBehaviour
 
 		if (index != 1 || stack.Count != stackTile.stackData.sequence.Count)
 		{
-			//Debug.LogError("1> stack not in sequence " + gameObject.name);
 			return false;
 		}
 
@@ -98,20 +117,6 @@ public class StackPin : MonoBehaviour
 
 		//Debug.LogError("4> stack complete " + gameObject.name);
 		return true;
-	}
-
-	public void PushTile(GameObject tile)
-	{
-		stack.Push(tile);
-		tile.transform.parent = transform;
-		tile.transform.localEulerAngles = Vector3.zero;
-		tile.transform.localScale = Vector3.one;
-		tile.GetComponent<StackTile>().PushTile(this);
-		tile.GetComponent<StackTile>().pinIndex = pinIndex;
-		SelectedTile = null;
-
-		if(stackLoadComplete)
-			ActionManager.TriggerEvent(GameEvents.CHECK_COMPLETE);
 	}
 
 	public void Reposition()
@@ -140,19 +145,28 @@ public class StackPin : MonoBehaviour
 		}
 	}
 
-	public void RestoreToPool(List<GameObject> pool)
+	public void RestoreToPool(List<GameObject> pool,Transform poolParent)
 	{
 		foreach (GameObject tile in stack)
+		{
+			tile.transform.parent = poolParent;
+			tile.GetComponent<MeshFilter>().sharedMesh = null;
+			tile.GetComponent<MeshRenderer>().sharedMaterial = null;
 			pool.Add(tile);
+		}
 	}
 
 	public void CelebrationComplete()
 	{
 		explosion.Play(true);
+		Reset();
+	}
+
+	public void Reset()
+	{
 		stack.Clear();
 		stackLoadComplete = false;
 		SelectedTile = null;
-
 		celebrationDone = true;
 	}
 
@@ -181,6 +195,26 @@ public class StackPin : MonoBehaviour
 	public Vector3 GetEntryPoint()
 	{
 		return entryPoint;
+	}
+
+	public bool PushValid(Vector3 nextPostion,GameObject tile)
+	{
+		float tileHeight = tile.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+		return nextPosition.y < (entryPoint.y - tileHeight);
+	}
+	
+
+	public void OnPointerUp(PointerEventData eventData)
+	{
+		Debug.Log(gameObject.name + ": I was clicked!");
+		if (SelectedTile != null)
+		{
+			PushTile(SelectedTile);
+		}
+		else
+		{
+			PopTile();
+		}
 	}
 
 	#endregion

@@ -8,31 +8,37 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
 	public int currentLevel;
+	public PinSetup activeSetup;
 	public List<Color> colors;
 	public Globals data;
 	public List<StackData> stacks;
 	public List<StackPin> stackPins;
 	public List<GameObject> pooledGameObjects;
+	public List<PinSetup> pinsetUps;
 	public Transform poolParent;
-
+	public int moves;
 	private int stacksToWin;
 
 	private void Awake()
 	{
 		ActionManager.SubscribeToEvent(GameEvents.CHECK_COMPLETE, CheckStackCompletion);
+		ActionManager.SubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
+		ActionManager.SubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
 	}
 
 	private void OnDestroy()
 	{
 		ActionManager.UnsubscribeToEvent(GameEvents.CHECK_COMPLETE, CheckStackCompletion);
+		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
+		ActionManager.UnsubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
 	}
 
 	private void Start()
 	{
 		name = "Game";
 		data = Resources.Load<Globals>("Globals");
-		Initialize();
-		LoadStack(stacks[0], 2, 3);
+		currentLevel = SaveManager.SaveData.currentLevel;
+		LoadLevel(currentLevel);
 	}
 
 	private void Initialize()
@@ -44,6 +50,59 @@ public class Game : MonoBehaviour
 			stack.pinIndex = index;
 			index++;
 		}
+	}
+
+	public void LoadLevel(int level)
+	{
+		if (activeSetup != null)
+			activeSetup.gameObject.SetActive(false);
+
+		currentLevel = level;
+		LevelData data = Resources.Load<LevelData>("Levels/" + level.ToString());
+		if (data == null)
+		{
+			Debug.LogError("No More Levels Available");
+			return;
+		}
+
+		int pinSetupIndex = data.pins;
+		activeSetup = pinsetUps[pinSetupIndex];
+		activeSetup.gameObject.SetActive(true);
+		stackPins = activeSetup.stackPins;
+		Camera.main.orthographicSize = activeSetup.cameraSize;
+		Initialize();
+		foreach(PinConfig config in data.pinConfig)
+		{
+			LoadStack(data.stack, config,data.colors);
+		}
+
+		stacksToWin = data.stackCount;
+		ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE,new Hashtable() {
+			{"level",currentLevel} 
+		});
+	}
+
+	public void Reload()
+	{
+		foreach (StackPin stack in stackPins)
+		{
+			stack.RestoreToPool(pooledGameObjects,poolParent);
+			stack.Reset();
+		}
+		LoadLevel(currentLevel);
+	}
+
+	public void SkipLevel()
+	{
+		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() {
+			{"level",currentLevel+1}
+		});
+		foreach (StackPin stack in stackPins)
+		{
+			stack.RestoreToPool(pooledGameObjects, poolParent);
+			stack.Reset();
+		}
+		LoadLevel(currentLevel+1);
 	}
 
 	private void OnEnable()
@@ -59,13 +118,6 @@ public class Game : MonoBehaviour
 		ActionManager.UnsubscribeToEvent(GameEvents.LOAD_NEXT, LoadNextLevel);
 		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
 		//ActionManager.UnsubscribeToEvent(GameEvents.STOP_PLATFORMS, StopMovement);
-	}
-
-	public void Reload()
-	{
-		//SceneManager.LoadScene("Level" + currentLevel);
-		SceneManager.LoadScene("Game");
-
 	}
 
 	public void StopMovement()
@@ -94,7 +146,7 @@ public class Game : MonoBehaviour
 		}
 	}
 	
-	public void LoadStack(StackData stack,int stacksToFill, int maxStackPins)
+	public void LoadStackRandom(StackData stack,int stacksToFill, int maxStackPins)
 	{
 		stacksToWin = stacksToFill;
 		if (stacksToFill > maxStackPins)
@@ -137,7 +189,33 @@ public class Game : MonoBehaviour
 			}
 		}
 
-		ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE);
+		ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE, new Hashtable() {
+			{"level",currentLevel}
+		});
+		//ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE);
+	}
+
+	public void LoadStack(StackData stack,PinConfig config,List<Color> colors)
+	{
+		for (int j = 0; j < config.tiles.Count; j++)
+		{
+			var tileInfo = config.tiles[j];
+			{
+				GameObject tile = pooledGameObjects[0];
+				pooledGameObjects.RemoveAt(0);
+				var stackTile = tile.GetComponent<StackTile>();
+				stackTile.SetData(stack);
+				stackTile.colorCode = tileInfo.colorIndex;
+				stackTile.index = tileInfo.size;
+				stackTile.SetMesh(stack.meshes[tileInfo.size - 1].mesh);
+				stackTile.SetMaterials(stack.materials.ToArray());
+				stackTile.SetMaterialColor(colors[tileInfo.colorIndex]);
+				StackPin stackPin = stackPins[config.pinIndex];
+				stackTile.pinIndex = stackPin.pinIndex;
+				stackPin.PushTile(stackTile.gameObject);
+			}
+		}
+
 	}
 
 	public void CheckStackCompletion()
@@ -160,9 +238,12 @@ public class Game : MonoBehaviour
 
 	public void Win()
 	{
+		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() {
+			{"level",currentLevel+1},
+			{"score",10 }
+		});
 		foreach (StackPin stack in stackPins)
 		{
-			stack.RestoreToPool(pooledGameObjects);
 			stack.Celebrate();
 		}
 		StartCoroutine(OnCelebrationComplete());
@@ -178,12 +259,23 @@ public class Game : MonoBehaviour
 			{ "emotion", "Awesome!"},
 			{ "callback",(Action<MessageBoxStatus>)ResultCallback}
 		});
+
+		foreach (StackPin stack in stackPins)
+		{
+			stack.RestoreToPool(pooledGameObjects, poolParent);
+		}
+		Handheld.Vibrate();
 	}
 
 	public void ResultCallback(MessageBoxStatus status)
 	{
-		if(status == MessageBoxStatus.OK)
-			LoadStack(stacks[0], 2, 3);
+		if(activeSetup != null)
+			activeSetup.gameObject.SetActive(false);
+
+		if (status == MessageBoxStatus.OK)
+		{
+			LoadLevel(currentLevel + 1);
+		}
 	}
 
 	private T[] ShuffleArray<T>(T[] array)
