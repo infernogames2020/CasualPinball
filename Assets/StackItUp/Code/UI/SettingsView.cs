@@ -35,6 +35,8 @@ public class SettingsView : View
 
 	public void OnHepticValueChanged(bool value)
 	{
+		if (value)
+			Handheld.Vibrate();
 		ActionManager.TriggerEvent(GameEvents.SAVE_SETTINGS, new Hashtable() { {"heptic",value} });
 	}
 

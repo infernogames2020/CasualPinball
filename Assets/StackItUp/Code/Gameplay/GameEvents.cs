@@ -17,6 +17,7 @@ public class GameEvents
 	public const string STACK_LOAD_COMPLETE = "STACK_LOAD_COMPLETE";
 	public const string SAVE_GAME = "SAVE_GAME";
 	public const string SAVE_SETTINGS = "SAVE_SETTINGS";
+	public const string SET_RANDOM_BG = "SET_RANDOM_BG";
 
 }
 

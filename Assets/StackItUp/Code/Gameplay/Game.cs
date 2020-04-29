@@ -69,7 +69,8 @@ public class Game : MonoBehaviour
 		activeSetup = pinsetUps[pinSetupIndex];
 		activeSetup.gameObject.SetActive(true);
 		stackPins = activeSetup.stackPins;
-		Camera.main.orthographicSize = activeSetup.cameraSize;
+		activeSetup.fov.CheckFov();
+		//Camera.main.orthographicSize = activeSetup.cameraSize;
 		Initialize();
 		foreach(PinConfig config in data.pinConfig)
 		{
@@ -94,48 +95,21 @@ public class Game : MonoBehaviour
 
 	public void SkipLevel()
 	{
+		int level = currentLevel + 1;
+		if (currentLevel + 1 > 8)
+		{
+			level = UnityEngine.Random.Range(1, 8);
+		}
+
 		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() {
-			{"level",currentLevel+1}
+			{"level",level}
 		});
 		foreach (StackPin stack in stackPins)
 		{
 			stack.RestoreToPool(pooledGameObjects, poolParent);
 			stack.Reset();
 		}
-		LoadLevel(currentLevel+1);
-	}
-
-	private void OnEnable()
-	{
-		ActionManager.SubscribeToEvent(GameEvents.LOAD_NEXT, LoadNextLevel);
-		ActionManager.SubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
-		//ActionManager.SubscribeToEvent(GameEvents.STOP_PLATFORMS, StopMovement);
-
-	}
-
-	private void OnDisable()
-	{
-		ActionManager.UnsubscribeToEvent(GameEvents.LOAD_NEXT, LoadNextLevel);
-		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
-		//ActionManager.UnsubscribeToEvent(GameEvents.STOP_PLATFORMS, StopMovement);
-	}
-
-	public void StopMovement()
-	{
-		//for(int i = 0; i < tiles.Count;i++)
-		//	tiles[i].SendMessage("Stop");
-	}
-
-	public void LoadNextLevel()
-	{
-		if (currentLevel == data.totalLevels)
-		{
-			SceneManager.LoadScene("Level1");
-		}
-		else
-		{
-			SceneManager.LoadScene("Level" + (currentLevel+1));
-		}
+		LoadLevel(level);
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -220,6 +194,7 @@ public class Game : MonoBehaviour
 
 	public void CheckStackCompletion()
 	{
+		moves++;
 		int count = stacksToWin;
 		foreach(StackPin stack in stackPins)
 		{
@@ -263,8 +238,11 @@ public class Game : MonoBehaviour
 		foreach (StackPin stack in stackPins)
 		{
 			stack.RestoreToPool(pooledGameObjects, poolParent);
+			stack.Reset();
 		}
-		Handheld.Vibrate();
+
+		if(SaveManager.SaveData.heptic)
+			Handheld.Vibrate();
 	}
 
 	public void ResultCallback(MessageBoxStatus status)
@@ -272,9 +250,15 @@ public class Game : MonoBehaviour
 		if(activeSetup != null)
 			activeSetup.gameObject.SetActive(false);
 
+		int level = currentLevel + 1;
+		if (level > 8)
+		{
+			level = UnityEngine.Random.Range(1, 8);
+		}
+
 		if (status == MessageBoxStatus.OK)
 		{
-			LoadLevel(currentLevel + 1);
+			LoadLevel(level);
 		}
 	}
 

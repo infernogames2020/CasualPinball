@@ -6,4 +6,5 @@ public class PinSetup : MonoBehaviour
 {
 	public float cameraSize;
 	public List<StackPin> stackPins;
+	public FOVSetter fov;
 }

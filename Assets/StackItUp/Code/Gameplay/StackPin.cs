@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class StackPin : MonoBehaviour,IPointerUpHandler
+public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPointerClickHandler
 {
 	public static GameObject SelectedTile;
 	public GameObject pin;
@@ -25,12 +25,16 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 
 	public void Init()
 	{
-		ActionManager.SubscribeToEvent(GameEvents.STACK_LOAD_COMPLETE,StackLoadComplete);
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
 		startPoint = transform.InverseTransformPoint(transform.position + (Vector3.up * baseBounds.extents.y));
 		entryPoint = transform.InverseTransformPoint(transform.position + (Vector3.up * pinBounds.size.y));
 		celebrationDone = true;
+	}
+
+	private void Awake()
+	{
+		ActionManager.SubscribeToEvent(GameEvents.STACK_LOAD_COMPLETE,StackLoadComplete);
 	}
 
 	private void OnDestroy()
@@ -74,7 +78,9 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 		SelectedTile = null;
 
 		if (stackLoadComplete)
+		{
 			ActionManager.TriggerEvent(GameEvents.CHECK_COMPLETE);
+		}
 	}
 
 	public bool CheckComplete()
@@ -147,6 +153,15 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 
 	public void RestoreToPool(List<GameObject> pool,Transform poolParent)
 	{
+		if (SelectedTile != null)
+		{
+			SelectedTile .transform.parent = poolParent;
+			SelectedTile .GetComponent<MeshFilter>().sharedMesh = null;
+			SelectedTile.GetComponent<MeshRenderer>().sharedMaterial = null;
+			pool.Add(SelectedTile);
+			SelectedTile = null;
+		}
+
 		foreach (GameObject tile in stack)
 		{
 			tile.transform.parent = poolParent;
@@ -159,7 +174,6 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 	public void CelebrationComplete()
 	{
 		explosion.Play(true);
-		Reset();
 	}
 
 	public void Reset()
@@ -170,8 +184,34 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 		celebrationDone = true;
 	}
 
-	public void OnMouseUp()
+	//public void OnMouseUp()
+	//{
+	//	if (SelectedTile != null)
+	//	{
+	//		PushTile(SelectedTile);
+	//	}
+	//	else
+	//	{
+	//		PopTile();
+	//	}
+	//}
+
+	public void OnPointerClick(PointerEventData eventData)
 	{
+		//Debug.Log(gameObject.name + ": I was Clicked!");
+		//if (SelectedTile != null)
+		//{
+		//	PushTile(SelectedTile);
+		//}
+		//else
+		//{
+		//	PopTile();
+		//}
+	}
+
+	public void OnPointerUp(PointerEventData eventData)
+	{
+		//Debug.Log(gameObject.name + ": I was Up!");
 		if (SelectedTile != null)
 		{
 			PushTile(SelectedTile);
@@ -180,6 +220,12 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 		{
 			PopTile();
 		}
+	}
+
+	public void OnPointerDown(PointerEventData eventData)
+	{
+		//Debug.Log(gameObject.name + ": I was Down!");
+
 	}
 
 	#region Math
@@ -202,20 +248,13 @@ public class StackPin : MonoBehaviour,IPointerUpHandler
 		float tileHeight = tile.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
 		return nextPosition.y < (entryPoint.y - tileHeight);
 	}
+
 	
 
-	public void OnPointerUp(PointerEventData eventData)
-	{
-		Debug.Log(gameObject.name + ": I was clicked!");
-		if (SelectedTile != null)
-		{
-			PushTile(SelectedTile);
-		}
-		else
-		{
-			PopTile();
-		}
-	}
+
+
+
+
 
 	#endregion
 

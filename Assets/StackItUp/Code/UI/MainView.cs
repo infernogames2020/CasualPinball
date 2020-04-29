@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using FuriousPlay;
+using System;
 
 public class MainView : View
 {
@@ -13,14 +14,30 @@ public class MainView : View
 	public GameObject replay;
 	public GameObject skipLevel;
 
-	public void Start()
+	private int movesCount;
+	private void Awake()
 	{
 		ActionManager.SubscribeToEvent(GameEvents.STACK_LOAD_COMPLETE, OnLevelLoadComplete);
+		ActionManager.SubscribeToEvent(GameEvents.CHECK_COMPLETE, UpdateMoves);
 	}
-	
+
+	private void UpdateMoves()
+	{
+		movesCount++;
+		moves.text = movesCount.ToString();
+	}
+
+	private void OnDestroy()
+	{
+		ActionManager.UnsubscribeToEvent(GameEvents.STACK_LOAD_COMPLETE, OnLevelLoadComplete);
+		ActionManager.UnsubscribeToEvent(GameEvents.CHECK_COMPLETE, UpdateMoves);
+	}
+
 	public void OnLevelLoadComplete(Hashtable parameters)
 	{
-		levelText.text = "Level " + (parameters.ContainsKey("level") ? parameters["level"].ToString() : "1");
+		movesCount = 0;
+		moves.text = movesCount.ToString();
+		levelText.text = "LEVEL " + (parameters.ContainsKey("level") ? parameters["level"].ToString() : "1");
 	}
 
 	public override void Hide()
@@ -52,7 +69,6 @@ public class MainView : View
 
 	public void Replay()
 	{
-		Handheld.Vibrate();
 		ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
 	}
 

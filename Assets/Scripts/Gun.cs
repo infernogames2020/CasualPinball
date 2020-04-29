@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using TouchPhase = UnityEngine.InputSystem.TouchPhase;
+//using UnityEngine.InputSystem;
+//using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 [System.Serializable]
 public class Node
@@ -45,15 +45,15 @@ public class Gun : MonoBehaviour
 	Vector3 reflectedDirection;
 	bool shoot;
 	bool readyToShoot;
-	InputMap _inputManager;
-	InputMap inputManager { get { if (_inputManager == null) _inputManager = new InputMap(); return _inputManager; } }
+	//InputMap _inputManager;
+	//InputMap inputManager { get { if (_inputManager == null) _inputManager = new InputMap(); return _inputManager; } }
 
 	void Start()
 	{
 		readyToShoot = true;
-		inputManager.Player.Aim.performed += OnAim;
-		inputManager.Player.Shoot.performed += OnShoot;
-		inputManager.Player.Drag.performed += OnDrag;
+		//inputManager.Player.Aim.performed += OnAim;
+		//inputManager.Player.Shoot.performed += OnShoot;
+		//inputManager.Player.Drag.performed += OnDrag;
 		screenRay = new Ray();
 		shootRay = new Ray();
 		previousDirection = Vector3.zero;
@@ -62,61 +62,61 @@ public class Gun : MonoBehaviour
 
 	private void OnEnable()
 	{
-		inputManager.Enable();
+		//inputManager.Enable();
 	}
 	private void OnDisable()
 	{
-		inputManager.Disable();
+		//inputManager.Disable();
 	}
 	private void OnDestroy()
 	{
-		inputManager.Player.Aim.performed -= OnAim;
-		inputManager.Player.Shoot.performed -= OnShoot;
-		inputManager.Player.Drag.performed -= OnDrag;
+		//inputManager.Player.Aim.performed -= OnAim;
+		//inputManager.Player.Shoot.performed -= OnShoot;
+		//inputManager.Player.Drag.performed -= OnDrag;
 	}
 
-	private void OnShoot(InputAction.CallbackContext context)
-	{
-		if (EventSystem.current.IsPointerOverGameObject() || shoot)
-			return;
+	//private void OnShoot(InputAction.CallbackContext context)
+	//{
+	//	if (EventSystem.current.IsPointerOverGameObject() || shoot)
+	//		return;
 
-		if (!context.ReadValueAsButton())
-		{
-			if (readyToShoot)
-			{
-				shoot = true;
-				readyToShoot = false;
-			}
-		}
-	}
+	//	if (!context.ReadValueAsButton())
+	//	{
+	//		if (readyToShoot)
+	//		{
+	//			shoot = true;
+	//			readyToShoot = false;
+	//		}
+	//	}
+	//}
 
 	Vector3 startDragPosition;
 	Vector3 currentDragPosition;
 	Vector3 previousDirection;
 	Vector3 currentDirection;
-	private void OnAim(InputAction.CallbackContext context)
-	{
-		if (EventSystem.current.IsPointerOverGameObject() || shoot)
-			return;
+	//private void OnAim(InputAction.CallbackContext context)
+	//{
+	//	if (EventSystem.current.IsPointerOverGameObject() || shoot)
+	//		return;
 
-		startDragPosition   = context.ReadValue<Vector2>();
-		startDragPosition.z = startDragPosition.y;
-		startDragPosition.y = ball.transform.position.y;
-	}
+	//	startDragPosition   = context.ReadValue<Vector2>();
+	//	startDragPosition.z = startDragPosition.y;
+	//	startDragPosition.y = ball.transform.position.y;
+	//}
 
-	private void OnDrag(InputAction.CallbackContext context)
-	{
-		if (EventSystem.current.IsPointerOverGameObject() || shoot)
-			return;
+	//private void OnDrag(InputAction.CallbackContext context)
+	//{
+	//	if (EventSystem.current.IsPointerOverGameObject() || shoot)
+	//		return;
 
-		currentDragPosition = context.ReadValue<Vector2>();
-		currentDragPosition.z = currentDragPosition.y;
-		currentDragPosition.y = ball.transform.position.y;
-		direction = startDragPosition - currentDragPosition;
+	//	currentDragPosition = context.ReadValue<Vector2>();
+	//	currentDragPosition.z = currentDragPosition.y;
+	//	currentDragPosition.y = ball.transform.position.y;
+	//	direction = startDragPosition - currentDragPosition;
 
-		if (previousDirection.magnitude <= 0)
-			previousDirection = direction;
-	}
+	//	if (previousDirection.magnitude <= 0)
+	//		previousDirection = direction;
+	//}
 
 	void FixedUpdate()
 	{
