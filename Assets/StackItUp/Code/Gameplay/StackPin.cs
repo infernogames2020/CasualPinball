@@ -13,6 +13,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 	public ParticleSystem explosion;
 	public int pinIndex;
 	public bool celebrationDone;
+	public LevelData levelData;
 	private Bounds  baseBounds;
 	private Bounds  pinBounds;
 	private Vector3 entryPoint;
@@ -25,10 +26,16 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 	public void Init()
 	{
+		gameObject.GetComponent<MeshFilter>().sharedMesh = levelData.stack.stackBase;
+		gameObject.GetComponent<MeshRenderer>().sharedMaterial= levelData.stack.stackBaseMaterial;
+		pin.GetComponent<MeshFilter>().sharedMesh = levelData.stack.pinMesh;
+		pin.GetComponent<MeshRenderer>().sharedMaterial = levelData.stack.stackBaseMaterial;
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
+		pin.transform.position = transform.position + (Vector3.up * pinBounds.extents.y);
+			
 		startPoint = transform.InverseTransformPoint(transform.position + (Vector3.up * baseBounds.extents.y));
-		entryPoint = transform.InverseTransformPoint(transform.position + (Vector3.up * pinBounds.size.y));
+		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.extents.y));
 		celebrationDone = true;
 	}
 
@@ -95,9 +102,9 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		var stackTile = stack.Peek().GetComponent<StackTile>();
 		int colorCode = stackTile.colorCode;
 		int index = stackTile.index;
-		List<int> sequence = stackTile.stackData.sequence;
+		List<int> sequence = levelData.sequence;
 
-		if (index != 1 || stack.Count != stackTile.stackData.sequence.Count)
+		if (index != 1 || stack.Count != levelData.sequence.Count)
 		{
 			return false;
 		}

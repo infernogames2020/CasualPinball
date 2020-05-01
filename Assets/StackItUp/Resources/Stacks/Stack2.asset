@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes:
   - index: 1
-    mesh: {fileID: 4300000, guid: f5f1c603d531ebd4fa4fc463163dc6a2, type: 2}
+    mesh: {fileID: 4300000, guid: 20ec154969b41414f875d0bee6c569b8, type: 2}
   - index: 2
-    mesh: {fileID: 4300000, guid: 2ef0f9a7b25609e479f98da7e3fe762f, type: 2}
+    mesh: {fileID: 4300000, guid: af91499829b1eeb48a9498e6a8dd3abe, type: 2}
   - index: 3
-    mesh: {fileID: 4300000, guid: 673720a995ca3fd4e80117a2c6645430, type: 2}
+    mesh: {fileID: 4300000, guid: aab173b10720821429351bacec5d0925, type: 2}
   - index: 4
-    mesh: {fileID: 4300000, guid: cf836f5eccf4529449a9ce79a6423939, type: 2}
-  sequence: 01000000020000000300000004000000
+    mesh: {fileID: 4300000, guid: 0cbc41e67e8e8db4b9b4c62e2d764169, type: 2}
+  - index: 5
+    mesh: {fileID: 4300000, guid: 6694fac9305c0b540a9fb1cf8a51a1f8, type: 2}
+  - index: 6
+    mesh: {fileID: 4300000, guid: 4d16267b2aff56b4da5b30e47cac6bd0, type: 2}
   materials:
-  - {fileID: 2100000, guid: 543e8bb876180c140b857ec14d4a1ecd, type: 2}
+  - {fileID: 2100000, guid: 1d06c18ba72355346b8f63338f57cbba, type: 2}
+  stackBase: {fileID: 4300000, guid: cbc80b0cf46100141bfb234f3478b5b7, type: 2}
+  pinMesh: {fileID: 4300000, guid: 97f485a9abe71d2428a946977a655edf, type: 2}
+  stackBaseMaterial: {fileID: 2100000, guid: 5011a0821f82a964d8066bd8989cb089, type: 2}

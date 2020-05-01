@@ -24,6 +24,7 @@ public class LevelData : ScriptableObject
 {
 	public StackData stack;
 	public int stackCount;
+	public List<int> sequence;
 	public List<Color> colors;
 	public int pins;
 	public List<PinConfig> pinConfig = new List<PinConfig>();

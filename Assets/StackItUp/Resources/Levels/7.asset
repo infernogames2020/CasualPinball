@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stack: {fileID: 11400000, guid: ff07aa400349d754badc9fc731662c78, type: 2}
   stackCount: 4
+  sequence: 01000000020000000300000004000000
   colors:
   - {r: 0.99607843, g: 0.9581786, b: 0.16470586, a: 1}
   - {r: 0.003921569, g: 0.59607846, b: 1, a: 1}

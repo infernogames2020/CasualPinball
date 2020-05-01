@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
 	public int currentLevel;
+	public LevelData currentLevelData;
 	public PinSetup activeSetup;
 	public List<Color> colors;
 	public Globals data;
@@ -46,6 +47,7 @@ public class Game : MonoBehaviour
 		int index = 1;
 		foreach(StackPin stack in stackPins)
 		{
+			stack.levelData = currentLevelData;
 			stack.Init();
 			stack.pinIndex = index;
 			index++;
@@ -58,26 +60,25 @@ public class Game : MonoBehaviour
 			activeSetup.gameObject.SetActive(false);
 
 		currentLevel = level;
-		LevelData data = Resources.Load<LevelData>("Levels/" + level.ToString());
-		if (data == null)
+		currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+		if (currentLevelData == null)
 		{
 			Debug.LogError("No More Levels Available");
 			return;
 		}
 
-		int pinSetupIndex = data.pins;
+		int pinSetupIndex = currentLevelData.pins;
 		activeSetup = pinsetUps[pinSetupIndex];
 		activeSetup.gameObject.SetActive(true);
 		stackPins = activeSetup.stackPins;
 		activeSetup.fov.CheckFov();
-		//Camera.main.orthographicSize = activeSetup.cameraSize;
 		Initialize();
-		foreach(PinConfig config in data.pinConfig)
+		foreach(PinConfig config in currentLevelData.pinConfig)
 		{
-			LoadStack(data.stack, config,data.colors);
+			LoadStack(currentLevelData.stack, config,currentLevelData.colors);
 		}
 
-		stacksToWin = data.stackCount;
+		stacksToWin = currentLevelData.stackCount;
 		ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE,new Hashtable() {
 			{"level",currentLevel} 
 		});

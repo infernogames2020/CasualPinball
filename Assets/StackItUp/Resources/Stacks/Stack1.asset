@@ -26,3 +26,6 @@ MonoBehaviour:
   sequence: 0100000002000000030000000400000005000000
   materials:
   - {fileID: 2100000, guid: 543e8bb876180c140b857ec14d4a1ecd, type: 2}
+  stackBase: {fileID: 4300000, guid: 3706c23753442a54da1c92979424c84f, type: 2}
+  pinMesh: {fileID: 4300000, guid: 96357fe899261b549881d3f7177094f1, type: 2}
+  stackBaseMaterial: {fileID: 2100000, guid: 5011a0821f82a964d8066bd8989cb089, type: 2}

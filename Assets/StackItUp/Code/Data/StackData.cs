@@ -14,6 +14,9 @@ public class StackIndex
 public class StackData : ScriptableObject
 {
 	public List<StackIndex> meshes;
-	public List<int> sequence;
 	public List<Material> materials;
+	public Mesh stackBase;
+	public Mesh pinMesh;
+	public Material stackBaseMaterial;
+	
 }
