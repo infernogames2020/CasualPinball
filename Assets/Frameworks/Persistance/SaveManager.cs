@@ -64,7 +64,7 @@ public class SaveManager : MonoBehaviour
 
 	public void UpdateState(Hashtable data)
 	{
-		Debug.LogError("updating game state");
+		//Debug.LogError("updating game state");
 		if(data.ContainsKey("level"))
 		{
 			SaveData.currentLevel = (int)data["level"];
@@ -88,7 +88,7 @@ public class SaveManager : MonoBehaviour
 	public void Save()
 	{
 		string save = JsonUtility.ToJson(SaveData);
-		Debug.LogError("Save : " + save);
+		//Debug.LogError("Save : " + save);
 		PlayerPrefs.SetString(SaveKeys.PLAYER_STATE, save);
 		PlayerPrefs.Save();
 		_SaveData = null;

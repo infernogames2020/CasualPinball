@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ea557cf69b18a47a920d6a6da79ff7, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  stack: {fileID: 11400000, guid: ff07aa400349d754badc9fc731662c78, type: 2}
+  stack: {fileID: 11400000, guid: 7f135906d96ebf44ba3d88fd02dc1d74, type: 2}
   stackCount: 4
   sequence: 0100000002000000030000000400000005000000
   colors:
-  - {r: 0.99607843, g: 0.9581786, b: 0.16470586, a: 1}
-  - {r: 0.003921569, g: 0.59607846, b: 1, a: 1}
-  - {r: 0.4039216, g: 1, b: 0.51552343, a: 1}
-  - {r: 1, g: 0.4039216, b: 0.97561115, a: 1}
+  - {fileID: 2100000, guid: df0aa68b4e99c7247ba7e0d72a6a78a9, type: 2}
+  - {fileID: 2100000, guid: 22c51082605eacd4fb5ae8caa07097ff, type: 2}
+  - {fileID: 2100000, guid: cd0e61c5fc70f7d45b9221f1f473f062, type: 2}
+  - {fileID: 2100000, guid: 7507f3b89a9e05444a3129e181515777, type: 2}
   pins: 4
   pinConfig:
   - pinIndex: 0

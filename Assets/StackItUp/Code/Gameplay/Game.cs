@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
 	public List<PinSetup> pinsetUps;
 	public Transform poolParent;
 	public int moves;
+	public ConfettiSequence confettiSequence;
 	private int stacksToWin;
 
 	private void Awake()
@@ -156,7 +157,7 @@ public class Game : MonoBehaviour
 				stackTile.index = stack.meshes[i].index;
 				stackTile.SetMesh(stack.meshes[i].mesh);
 				stackTile.SetMaterials(stack.materials.ToArray());
-				stackTile.SetMaterialColor(color);
+				//stackTile.SetMaterialColor(color);
 				stackPins.Shuffle();
 				StackPin stackPin = stackPins[0];
 				stackTile.pinIndex = stackPin.pinIndex;
@@ -170,7 +171,7 @@ public class Game : MonoBehaviour
 		//ActionManager.TriggerEvent(GameEvents.STACK_LOAD_COMPLETE);
 	}
 
-	public void LoadStack(StackData stack,PinConfig config,List<Color> colors)
+	public void LoadStack(StackData stack,PinConfig config,List<Material> colors)
 	{
 		for (int j = 0; j < config.tiles.Count; j++)
 		{
@@ -227,6 +228,7 @@ public class Game : MonoBehaviour
 
 	IEnumerator OnCelebrationComplete()
 	{
+		confettiSequence.RandomShoot();
 		yield return new WaitForSeconds(1.5f);
 		ActionManager.TriggerEvent(UIEvents.RESULT,new Hashtable() {
 			{ "event", UIEvents.RESULT},

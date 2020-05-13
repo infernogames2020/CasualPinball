@@ -29,12 +29,13 @@ public class StackTile : MonoBehaviour
 		cachedMeshRenderer.sharedMaterials = materials;
 	}
 
-	public void SetMaterialColor(Color color)
+	public void SetMaterialColor(Material color)
 	{
-		this.color = color;
-		MaterialPropertyBlock block = new MaterialPropertyBlock();
-		block.SetColor("_Color", color);
-		cachedMeshRenderer.SetPropertyBlock(block,0);
+		cachedMeshRenderer.sharedMaterial = color;
+		//this.color = color;
+		//MaterialPropertyBlock block = new MaterialPropertyBlock();
+		//block.SetColor("_Color", color);
+		//cachedMeshRenderer.SetPropertyBlock(block,0);
 	}
 
 	public void PopTile(StackPin stackPin)

@@ -16,11 +16,11 @@ MonoBehaviour:
   stackCount: 4
   sequence: 01000000020000000300000004000000
   colors:
-  - {r: 0.99607843, g: 0.9581786, b: 0.16470586, a: 1}
-  - {r: 0.003921569, g: 0.59607846, b: 1, a: 1}
-  - {r: 0.4996828, g: 0.26517445, b: 0.9528302, a: 1}
-  - {r: 1, g: 0.5454907, b: 0.4039216, a: 1}
-  - {r: 0.8962264, g: 0.16487186, b: 0.18143164, a: 1}
+  - {fileID: 2100000, guid: 30f50344f4db98142815542583837312, type: 2}
+  - {fileID: 2100000, guid: fb3c635f9cb61d04d8b2dce92e786d5f, type: 2}
+  - {fileID: 2100000, guid: cd0e61c5fc70f7d45b9221f1f473f062, type: 2}
+  - {fileID: 2100000, guid: 7507f3b89a9e05444a3129e181515777, type: 2}
+  - {fileID: 2100000, guid: 1c77966a9e97b154795de9c1964b63c0, type: 2}
   pins: 7
   pinConfig:
   - pinIndex: 0

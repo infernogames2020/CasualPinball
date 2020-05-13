@@ -9,11 +9,11 @@ using UnityEngine.EventSystems;
 public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPointerClickHandler
 {
 	public static GameObject SelectedTile;
-	public GameObject pin;
-	public ParticleSystem explosion;
-	public int pinIndex;
-	public bool celebrationDone;
-	public LevelData levelData;
+	public  GameObject pin;
+	public  ParticleSystem explosion;
+	public  int pinIndex;
+	public  bool celebrationDone;
+	public  LevelData levelData;
 	private Bounds  baseBounds;
 	private Bounds  pinBounds;
 	private Vector3 entryPoint;
@@ -32,10 +32,10 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		pin.GetComponent<MeshRenderer>().sharedMaterial = levelData.stack.stackBaseMaterial;
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
-		pin.transform.position = transform.position + (Vector3.up * pinBounds.extents.y);
+		pin.transform.position = transform.position; //+ (Vector3.up * pinBounds.extents.y);
 			
-		startPoint = transform.InverseTransformPoint(transform.position + (Vector3.up * baseBounds.extents.y));
-		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.extents.y));
+		startPoint = transform.InverseTransformPoint(transform.position     + (Vector3.up * baseBounds.extents.y));
+		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.size.y));
 		celebrationDone = true;
 	}
 
@@ -64,7 +64,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		}
 		catch(Exception exception)
 		{
-			Debug.LogError("No More tiles in " + gameObject.name);
+			//Debug.LogError("No More tiles in " + gameObject.name);
 		}
 	}
 
