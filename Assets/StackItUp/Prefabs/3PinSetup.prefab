@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062341406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 3.42, z: 0}
+  m_LocalPosition: {x: -16, y: 3.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3901199167080396525}
@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759992141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 3.42, z: 0}
+  m_LocalPosition: {x: 16, y: 3.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3901199167080396525}
@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901199166785275407}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 6, y: 0, z: -23.2}
+  m_LocalPosition: {x: 9, y: 0, z: -5.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6147821023976575707}
@@ -298,7 +298,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 8.96418, z: 4}
+  m_Size: {x: 6, y: 8.96418, z: 6}
   m_Center: {x: -0.00000023841856, y: 2.48209, z: 0.00000023841858}
 --- !u!54 &204187449
 Rigidbody:
@@ -415,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901199167484504787}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 16.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3901199167626775105}
@@ -498,7 +498,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 8.96418, z: 4}
+  m_Size: {x: 6, y: 8.96418, z: 6}
   m_Center: {x: -0.00000023841856, y: 2.48209, z: 0.00000023841858}
 --- !u!54 &7165971784694481784
 Rigidbody:
@@ -545,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901199167579087127}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -6, y: 0, z: -23.2}
+  m_LocalPosition: {x: -9, y: 0, z: -5.9400005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6147821023934706719}
@@ -628,7 +628,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 8.96418, z: 4}
+  m_Size: {x: 6, y: 8.96418, z: 6}
   m_Center: {x: -0.00000023841856, y: 2.48209, z: 0.00000023841858}
 --- !u!54 &189234143
 Rigidbody:
