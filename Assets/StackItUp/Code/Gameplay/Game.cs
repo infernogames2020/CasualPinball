@@ -39,8 +39,15 @@ public class Game : MonoBehaviour
 	{
 		name = "Game";
 		data = Resources.Load<Globals>("Globals");
-		currentLevel = SaveManager.SaveData.currentLevel;
-		LoadLevel(currentLevel);
+#if UNITY_EDITOR
+        if (isTesting)
+            currentLevel = testLevelId;
+#else
+          currentLevel = SaveManager.SaveData.currentLevel;
+#endif
+
+
+        LoadLevel(currentLevel);
 	}
 
 	private void Initialize()
@@ -278,7 +285,16 @@ public class Game : MonoBehaviour
 
 		return array;
 	}
+#if UNITY_EDITOR
+    [Header("UNIT TEST")]
+    [SerializeField] bool isTesting = false;
+    [SerializeField] int testLevelId = 1;
+    private void LateUpdate()
+    {
 
+    }
+
+#endif
 }
 
 public static class IListExtensions
