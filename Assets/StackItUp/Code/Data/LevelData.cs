@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 [System.Serializable]
@@ -45,4 +46,38 @@ public class LevelData : ScriptableObject
 	public List<Material> colors;
 	public int pins;
 	public List<PinConfig> pinConfig = new List<PinConfig>();
+
+    private const string FORMATTER = "{0}:{1}#";
+    public string GetHashKey()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.Append(string.Format(FORMATTER, "st" ,stackCount));
+        builder.Append(string.Format(FORMATTER, "pins", pins));
+        colors.Sort((l,r)=> {
+            if (l.color.r != r.color.r)
+                return l.color.r.CompareTo(r.color.r);
+            if (l.color.g != r.color.g)
+                return l.color.g.CompareTo(r.color.g);
+             if (l.color.b != r.color.b)
+                return l.color.b.CompareTo(r.color.b);
+            return 0;
+        });
+        for (int i = 0;i < colors.Count; i++)
+        {
+            builder.Append(string.Format(FORMATTER, "cl"+i, colors[i].color.ToString()));
+        }
+        pinConfig.Sort((l,r)=> {
+            return l.pinIndex.CompareTo(r.pinIndex);
+        });
+        for (int i = 0; i < pinConfig.Count; i++)
+        {
+            string pinData = "";
+            for(int j = 0; j < pinConfig[i].tiles.Count; j++)
+            {
+                pinData = pinData +"c"+ pinConfig[i].tiles[j].colorIndex + "s" + pinData + pinConfig[i].tiles[j].size+",";
+            }
+            builder.Append(string.Format(FORMATTER, "p" + i, pinData));
+        }
+        return builder.ToString();
+    }
 }

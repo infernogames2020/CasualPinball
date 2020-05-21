@@ -117,8 +117,8 @@ public class LevelDesigner : EditorWindow
     private void DrawSections()
     {
         levelConfigSection = new Rect(0, 0, Screen.width, 350f);
-        saveBtnSectionRect = new Rect(0, 350f, Screen.width, 400f);
-        pinSectionRect = new Rect(0, 400f, Screen.width, Screen.height - 400f);
+        saveBtnSectionRect = new Rect(0, 400f, Screen.width, 450f);
+        pinSectionRect = new Rect(0, 450f, Screen.width, Screen.height - 450f);
     }
   
 
@@ -210,6 +210,15 @@ public class LevelDesigner : EditorWindow
 
         GUILayout.EndArea();
         GUILayout.BeginArea(saveBtnSectionRect);
+        if (GUILayout.Button("CHECK FOR DUPLICATE"))
+        {
+            if (IsLevelDuplicated())
+            {
+                PopupWindow.ShowWindow("ERROR!!! LEVEL IS DUPLICATED");
+                return;
+            }
+            PopupWindow.ShowWindow("NO LEVEL WITH DATA FOUND!!!");
+        }
         GUILayout.BeginHorizontal();
         GUIStyle style = new GUIStyle(GUI.skin.button);
         style.fontSize = 24;
@@ -537,6 +546,11 @@ public class LevelDesigner : EditorWindow
         levelData.pins = GetPinsCount(Pins);
 
         levelData.pinConfig = PinConfigs;
+        if (IsLevelDuplicated())
+        {
+            PopupWindow.ShowWindow("LEVEL IS DUPLICATED");
+            return;
+        }
 
         PopupWindow.ShowWindow(isOverride ? " LEVEL DATA OVERRIDEN!!! ":" NEW LEVEL CREATED!!!");
     }
@@ -547,7 +561,7 @@ public class LevelDesigner : EditorWindow
     private static Dictionary<DiscColors, GUIStyle> StyleColorMap = new Dictionary<DiscColors, GUIStyle>();
     private GUIStyle GetButtonStyle(DiscColors color)
     {
-        Debug.Log("StyleColorMap.ContainsKey(color) "+color + (StyleColorMap.ContainsKey(color)));
+      //  Debug.Log("StyleColorMap.ContainsKey(color) "+color + (StyleColorMap.ContainsKey(color)));
         if(false == StyleColorMap.ContainsKey(color))
         {
             GUIStyle colorstyle = new GUIStyle(GUI.skin.button);
@@ -558,7 +572,7 @@ public class LevelDesigner : EditorWindow
             colorstyle.normal.textColor = Color.black;
             StyleColorMap.Add(color, colorstyle);
         }
-        Debug.Log("GetColorFromMap(DiscColors discColor)"+color + " name "+ StyleColorMap[color]);
+      //  Debug.Log("GetColorFromMap(DiscColors discColor)"+color + " name "+ StyleColorMap[color]);
         return StyleColorMap[color];
     }
     private Color GetColorFromMap(DiscColors discColor)
@@ -579,6 +593,19 @@ public class LevelDesigner : EditorWindow
                 return cl.material;
         }
         return null;
+    }
+
+    private bool IsLevelDuplicated()
+    {
+        string curr = levelData.GetHashKey();
+        LevelData[] arr = Resources.LoadAll<LevelData>("Levels/");
+       
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (string.Equals(curr, arr[i].GetHashKey()))
+                return true;
+        }
+        return false;
     }
 }
 
@@ -615,4 +642,7 @@ public class PopupWindow : EditorWindow
         }
         EditorGUILayout.EndVertical();
     }
+
+
+
 }
