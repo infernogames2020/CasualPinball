@@ -25,7 +25,7 @@ public class ResultView : View
 		//TODO: show result screen
 		emotion.text = data.ContainsKey("emotion") ? data["emotion"].ToString() : "";
 		message.text = data.ContainsKey("message") ? data["message"].ToString() : "";
-		smiley.sprite = atlas.GetSprite(data.ContainsKey("smiley") ? data["smiley"].ToString() : "");
+		//smiley.sprite = atlas.GetSprite(data.ContainsKey("smiley") ? data["smiley"].ToString() : "");
 		_callback = (data.ContainsKey("callback") ? (Action<MessageBoxStatus>)data["callback"] : null);
 	}
 

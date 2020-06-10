@@ -26,8 +26,9 @@ public class ViewController : MonoBehaviour
 	private Dictionary<string, ViewEntry> lookupMap;
 	private void Awake()
 	{
-		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
-		ActionManager.SubscribeToEvent(UIEvents.SETTINGS, ShowResult);
+		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowScreen);
+		ActionManager.SubscribeToEvent(UIEvents.SETTINGS, ShowScreen);
+		ActionManager.SubscribeToEvent(UIEvents.SKINS, ShowScreen);
 	}
 
 	private void Start()
@@ -42,21 +43,22 @@ public class ViewController : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
-		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowResult);
+		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowScreen);
+		ActionManager.SubscribeToEvent(UIEvents.SETTINGS, ShowScreen);
+		ActionManager.SubscribeToEvent(UIEvents.SKINS, ShowScreen);
 	}
 
-	private void ShowResult(Hashtable paramaters)
+	private void ShowScreen(Hashtable paramaters)
 	{
 		string eventId = paramaters["event"].ToString();
 		lookupMap[eventId].viewObject.Init(paramaters);
 		lookupMap[eventId].viewObject.Show();
 	}
 
-	private void ShowSettings(Hashtable paramaters)
-	{
-		string eventId = paramaters["event"].ToString();
-		lookupMap[eventId].viewObject.Init(paramaters);
-		lookupMap[eventId].viewObject.Show();
-	}
+	//private void ShowSettings(Hashtable paramaters)
+	//{
+	//	string eventId = paramaters["event"].ToString();
+	//	lookupMap[eventId].viewObject.Init(paramaters);
+	//	lookupMap[eventId].viewObject.Show();
+	//}
 }

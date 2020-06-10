@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
 	public int currentLevel;
+	public int currentStack;
 	public LevelData currentLevelData;
+	public StackData currentStackData;
 	public PinSetup activeSetup;
 	public List<Color> colors;
 	public Globals data;
@@ -26,6 +28,7 @@ public class Game : MonoBehaviour
 		ActionManager.SubscribeToEvent(GameEvents.CHECK_COMPLETE, CheckStackCompletion);
 		ActionManager.SubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
 		ActionManager.SubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
+		ActionManager.SubscribeToEvent(GameEvents.STACK_CHANGE, StackChange);
 	}
 
 	private void OnDestroy()
@@ -33,6 +36,20 @@ public class Game : MonoBehaviour
 		ActionManager.UnsubscribeToEvent(GameEvents.CHECK_COMPLETE, CheckStackCompletion);
 		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
 		ActionManager.UnsubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
+		ActionManager.UnsubscribeToEvent(GameEvents.STACK_CHANGE, StackChange);
+	}
+
+	private void StackChange(Hashtable parameters)
+	{
+		currentStack = (int)parameters["stack"];
+		SaveManager.SaveData.currentStack = currentStack;
+		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() { { "stack", currentStack } });
+		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
+		foreach (StackPin stack in stackPins)
+		{
+			stack.stackData = currentStackData;
+			stack.StackChanged();
+		}
 	}
 
 	private void Start()
@@ -42,12 +59,16 @@ public class Game : MonoBehaviour
 #if UNITY_EDITOR
         if (isTesting)
             currentLevel = testLevelId;
+		else
+			currentLevel = SaveManager.SaveData.currentLevel;
 #else
           currentLevel = SaveManager.SaveData.currentLevel;
 #endif
 
+		currentStack = SaveManager.SaveData.currentStack;
+		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
 
-        LoadLevel(currentLevel);
+		LoadLevel(currentLevel);
 	}
 
 	private void Initialize()
@@ -56,6 +77,7 @@ public class Game : MonoBehaviour
 		foreach(StackPin stack in stackPins)
 		{
 			stack.levelData = currentLevelData;
+			stack.stackData = currentStackData;
 			stack.Init();
 			stack.pinIndex = index;
 			index++;
@@ -68,10 +90,12 @@ public class Game : MonoBehaviour
 			activeSetup.gameObject.SetActive(false);
 
 		currentLevel = level;
+		
 		currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+
 		if (currentLevelData == null)
 		{
-			Debug.LogError("No More Levels Available");
+			Debug.LogError("No More Levels Available " + level);
 			return;
 		}
 
@@ -83,7 +107,7 @@ public class Game : MonoBehaviour
 		Initialize();
 		foreach(PinConfig config in currentLevelData.pinConfig)
 		{
-			LoadStack(currentLevelData.stack, config,currentLevelData.colors);
+			LoadStack(currentStackData, config,currentLevelData.colors);
 		}
 
 		stacksToWin = currentLevelData.stackCount;

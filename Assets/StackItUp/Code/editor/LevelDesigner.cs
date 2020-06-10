@@ -413,7 +413,7 @@ public class LevelDesigner : EditorWindow
             return;
         }
         SetUpLevel();
-        stackData = levelData.stack;
+        //stackData = levelData.stack;
         WinSequence = levelData.sequence;
         MAX_DISC = levelData.sequence.Count;
         ColorCount = levelData.stackCount;
@@ -523,7 +523,7 @@ public class LevelDesigner : EditorWindow
             AssetDatabase.CreateAsset(levelData, dataPath + LevelId + ".asset");
         }
 
-        levelData.stack = stackData;
+        //levelData.stack = stackData;
 
         levelData.stackCount = ColorCount;
 

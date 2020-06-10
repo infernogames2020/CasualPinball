@@ -6,11 +6,12 @@ public class GameEvents
 {
 	public const string RELOAD_LEVEL    = "RELOAD_LEVEL";
 	public const string SKIP_LEVEL = "SKIP_LEVEL";
+	public const string LOAD_SKINS = "LOAD_SKINS";
 
 	public const string LOAD_NEXT       = "LOAD_NEXT";
 	public const string STOP_PLATFORMS  = "STOP_PLATFORMS";
 
-
+	public const string STACK_CHANGE = "STACK_CHANGE";
 	public const string POP_TILE = "POP_TILE";
 	public const string PUSH_TILE = "PUSH_TILE";
 	public const string CHECK_COMPLETE = "CHECK_COMPLETE";
@@ -25,4 +26,5 @@ public class UIEvents
 {
 	public const string RESULT = "result";
 	public const string SETTINGS = "settings";
+	public const string SKINS = "skins";
 }

@@ -72,6 +72,13 @@ public class MainView : View
 		ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
 	}
 
+	public void Skins()
+	{
+		ActionManager.TriggerEvent(UIEvents.SKINS, new Hashtable() {
+			{ "event", UIEvents.SKINS}
+		});
+	}
+
 	public void SkipLevel()
 	{
 		ActionManager.TriggerEvent(GameEvents.SKIP_LEVEL);
