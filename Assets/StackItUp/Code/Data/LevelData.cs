@@ -1,20 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
 [System.Serializable]
-public class PinConfig 
+public struct PinConfig : ICloneable
 {
 	//public Color color;
 	public int pinIndex;
 	public List<TileInfo> tiles;
+
+    public PinConfig(int index)
+    {
+        pinIndex = index;
+        tiles = new List<TileInfo>();
+    }
+
+    public PinConfig(int index, List<TileInfo> _tiles)
+    {
+        pinIndex = index;
+        tiles = _tiles;
+    }
 
     public void AddTile(TileInfo tile)
     {
         if (tiles == null)
             tiles = new List<TileInfo>();
         tiles.Add(tile);
+    }
+
+    public object Clone()
+    {
+        var clone = new PinConfig();
+        clone.pinIndex = pinIndex;
+        clone.tiles = new List<TileInfo>(tiles.ToArray());
+        return clone;
     }
 
     public void RemoveTile(TileInfo _tile)
@@ -30,11 +51,22 @@ public class PinConfig
 }
 
 [System.Serializable]
-public class TileInfo
+public struct TileInfo
 {
 	//public int stackIndex;
 	public int colorIndex;
 	public int size;
+
+    public TileInfo(int colorIndex, int size)
+    {
+        this.colorIndex = colorIndex;
+        this.size = size;
+    }
+
+    public override string ToString()
+    {
+        return "c" + colorIndex + "s"+size;
+    }
 }
 
 [CreateAssetMenu(fileName = "Stack", menuName = "Furious/ScriptableObjects/LevelData", order = 1)]

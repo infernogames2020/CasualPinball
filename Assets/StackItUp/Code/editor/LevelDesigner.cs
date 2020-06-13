@@ -266,9 +266,7 @@ public class LevelDesigner : EditorWindow
                     DiscMap[key] = EditorGUILayout.Popup(DiscMap[key], PinsPopupArray, GUILayout.Width(80 + j * 15));
                     if (DiscMap[key] != 0)
                     {
-                        TileInfo tile = new TileInfo();
-                        tile.colorIndex = i;
-                        tile.size = j + 1;
+                        TileInfo tile = new TileInfo(i,j+1);
                         PinConfig config = GetPinConfig(DiscMap[key] - 1);
                         config.AddTile(tile);
                         // PinConfigs.Add(config);
@@ -354,8 +352,7 @@ public class LevelDesigner : EditorWindow
         for (int i = 0; i < PinConfigs.Count; i++)
             if (PinConfigs[i].pinIndex == index)
                 return PinConfigs[i];
-        PinConfig config = new PinConfig();
-        config.pinIndex = index;
+        PinConfig config = new PinConfig(index);
         PinConfigs.Add(config);
         return config;
     }
