@@ -2390,7 +2390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  currentStack: 0
   currentLevelData: {fileID: 0}
+  currentStackData: {fileID: 0}
   activeSetup: {fileID: 0}
   colors:
   - {r: 0.92549026, g: 0.654902, b: 0.9176471, a: 1}
@@ -5056,7 +5058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &967543945
 MonoBehaviour:
   m_ObjectHideFlags: 0
