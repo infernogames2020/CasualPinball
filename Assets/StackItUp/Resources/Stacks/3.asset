@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6930fc9e42b44924398d556aaab780da, type: 3}
-  m_Name: Stack3
+  m_Name: 3
   m_EditorClassIdentifier: 
   meshes:
   - index: 1
-    mesh: {fileID: -1562275218897716241, guid: de57e52451adb4b44b8255e2ca98c0db, type: 3}
+    mesh: {fileID: -109517962708253532, guid: 1e1aaf65416add547b5c13af6e24e28d, type: 3}
   - index: 2
-    mesh: {fileID: -7969978266939365281, guid: 5f2a01cb29e92ec4c9f734b921368066, type: 3}
+    mesh: {fileID: -7536622687930795020, guid: 4b538efc6a796f146bf5279a0fbfe077, type: 3}
   - index: 3
-    mesh: {fileID: -5582133695706433325, guid: 9f5c416f7bc484547b31615939e57b4b, type: 3}
+    mesh: {fileID: 1907608370310603259, guid: a195d9a10937b4a4cb6791255137af0a, type: 3}
   - index: 4
-    mesh: {fileID: -2628482395200241503, guid: 566db67a2dbac254291e77876eb240d4, type: 3}
+    mesh: {fileID: -2252909918924021680, guid: b08616f5fc691984e9e5db16cea86eb4, type: 3}
   - index: 5
-    mesh: {fileID: 7502377544057204969, guid: 9b06a5947b210ee41a79b82419441793, type: 3}
+    mesh: {fileID: -5345760584941703707, guid: 069cebe707a0d834d9ec8c6ec9ecd229, type: 3}
+  - index: 5
+    mesh: {fileID: -5287425419667122880, guid: 12f538e6efdddb344a382fa6c4ac7873, type: 3}
   materials:
-  - {fileID: 2100000, guid: 543e8bb876180c140b857ec14d4a1ecd, type: 2}
+  - {fileID: 2100000, guid: 1d06c18ba72355346b8f63338f57cbba, type: 2}
   stackBase: {fileID: 1149973307703454695, guid: 1392a3358fd89fc47bb9b56122da7481,
     type: 3}
   pinMesh: {fileID: 2406853084622926919, guid: ab7179f21e3ad3a4cb3285560551c122, type: 3}

@@ -14,6 +14,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 	public  int pinIndex;
 	public  bool celebrationDone;
 	public  LevelData levelData;
+	public  StackData stackData;
 	private Bounds  baseBounds;
 	private Bounds  pinBounds;
 	private Vector3 entryPoint;
@@ -26,16 +27,19 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 	public void Init()
 	{
-		gameObject.GetComponent<MeshFilter>().sharedMesh = levelData.stack.stackBase;
-		gameObject.GetComponent<MeshRenderer>().sharedMaterial= levelData.stack.stackBaseMaterial;
-		pin.GetComponent<MeshFilter>().sharedMesh = levelData.stack.pinMesh;
-		pin.GetComponent<MeshRenderer>().sharedMaterial = levelData.stack.stackBaseMaterial;
+		gameObject.GetComponent<MeshFilter>().sharedMesh = stackData.stackBase;
+		gameObject.GetComponent<MeshRenderer>().sharedMaterial= stackData.stackBaseMaterial;
+		pin.GetComponent<MeshFilter>().sharedMesh = stackData.pinMesh;
+		pin.GetComponent<MeshRenderer>().sharedMaterial = stackData.stackBaseMaterial;
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pin.transform.position = transform.position; //+ (Vector3.up * pinBounds.extents.y);
 			
 		startPoint = transform.InverseTransformPoint(transform.position     + (Vector3.up * baseBounds.extents.y));
 		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.size.y));
+		//GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		//cube.transform.SetParent(transform);
+		//cube.transform.localPosition = entryPoint;
 		celebrationDone = true;
 	}
 
@@ -52,6 +56,27 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 	private void StackLoadComplete(Hashtable parameters)
 	{
 		stackLoadComplete = true;
+	}
+	
+	public void StackChanged()
+	{
+		//var stackTile = tile.GetComponent<StackTile>();
+		//stackTile.SetData(stack);
+		//stackTile.colorCode = tileInfo.colorIndex;
+		//stackTile.index = tileInfo.size;
+		//stackTile.SetMesh(stack.meshes[tileInfo.size - 1].mesh);
+		//stackTile.SetMaterials(stack.materials.ToArray());
+		//stackTile.SetMaterialColor(colors[tileInfo.colorIndex]);
+
+		foreach (GameObject tile in stack)
+		{
+			var stackTile = tile.GetComponent<StackTile>();
+			stackTile.GetComponent<StackTile>().SetData(stackData);
+			stackTile.SetMesh(stackData.meshes[stackTile.index - 1].mesh);
+			stackTile.SetMaterials(stackData.materials.ToArray());
+			stackTile.SetMaterialColor(levelData.colors[stackTile.colorCode]);
+		}
+
 	}
 
 	public void PopTile()
@@ -191,18 +216,6 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		celebrationDone = true;
 	}
 
-	//public void OnMouseUp()
-	//{
-	//	if (SelectedTile != null)
-	//	{
-	//		PushTile(SelectedTile);
-	//	}
-	//	else
-	//	{
-	//		PopTile();
-	//	}
-	//}
-
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		//Debug.Log(gameObject.name + ": I was Clicked!");
@@ -253,16 +266,10 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 	public bool PushValid(Vector3 nextPostion,GameObject tile)
 	{
 		float tileHeight = tile.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
-		return nextPosition.y < (entryPoint.y - tileHeight);
+		float diff = (entryPoint.y - (tileHeight * 3));
+		return nextPosition.y < diff;
 	}
-
 	
-
-
-
-
-
-
 	#endregion
 
 }

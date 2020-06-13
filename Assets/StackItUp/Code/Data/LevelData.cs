@@ -72,7 +72,7 @@ public struct TileInfo
 [CreateAssetMenu(fileName = "Stack", menuName = "Furious/ScriptableObjects/LevelData", order = 1)]
 public class LevelData : ScriptableObject
 {
-	public StackData stack;
+	//public StackData stack;
 	public int stackCount;
 	public List<int> sequence;
 	public List<Material> colors;

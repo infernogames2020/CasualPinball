@@ -8,6 +8,7 @@ using UnityEngine;
 public class Save
 {
 	public int currentLevel;
+	public int currentStack;
 	public int score;
 
 	public bool heptic;
@@ -32,6 +33,7 @@ public class SaveManager : MonoBehaviour
 				{
 					var freshSave = new Save();
 					freshSave.currentLevel = 1;
+					freshSave.currentStack = 1;
 					freshSave.score = 0;
 					freshSave.heptic = true;
 					freshSave.noads = false;
@@ -69,6 +71,12 @@ public class SaveManager : MonoBehaviour
 		{
 			SaveData.currentLevel = (int)data["level"];
 		}
+
+		if (data.ContainsKey("stack"))
+		{
+			SaveData.currentStack = (int)data["stack"];
+		}
+
 		if (data.ContainsKey("score"))
 		{
 			SaveData.score = (int)data["score"];
