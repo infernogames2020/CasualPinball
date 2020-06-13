@@ -562,7 +562,7 @@ public class LevelsExporterEditor : EditorWindow
             AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
         }
         Debug.Log("string level data" + (levelData.ToString()) + " path "+ SavedLevelDataPath + dataObject.name + "_" + selectedLevelIndex + ".asset");
-        levelData.stack = stackData;
+        //levelData.stack = stackData;
 
         levelData.stackCount = ColorCount;
 
