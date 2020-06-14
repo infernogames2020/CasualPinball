@@ -2390,7 +2390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  currentStack: 0
   currentLevelData: {fileID: 0}
+  currentStackData: {fileID: 0}
   activeSetup: {fileID: 0}
   colors:
   - {r: 0.92549026, g: 0.654902, b: 0.9176471, a: 1}
@@ -2438,8 +2440,8 @@ MonoBehaviour:
   - {fileID: 973623856}
   - {fileID: 281394781}
   pinsetUps:
-  - {fileID: 1580504841}
   - {fileID: 2114021773}
+  - {fileID: 1580504841}
   - {fileID: 8953997661227532471}
   - {fileID: 3901199168453345514}
   - {fileID: 2092551041}
@@ -2450,6 +2452,8 @@ MonoBehaviour:
   poolParent: {fileID: 1306097316}
   moves: 0
   confettiSequence: {fileID: 1069025004}
+  isTesting: 1
+  testLevelId: 5Pin4Colors5Size5Moves_500
 --- !u!114 &468051581
 MonoBehaviour:
   m_ObjectHideFlags: 0

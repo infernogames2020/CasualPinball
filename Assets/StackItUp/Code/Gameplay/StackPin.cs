@@ -142,18 +142,18 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 			if (!sameColor)
 			{
-				//Debug.LogError("2> stack not in same color "+ gameObject.name);
+				Debug.LogError("2> stack not in same color "+ gameObject.name);
 				return false;
 			}
 			else if (!currectSequence)
 			{
-				//Debug.LogError("3> stack not in sequence " + gameObject.name);
+				Debug.LogError("3> stack not in sequence " + gameObject.name);
 				return false;
 			}
 			count++;
 		}
 
-		//Debug.LogError("4> stack complete " + gameObject.name);
+		Debug.LogError("4> stack complete " + gameObject.name);
 		return true;
 	}
 

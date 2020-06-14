@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -56,14 +57,7 @@ public class Game : MonoBehaviour
 	{
 		name = "Game";
 		data = Resources.Load<Globals>("Globals");
-#if UNITY_EDITOR
-        if (isTesting)
-            currentLevel = testLevelId;
-		else
-			currentLevel = SaveManager.SaveData.currentLevel;
-#else
-          currentLevel = SaveManager.SaveData.currentLevel;
-#endif
+        currentLevel = SaveManager.SaveData.currentLevel;
 
 		currentStack = SaveManager.SaveData.currentStack;
 		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
@@ -84,14 +78,34 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	public void LoadLevel(int level)
+    private string getLevelName(int index)
+    {
+        var info = new DirectoryInfo("Assets/StackItUp/Resources/Levels");
+        var fileInfo = info.GetFiles();
+    #if UNITY_EDITOR
+        if (isTesting)
+        {
+            for(int i = 0; i < fileInfo.Length; i++)
+            {
+                if (fileInfo[i].Name.Split('.')[0] == testLevelId)
+                    index = i;
+            }
+        }
+      
+#endif
+
+       
+        return fileInfo[index % fileInfo.Length].Name.Split('.')[0];
+    }
+    public void LoadLevel(int level)
 	{
 		if (activeSetup != null)
 			activeSetup.gameObject.SetActive(false);
 
 		currentLevel = level;
-		
-		currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+
+        Debug.Log("file name"+ getLevelName(level));
+		currentLevelData = Resources.Load<LevelData>("Levels/" +getLevelName(level));
 
 		if (currentLevelData == null)
 		{
@@ -214,7 +228,7 @@ public class Game : MonoBehaviour
 				stackTile.SetData(stack);
 				stackTile.colorCode = tileInfo.colorIndex;
 				stackTile.index = tileInfo.size;
-				stackTile.SetMesh(stack.meshes[tileInfo.size - 1].mesh);
+				stackTile.SetMesh(stack.meshes[tileInfo.size ].mesh);
 				stackTile.SetMaterials(stack.materials.ToArray());
 				stackTile.SetMaterialColor(colors[tileInfo.colorIndex]);
 				StackPin stackPin = stackPins[config.pinIndex];
@@ -312,7 +326,7 @@ public class Game : MonoBehaviour
 #if UNITY_EDITOR
     [Header("UNIT TEST")]
     [SerializeField] bool isTesting = false;
-    [SerializeField] int testLevelId = 1;
+    [SerializeField] string testLevelId = "1";
     private void LateUpdate()
     {
 

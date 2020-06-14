@@ -320,7 +320,7 @@ public class Generator : EditorWindow
         for (int i = 0; i < _uniqueColors; i++)
             for (int j = _tileSizes - 1; j >= 0; j--)
             {
-                _defaultPinSetup[i].tiles.Add(new TileInfo(i, j));
+                _defaultPinSetup[i].tiles.Add(new TileInfo(i, j+1));
             }
         obj.PinConfigs = _defaultPinSetup;
         for (int i = 0; i < _pinCount; i++)

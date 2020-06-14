@@ -500,12 +500,12 @@ public class LevelsExporterEditor : EditorWindow
     {
         Debug.Log("SaveLevelData**");
         //VALIDATIONS
-        if (stackData == null)
-        {
-            PopupWindow.ShowWindow("STACK DATA MISSING");
-            Debug.LogError("STACK DATA MISSING");
-            return;
-        }
+        //if (stackData == null)
+        //{
+        //    PopupWindow.ShowWindow("STACK DATA MISSING");
+        //    Debug.LogError("STACK DATA MISSING");
+        //    return;
+        //}
         Debug.Log("stackData SaveLevelData**");
         if (ColorCount == 0)
         {
