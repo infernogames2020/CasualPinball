@@ -63,15 +63,13 @@ using UnityEngine;
             buff.Append("p" + pins);
             buff.Append(",c" + uniqueColors);
             buff.Append(",ts" + tileSizes + ",");
+            List<string> pin = new List<string>();
             for (int j = 0; j < PinConfigs.Count; j++)
             {
-                buff.Append("pin" + j + ":" + PinConfigs[j].pinIndex);
-               // for (int i = 0; i < PinConfigs[j].Count; i++)
-               // {
-                buff.Append(string.Join(",", PinConfigs[j].tiles));
-           // }
-                buff.Append("#");
+                pin.Add("pin" + ":"+string.Join(",", PinConfigs[j].tiles));
             }
+            pin.Sort();
+            buff.Append( string.Join("#", pin));
             return buff.ToString();
         }
 
