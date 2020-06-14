@@ -42,16 +42,20 @@ public class Generator : EditorWindow
             count = 0;
         }
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("PIN COUNT");
+        EditorGUILayout.LabelField("PINS");
         _pinCount = EditorGUILayout.IntField(_pinCount);
-        EditorGUILayout.EndHorizontal();
-
+        EditorGUILayout.EndHorizontal(); 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("UNIQUE COLORS");
         _uniqueColors = EditorGUILayout.IntField(_uniqueColors);
         EditorGUILayout.EndHorizontal();
-
-        EditorGUILayout.BeginVertical();
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("TILE SIZES");
+        _tileSizes = EditorGUILayout.IntField(_tileSizes);
+        MAX_TILE_LIMIT = _tileSizes + 2;
+        EditorGUILayout.EndHorizontal();
+       
+         EditorGUILayout.BeginVertical();
         EditorGUILayout.LabelField("CHOOSE COLORS");
         EditorGUILayout.BeginHorizontal();
         if(_colors.Length < _uniqueColors)
@@ -66,11 +70,7 @@ public class Generator : EditorWindow
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.EndVertical();
 
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("TILE SIZES");
-        _tileSizes = EditorGUILayout.IntField(_tileSizes);
-        MAX_TILE_LIMIT = _tileSizes + 2;
-        EditorGUILayout.EndHorizontal();
+      
 
         if(GUILayout.Button("Init Default Tiles"))
         {
@@ -159,6 +159,7 @@ public class Generator : EditorWindow
 
             }
             //for(int k = 0;k< currentMoveIndexLevels.Count; k = k + 10)
+            if(currentMoveIndexLevels.Count > 0)
             {
                 LevelsData data = new LevelsData();
                 data.AllLevels = new List<LevelsData.Data>();
@@ -243,7 +244,12 @@ public class Generator : EditorWindow
                
             }
         }
-        Debug.Log("generatedLevels "+ generatedLevels.Count);
+//        Debug.Log("generatedLevels "+ generatedLevels.Count);
+        if(currentMoveIndexLevels.Count == 0)
+        {
+            PopupWindow.ShowWindow("NO NEW LEVEL TO BE GENERATED!!!!");
+            Debug.LogError("NO NEW LEVEL TO BE GENERATED!!!!");
+        }
         //LogGeneratedLevels();
     }
     HashSet<string> LevelMap = new HashSet<string>();
@@ -330,6 +336,9 @@ public class Generator : EditorWindow
                 Debug.Log(" PIN " +(i+1) +string.Join(",", _defaultPinSetup[i].tiles));
             }
         }
+        obj.pins = _pinCount;
+        obj.uniqueColors = _uniqueColors;
+        obj.tileSizes = _tileSizes;
         string key = obj.GetHashKey();
         if (false == LevelMap.Contains(key))
             LevelMap.Add(key);

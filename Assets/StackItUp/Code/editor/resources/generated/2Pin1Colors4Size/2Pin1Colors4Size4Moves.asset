@@ -21,11 +21,6 @@ MonoBehaviour:
       to: 1
       tile:
         colorIndex: 0
-        size: 0
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
         size: 1
     - from: 0
       to: 1
@@ -37,18 +32,23 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 3
+    - from: 0
+      to: 1
+      tile:
+        colorIndex: 0
+        size: 4
     PinConfigs:
     - pinIndex: 0
       tiles: []
     - pinIndex: 1
       tiles:
       - colorIndex: 0
-        size: 0
-      - colorIndex: 0
         size: 1
       - colorIndex: 0
         size: 2
       - colorIndex: 0
         size: 3
+      - colorIndex: 0
+        size: 4
     IsExported: 0
     ExportedFileName: 

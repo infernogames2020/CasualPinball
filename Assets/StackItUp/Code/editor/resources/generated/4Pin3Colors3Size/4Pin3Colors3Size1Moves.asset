@@ -21,32 +21,32 @@ MonoBehaviour:
       to: 1
       tile:
         colorIndex: 0
-        size: 0
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
-        size: 2
+        size: 3
       - colorIndex: 0
-        size: 1
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
+        size: 3
+      - colorIndex: 1
         size: 2
       - colorIndex: 1
         size: 1
-      - colorIndex: 1
-        size: 0
       - colorIndex: 0
-        size: 0
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
+        size: 3
+      - colorIndex: 2
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 0
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -59,32 +59,32 @@ MonoBehaviour:
       to: 0
       tile:
         colorIndex: 1
-        size: 0
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
+        size: 3
+      - colorIndex: 0
         size: 2
       - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 0
       - colorIndex: 1
-        size: 0
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
-        size: 2
+        size: 3
       - colorIndex: 1
-        size: 1
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
+        size: 3
+      - colorIndex: 2
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 0
     - pinIndex: 3
       tiles: []
     IsExported: 0
