@@ -29,5 +29,5 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1d06c18ba72355346b8f63338f57cbba, type: 2}
   stackBase: {fileID: 1149973307703454695, guid: 1392a3358fd89fc47bb9b56122da7481,
     type: 3}
-  pinMesh: {fileID: 2406853084622926919, guid: ab7179f21e3ad3a4cb3285560551c122, type: 3}
+  pinMesh: {fileID: 2406853084622926919, guid: 17dee71e4b8bcb047b5fc940680f8ba5, type: 3}
   stackBaseMaterial: {fileID: 2100000, guid: 5011a0821f82a964d8066bd8989cb089, type: 2}
