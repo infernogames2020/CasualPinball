@@ -228,7 +228,7 @@ public class Game : MonoBehaviour
 				stackTile.SetData(stack);
 				stackTile.colorCode = tileInfo.colorIndex;
 				stackTile.index = tileInfo.size;
-				stackTile.SetMesh(stack.meshes[tileInfo.size ].mesh);
+				stackTile.SetMesh(stack.meshes[tileInfo.size - 1].mesh);
 				stackTile.SetMaterials(stack.materials.ToArray());
 				stackTile.SetMaterialColor(colors[tileInfo.colorIndex]);
 				StackPin stackPin = stackPins[config.pinIndex];

@@ -13,6 +13,7 @@ public class Save
 
 	public bool heptic;
 	public bool noads;
+	public bool sound;
 }
 
 public class SaveKeys
@@ -89,6 +90,11 @@ public class SaveManager : MonoBehaviour
 		if(data.ContainsKey("noads"))
 		{
 			SaveData.noads = (bool)data["noads"];
+		}
+
+		if (data.ContainsKey("sound"))
+		{
+			SaveData.noads = (bool)data["sound"];
 		}
 		Save();
 	}

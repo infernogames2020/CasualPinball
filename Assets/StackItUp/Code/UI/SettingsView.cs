@@ -9,10 +9,15 @@ public class SettingsView : View
 	public GameObject resumeButton;
 	public GameObject removeAdsButton;
 	public GameObject hepticToggle;
+	public GameObject soundToggle;
+
+	public GameObject hepticToggleSprite;
+	public GameObject soundToggleSprite;
 
 	public void Awake()
 	{
 		hepticToggle.GetComponent<Toggle>().isOn = SaveManager.SaveData.heptic;
+		soundToggle.GetComponent<Toggle>().isOn = SaveManager.SaveData.sound;
 	}
 
 	public override void Hide()
@@ -26,6 +31,7 @@ public class SettingsView : View
 		//message.text = data.ContainsKey("message") ? data["message"].ToString() : "";
 
 		hepticToggle.GetComponent<Toggle>().isOn = data.ContainsKey("heptic") ? (bool)data["heptic"] : false;
+		soundToggle.GetComponent<Toggle>().isOn = data.ContainsKey("sound") ? (bool)data["sound"] : false;
 	}
 
 	public override void Show()
@@ -38,6 +44,13 @@ public class SettingsView : View
 		if (value)
 			Handheld.Vibrate();
 		ActionManager.TriggerEvent(GameEvents.SAVE_SETTINGS, new Hashtable() { {"heptic",value} });
+	}
+
+	public void OnSoundValueChanged(bool value)
+	{
+		if (value)
+			Handheld.Vibrate();
+		ActionManager.TriggerEvent(GameEvents.SAVE_SETTINGS, new Hashtable() { { "sound", value } });
 	}
 
 	public void NoADS()

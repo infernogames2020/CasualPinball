@@ -7,12 +7,15 @@ using FuriousPlay;
 public class SkinsView : View
 {
 	[SerializeField]
+	RectTransform rect;
+	[SerializeField]
 	List<ShapeButton> allShapes;
 	[SerializeField]
 	GridLayoutGroup grid;
 
 	private Vector3 startPosition;
 	private ShapeButton currentShape;
+	
 
 	private void Awake()
 	{
