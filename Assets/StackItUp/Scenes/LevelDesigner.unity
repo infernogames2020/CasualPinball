@@ -2145,6 +2145,9 @@ MonoBehaviour:
   resumeButton: {fileID: 830493611}
   removeAdsButton: {fileID: 422178952}
   hepticToggle: {fileID: 2129196100}
+  soundToggle: {fileID: 0}
+  hepticToggleSprite: {fileID: 0}
+  soundToggleSprite: {fileID: 0}
 --- !u!1 &453092246
 GameObject:
   m_ObjectHideFlags: 0
