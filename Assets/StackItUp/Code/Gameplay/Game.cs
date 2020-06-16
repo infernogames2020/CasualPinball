@@ -82,6 +82,7 @@ public class Game : MonoBehaviour
     {
         var info = new DirectoryInfo("Assets/StackItUp/Resources/Levels");
         var fileInfo = info.GetFiles();
+
     #if UNITY_EDITOR
         if (isTesting)
         {

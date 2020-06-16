@@ -1438,7 +1438,7 @@ MonoBehaviour:
   - {r: 0.68235296, g: 0.49803925, b: 0.91372555, a: 1}
   data: {fileID: 11400000, guid: f698995276ceeb3458ce21634365b7d0, type: 2}
   stacks:
-  - {fileID: 11400000, guid: b1db49ddfc4198142838cc4e24ff6181, type: 2}
+  - {fileID: 0}
   stackPins: []
   pooledGameObjects:
   - {fileID: 783871073}
@@ -1484,8 +1484,8 @@ MonoBehaviour:
   poolParent: {fileID: 1306097316}
   moves: 0
   confettiSequence: {fileID: 1069025004}
-  isTesting: 0
-  testLevelId: 5Pin4Colors6Size7Moves_25
+  isTesting: 1
+  testLevelId: 5Pin4Colors6Size7Moves_2222
 --- !u!114 &468051581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10624,7 +10624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 11.300049, y: 0}
+  m_AnchoredPosition: {x: 11.300781, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5796362224487073316

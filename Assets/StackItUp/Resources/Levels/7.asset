@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ea557cf69b18a47a920d6a6da79ff7, type: 3}
   m_Name: 7
   m_EditorClassIdentifier: 
-  stack: {fileID: 0}
   stackCount: 0
   sequence: 
   colors: []
