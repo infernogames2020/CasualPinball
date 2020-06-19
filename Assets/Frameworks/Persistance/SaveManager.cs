@@ -9,6 +9,7 @@ public class Save
 {
 	public int currentLevel;
 	public int currentStack;
+	public string currentPattern;
 	public int score;
 
 	public bool heptic;
@@ -35,6 +36,7 @@ public class SaveManager : MonoBehaviour
 					var freshSave = new Save();
 					freshSave.currentLevel = 1;
 					freshSave.currentStack = 1;
+					freshSave.currentPattern = "none";
 					freshSave.score = 0;
 					freshSave.heptic = true;
 					freshSave.noads = false;
@@ -95,6 +97,10 @@ public class SaveManager : MonoBehaviour
 		if (data.ContainsKey("sound"))
 		{
 			SaveData.noads = (bool)data["sound"];
+		}
+		if (data.ContainsKey("pattern"))
+		{
+			SaveData.currentPattern = data["pattern"].ToString();
 		}
 		Save();
 	}

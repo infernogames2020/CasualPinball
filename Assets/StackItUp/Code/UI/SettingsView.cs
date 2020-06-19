@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class SettingsView : View
@@ -10,7 +11,7 @@ public class SettingsView : View
 	public GameObject removeAdsButton;
 	public GameObject hepticToggle;
 	public GameObject soundToggle;
-
+	public SpriteAtlas iconAtlas;
 	public GameObject hepticToggleSprite;
 	public GameObject soundToggleSprite;
 
@@ -43,6 +44,8 @@ public class SettingsView : View
 	{
 		if (value)
 			Handheld.Vibrate();
+		string spriteName = value ? "UI_Icon_ToggleOn" : "UI_Icon_ToggleOff";
+		hepticToggleSprite.GetComponent<Image>().sprite = iconAtlas.GetSprite(spriteName);
 		ActionManager.TriggerEvent(GameEvents.SAVE_SETTINGS, new Hashtable() { {"heptic",value} });
 	}
 
@@ -50,6 +53,8 @@ public class SettingsView : View
 	{
 		if (value)
 			Handheld.Vibrate();
+		string spriteName = value ? "UI_Icon_ToggleOn" : "UI_Icon_ToggleOff";
+		soundToggleSprite.GetComponent<Image>().sprite = iconAtlas.GetSprite(spriteName);
 		ActionManager.TriggerEvent(GameEvents.SAVE_SETTINGS, new Hashtable() { { "sound", value } });
 	}
 

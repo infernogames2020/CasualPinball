@@ -13,46 +13,38 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   stackCount: 3
-  sequence: 0100000002000000030000000400000005000000
+  sequence: 010000000200000003000000
   colors:
-  - {fileID: 2100000, guid: 1c77966a9e97b154795de9c1964b63c0, type: 2}
-  - {fileID: 2100000, guid: 9d468f1f53e836f47884587cb2d83f45, type: 2}
-  - {fileID: 2100000, guid: 1f664b06249dae2408de01df0ab3f1ad, type: 2}
-  pins: 3
+  - {fileID: 2100000, guid: c4fe48b8089af914e9edff76399d6342, type: 2}
+  - {fileID: 2100000, guid: 76a893e9f6bcf964ca2c6bb1d896f8bc, type: 2}
+  - {fileID: 2100000, guid: 4999241af1322d341a97570f0609e2ed, type: 2}
+  - {fileID: 2100000, guid: 92ce8aef259254b4c8a447449f9afb1c, type: 2}
+  - {fileID: 2100000, guid: 4999241af1322d341a97570f0609e2ed, type: 2}
+  pins: 4
   pinConfig:
   - pinIndex: 0
-    tiles:
-    - colorIndex: 0
-      size: 4
-    - colorIndex: 0
-      size: 5
-    - colorIndex: 2
-      size: 3
-    - colorIndex: 0
-      size: 1
-    - colorIndex: 2
-      size: 2
+    tiles: []
   - pinIndex: 1
     tiles:
     - colorIndex: 1
-      size: 5
-    - colorIndex: 2
-      size: 1
-    - colorIndex: 1
-      size: 4
-    - colorIndex: 1
       size: 3
-    - colorIndex: 2
-      size: 4
+    - colorIndex: 1
+      size: 2
+    - colorIndex: 1
+      size: 1
+    - colorIndex: 0
+      size: 1
+    - colorIndex: 0
+      size: 3
   - pinIndex: 2
     tiles:
     - colorIndex: 2
-      size: 5
-    - colorIndex: 1
-      size: 2
-    - colorIndex: 1
-      size: 1
-    - colorIndex: 0
       size: 3
+    - colorIndex: 2
+      size: 2
     - colorIndex: 0
       size: 2
+    - colorIndex: 2
+      size: 1
+  - pinIndex: 3
+    tiles: []

@@ -11,11 +11,16 @@ public class SkinsView : View
 	[SerializeField]
 	List<ShapeButton> allShapes;
 	[SerializeField]
-	GridLayoutGroup grid;
+	List<ShapeButton> allPatterns;
+	[SerializeField]
+	GridLayoutGroup shapeGrid;
+	[SerializeField]
+	GridLayoutGroup patternGrid;
 
 	private Vector3 startPosition;
 	private ShapeButton currentShape;
-	
+	private ShapeButton currentPattern;
+
 
 	private void Awake()
 	{
@@ -24,9 +29,11 @@ public class SkinsView : View
 	private void Start()
 	{
 		startPosition = transform.localPosition;
-		int currentStack = SaveManager.SaveData.currentStack;
-		
-		foreach(ShapeButton shape in allShapes)
+
+		int    currentStack   = SaveManager.SaveData.currentStack;
+		string currentPattern = SaveManager.SaveData.currentPattern;
+
+		foreach (ShapeButton shape in allShapes)
 		{
 			shape.Unlocked();
 			if(shape.name.Equals(currentStack.ToString()))
@@ -36,7 +43,16 @@ public class SkinsView : View
 			}
 		}
 
+		foreach (ShapeButton shape in allPatterns)
+		{
+			shape.Unlocked();
+			if (shape.name.Equals(currentPattern))
+			{
+				shape.Active();
+			}
+		}
 	}
+
 	public override void Hide()
 	{
 		transform.DOLocalMoveX(startPosition.x, 0.3f);
@@ -44,13 +60,12 @@ public class SkinsView : View
 
 	public override void Init(Hashtable data)
 	{
-		//var stackList = (List<StackData>)data["stacks"];
 	}
 
 	public override void Show()
 	{
 		transform.DOLocalMoveX(0, 0.3f);
-		int current = SaveManager.SaveData.currentStack;
+		OnSkinsClicked();
 	}
 
 	public void ShapeSelected(GameObject go)
@@ -66,4 +81,30 @@ public class SkinsView : View
 			{"stack", int.Parse(currentShape.name)}
 		});
 	}
+
+	public void OnPatternSelected(GameObject go)
+	{
+		if (currentPattern != null)
+		{
+			currentPattern.Unlocked();
+		}
+		currentPattern = go.GetComponent<ShapeButton>();
+		currentPattern.Active();
+		ActionManager.TriggerEvent(GameEvents.PATTERN_CHANGE, new Hashtable() {
+			{"pattern", currentPattern.name}
+		});
+	}
+
+	public void OnSkinsClicked()
+	{
+		shapeGrid.gameObject.SetActive(true);
+		patternGrid.gameObject.SetActive(false);
+	}
+
+	public void OnPatternClicked()
+	{
+		shapeGrid.gameObject.SetActive(false);
+		patternGrid.gameObject.SetActive(true);
+	}
+
 }

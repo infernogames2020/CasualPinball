@@ -14,7 +14,7 @@ public class ShapeButton : MonoBehaviour
 		locked.gameObject.SetActive(false);
 	}
 
-	public void Unlocked()
+	public void Unlocked()	
 	{
 		current.gameObject.SetActive(false);
 		locked.gameObject.SetActive(false);

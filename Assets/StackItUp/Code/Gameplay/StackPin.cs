@@ -10,7 +10,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 {
 	public static GameObject SelectedTile;
 	public  GameObject pin;
-	public  ParticleSystem explosion;
+	//public  ParticleSystem explosion;
 	public  int pinIndex;
 	public  bool celebrationDone;
 	public  LevelData levelData;
@@ -143,12 +143,12 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 			if (!sameColor)
 			{
-				Debug.LogError("2> stack not in same color "+ gameObject.name);
+				//Debug.LogError("2> stack not in same color "+ gameObject.name);
 				return false;
 			}
 			else if (!currectSequence)
 			{
-				Debug.LogError("3> stack not in sequence " + gameObject.name);
+				//Debug.LogError("3> stack not in sequence " + gameObject.name);
 				return false;
 			}
 			count++;
@@ -206,7 +206,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 	public void CelebrationComplete()
 	{
-		explosion.Play(true);
+		//explosion.Play(true);
 	}
 
 	public void Reset()
