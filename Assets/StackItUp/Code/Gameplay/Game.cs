@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 	public PinSetup activeSetup;
 	public List<Color> colors;
 	public Globals data;
-	public List<StackData> stacks;
+
 	public List<StackPin> stackPins;
 	public List<GameObject> pooledGameObjects;
 	public List<PinSetup> pinsetUps;
@@ -118,8 +118,6 @@ public class Game : MonoBehaviour
 
     private static int genIndex = 0;
 
-    [SerializeField]
-    string[] LevelsFiles;
     public LevelData GetNextGeneratedLevel()
     {
         //LevelData level = new LevelData();
@@ -158,7 +156,7 @@ public class Game : MonoBehaviour
 //#endif
 //		}
 //		else
-			currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+		//	currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
 
 		if (currentLevelData == null)
 		{
@@ -319,12 +317,13 @@ public class Game : MonoBehaviour
 		{
 			stack.Celebrate();
 		}
-		StartCoroutine(OnCelebrationComplete());
+		StartCoroutine("OnCelebrationComplete");
 	}
 
 	IEnumerator OnCelebrationComplete()
 	{
-		confettiSequence.RandomShoot();
+        Debug.Log("OnCelebrationComplete");
+        confettiSequence.RandomShoot();
 		yield return new WaitForSeconds(1.5f);
 		ActionManager.TriggerEvent(UIEvents.RESULT,new Hashtable() {
 			{ "event", UIEvents.RESULT},

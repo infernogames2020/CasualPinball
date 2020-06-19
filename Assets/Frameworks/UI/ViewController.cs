@@ -43,14 +43,15 @@ public class ViewController : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-		ActionManager.SubscribeToEvent(UIEvents.RESULT, ShowScreen);
-		ActionManager.SubscribeToEvent(UIEvents.SETTINGS, ShowScreen);
-		ActionManager.SubscribeToEvent(UIEvents.SKINS, ShowScreen);
+		ActionManager.UnsubscribeToEvent(UIEvents.RESULT, ShowScreen);
+		ActionManager.UnsubscribeToEvent(UIEvents.SETTINGS, ShowScreen);
+		ActionManager.UnsubscribeToEvent(UIEvents.SKINS, ShowScreen);
 	}
 
 	private void ShowScreen(Hashtable paramaters)
 	{
-		string eventId = paramaters["event"].ToString();
+        Debug.Log("SHOW SCREEN");
+        string eventId = paramaters["event"].ToString();
 		lookupMap[eventId].viewObject.Init(paramaters);
 		lookupMap[eventId].viewObject.Show();
 	}
