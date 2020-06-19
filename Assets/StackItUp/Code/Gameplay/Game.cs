@@ -60,6 +60,7 @@ public class Game : MonoBehaviour
         currentLevel = SaveManager.SaveData.currentLevel;
 
 		currentStack = SaveManager.SaveData.currentStack;
+        Debug.LogError("currentStack.ToString()"+ currentStack.ToString());
 		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
 
 		LoadLevel(currentLevel);
@@ -98,6 +99,33 @@ public class Game : MonoBehaviour
        
         return fileInfo[index % fileInfo.Length].Name.Split('.')[0];
     }
+
+    private static int genIndex = 0;
+
+    [SerializeField]
+    string[] LevelsFiles;
+    public LevelData GetNextGeneratedLevel()
+    {
+        //LevelData level = new LevelData();
+        //if(LevelsFiles == null || LevelsFiles.Length == 0)
+        //{
+        //    var info = new DirectoryInfo("Assets/StackItUp/Resources/generated");
+        //    LevelsFiles = new string[info.GetFiles().Length];
+        //    var files = info.GetFiles();
+        //    Debug.Log("files"+files.Length);
+        //    for (int i = 0; i < files.Length; i++)
+        //    {
+
+        //        LevelsFiles[i] = files[i].Name.Split('.')[0];
+        //    }
+        //}
+        //Debug.LogError("Assets/StackItUp/Resources/generated/" + LevelsFiles[0]);
+        //LevelsData levelsInfo = Resources.Load<LevelsData>("Assets/StackItUp/Resources/generated/"+LevelsFiles[0]);
+        //level = LevelData.TransformToLevelData(levelsInfo.AllLevels[0]);
+        //return level;
+
+        return GetComponent<LevelsManager>().GetTestLevel();
+    }
     public void LoadLevel(int level)
 	{
 		if (activeSetup != null)
@@ -106,7 +134,7 @@ public class Game : MonoBehaviour
 		currentLevel = level;
 
         Debug.Log("file name"+ getLevelName(level));
-		currentLevelData = Resources.Load<LevelData>("Levels/" +getLevelName(level));
+        currentLevelData = GetNextGeneratedLevel();// Resources.Load<LevelData>("Levels/" +getLevelName(level));
 
 		if (currentLevelData == null)
 		{

@@ -565,7 +565,33 @@ public class LevelsExporterEditor : EditorWindow
         }
         return null;
     }
+    int poolIndex = 0;
+    FileInfo[] pooledObjects = null;
+    private LevelData GetPooledLevelData(string fileName)
+    {
+        if(pooledObjects == null)
+        {
+            var info = new DirectoryInfo("Assets/StackItUp/Resources/Pool");
+            pooledObjects = info.GetFiles();
 
+        }
+
+        if (pooledObjects.Length>0)
+        {
+            var file=  pooledObjects[0];
+            //fileInfo[i].MoveTo("Assets/StackItUp/Resources/MovedLevels/" + fileInfo[i].Name);
+            Debug.Log("file"+file.FullName);
+            file.MoveTo("Assets/StackItUp/Resources/Levels/" + fileName+".asset" );
+            levelData = Resources.Load<LevelData>("Levels/" + fileName);
+        }
+        else
+        {
+            levelData = (LevelData)ScriptableObject.CreateInstance("LevelData");
+            AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
+        }
+
+        return levelData;
+    }
     private void SaveLevelData(bool isOverride = false)
     {
         //Debug.Log("SaveLevelData**");
@@ -628,8 +654,9 @@ public class LevelsExporterEditor : EditorWindow
         }
         else if (isOverride || levelData == null)
         {
-            levelData = (LevelData)ScriptableObject.CreateInstance("LevelData");
-            AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
+
+            levelData = GetPooledLevelData(fileName);// (LevelData)ScriptableObject.CreateInstance("LevelData");
+           // AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
         }
        // Debug.Log("string level data" + (levelData.ToString()) + " path "+ SavedLevelDataPath + dataObject.name + "_" + selectedLevelIndex + ".asset");
         //levelData.stack = stackData;

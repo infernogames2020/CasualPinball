@@ -615,6 +615,17 @@ public class PopupWindow : EditorWindow
         window.maxSize = new Vector2(450, 180);
         window.Show();
         _message = msg;
+        Callback = null;
+    }
+    private static Action<bool> Callback;
+    public static void ShowWindow(string msg, Action<bool> callback)
+    {
+        EditorWindow window = GetWindow(typeof(PopupWindow));
+        window.maxSize = new Vector2(450, 180);
+        window.Show();
+        _message = msg;
+        Callback = callback;
+
     }
 
     private void OnGUI()
@@ -632,11 +643,23 @@ public class PopupWindow : EditorWindow
         text.Apply();
         colorstyle.normal.background = text;
         colorstyle.normal.textColor = Color.black;
-       
+
+        GUILayout.BeginHorizontal();
         if (GUILayout.Button("OK", colorstyle,GUILayout.Width(100f)))
         {
             this.Close();
+            if (Callback != null)
+                Callback.Invoke(true);
         }
+
+        if (GUILayout.Button("Cancel", colorstyle, GUILayout.Width(100f)))
+        {
+            this.Close();
+            if (Callback != null)
+                Callback.Invoke(false);
+        }
+
+        GUILayout.EndHorizontal();
         EditorGUILayout.EndVertical();
     }
 

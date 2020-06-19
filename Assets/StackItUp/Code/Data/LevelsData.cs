@@ -25,7 +25,10 @@ public class LevelsData : ScriptableObject
             this.IsExported = false;
             this.ExportedFileName = string.Empty;
         }
+
     }
     [SerializeField]
     public List<Data> AllLevels;
+
+
 }

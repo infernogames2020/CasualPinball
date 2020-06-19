@@ -1388,6 +1388,7 @@ GameObject:
   - component: {fileID: 468051578}
   - component: {fileID: 468051580}
   - component: {fileID: 468051581}
+  - component: {fileID: 468051579}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1409,6 +1410,27 @@ Transform:
   m_Father: {fileID: 1014911269}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &468051579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468051577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334f2df741e36478bb6cc71ce625ecc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GeneratedFileFullName: 2Pin1Colors4Size1Moves
+  Pins: 4
+  Colors: 3
+  DiscSizes: 4
+  Moves: 1
+  ShouldRefreshFolder: 1
+  currentLevelIndex: 0
+  gameManager: {fileID: 468051580}
+  IsSelected: 0
 --- !u!114 &468051580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,7 +1460,7 @@ MonoBehaviour:
   - {r: 0.68235296, g: 0.49803925, b: 0.91372555, a: 1}
   data: {fileID: 11400000, guid: f698995276ceeb3458ce21634365b7d0, type: 2}
   stacks:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: edcfdbe7a9c41ab40bb4dd7367b9a68b, type: 2}
   stackPins: []
   pooledGameObjects:
   - {fileID: 783871073}
@@ -1484,6 +1506,7 @@ MonoBehaviour:
   poolParent: {fileID: 1306097316}
   moves: 0
   confettiSequence: {fileID: 1069025004}
+  LevelsFiles: []
   isTesting: 1
   testLevelId: 5Pin4Colors6Size7Moves_2222
 --- !u!114 &468051581
@@ -5804,6 +5827,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1389195899}
     m_Modifications:
+    - target: {fileID: 5332834416840184851, guid: c696130d448b79640a567ab2a50902f1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332834417524113878, guid: c696130d448b79640a567ab2a50902f1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5332834417803637045, guid: c696130d448b79640a567ab2a50902f1,
         type: 3}
       propertyPath: m_LocalPosition.x
