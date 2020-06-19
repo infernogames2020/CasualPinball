@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
 {
 	public int currentLevel;
 	public int currentStack;
+	public string currentPattern;
+	public Pattern currentPatternData;
 	public LevelData currentLevelData;
 	public StackData currentStackData;
 	public PinSetup activeSetup;
@@ -30,6 +32,7 @@ public class Game : MonoBehaviour
 		ActionManager.SubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
 		ActionManager.SubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
 		ActionManager.SubscribeToEvent(GameEvents.STACK_CHANGE, StackChange);
+		ActionManager.SubscribeToEvent(GameEvents.PATTERN_CHANGE, PatternChange);
 	}
 
 	private void OnDestroy()
@@ -38,6 +41,7 @@ public class Game : MonoBehaviour
 		ActionManager.UnsubscribeToEvent(GameEvents.RELOAD_LEVEL, Reload);
 		ActionManager.UnsubscribeToEvent(GameEvents.SKIP_LEVEL, SkipLevel);
 		ActionManager.UnsubscribeToEvent(GameEvents.STACK_CHANGE, StackChange);
+		ActionManager.UnsubscribeToEvent(GameEvents.PATTERN_CHANGE, PatternChange);
 	}
 
 	private void StackChange(Hashtable parameters)
@@ -53,15 +57,26 @@ public class Game : MonoBehaviour
 		}
 	}
 
+	private void PatternChange(Hashtable parameters)
+	{
+		currentPattern = parameters["pattern"].ToString();
+		SaveManager.SaveData.currentPattern = currentPattern;
+		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() { { "pattern", currentPattern } });
+		currentPatternData = data.allPatterns.Find(item => item.name.Equals(currentPattern));
+		foreach (Material material in data.allMaterials)
+		{
+			material.mainTexture = currentPatternData.patternTexture;
+		}
+	}
+
 	private void Start()
 	{
 		name = "Game";
 		data = Resources.Load<Globals>("Globals");
-        currentLevel = SaveManager.SaveData.currentLevel;
+		currentLevel = 1;//SaveManager.SaveData.currentLevel;
 
 		currentStack = SaveManager.SaveData.currentStack;
 		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
-
 		LoadLevel(currentLevel);
 	}
 
@@ -82,17 +97,18 @@ public class Game : MonoBehaviour
     {
         var info = new DirectoryInfo("Assets/StackItUp/Resources/Levels");
         var fileInfo = info.GetFiles();
-    #if UNITY_EDITOR
-        if (isTesting)
-        {
-            for(int i = 0; i < fileInfo.Length; i++)
-            {
-                if (fileInfo[i].Name.Split('.')[0] == testLevelId)
-                    index = i;
-            }
-        }
+		
+ //   #if UNITY_EDITOR
+ //       if (isTesting)
+ //       {
+ //           for(int i = 0; i < fileInfo.Length; i++)
+ //           {
+ //               if (fileInfo[i].Name.Split('.')[0] == testLevelId)
+ //                   index = i;
+ //           }
+ //       }
       
-#endif
+	//#endif
 
        
         return fileInfo[index % fileInfo.Length].Name.Split('.')[0];
@@ -104,13 +120,23 @@ public class Game : MonoBehaviour
 
 		currentLevel = level;
 
-        Debug.Log("file name"+ getLevelName(level));
-		currentLevelData = Resources.Load<LevelData>("Levels/" +getLevelName(level));
+       // Debug.Log("file name"+ getLevelName(level));
+
+//		if (isTesting)
+//		{
+//#if UNITY_EDITOR
+//			currentLevelData = Resources.Load<LevelData>("Levels/" + getLevelName(level));
+//#endif
+//		}
+//		else
+			currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
 
 		if (currentLevelData == null)
 		{
 			Debug.LogError("No More Levels Available " + level);
-			return;
+			currentLevel = 1;
+			currentLevelData = Resources.Load<LevelData>("Levels/" + currentLevel.ToString());
+			//return;
 		}
 
 		int pinSetupIndex = currentLevelData.pins;
@@ -143,10 +169,6 @@ public class Game : MonoBehaviour
 	public void SkipLevel()
 	{
 		int level = currentLevel + 1;
-		if (currentLevel + 1 > 8)
-		{
-			level = UnityEngine.Random.Range(1, 8);
-		}
 
 		ActionManager.TriggerEvent(GameEvents.SAVE_GAME, new Hashtable() {
 			{"level",level}

@@ -12,6 +12,7 @@ public class GameEvents
 	public const string STOP_PLATFORMS  = "STOP_PLATFORMS";
 
 	public const string STACK_CHANGE = "STACK_CHANGE";
+	public const string PATTERN_CHANGE = "PATTERN_CHANGE";
 	public const string POP_TILE = "POP_TILE";
 	public const string PUSH_TILE = "PUSH_TILE";
 	public const string CHECK_COMPLETE = "CHECK_COMPLETE";
