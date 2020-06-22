@@ -33,13 +33,10 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		pin.GetComponent<MeshRenderer>().sharedMaterial = stackData.stackBaseMaterial;
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
-		pin.transform.position = transform.position; //+ (Vector3.up * pinBounds.extents.y);
+		pin.transform.position = transform.position;
 			
 		startPoint = transform.InverseTransformPoint(transform.position     + (Vector3.up * baseBounds.extents.y));
 		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.size.y));
-		//GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		//cube.transform.SetParent(transform);
-		//cube.transform.localPosition = entryPoint;
 		celebrationDone = true;
 	}
 
