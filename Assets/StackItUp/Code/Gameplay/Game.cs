@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 	public PinSetup activeSetup;
 	public List<Color> colors;
 	public Globals data;
-	public List<StackData> stacks;
+
 	public List<StackPin> stackPins;
 	public List<GameObject> pooledGameObjects;
 	public List<PinSetup> pinsetUps;
@@ -76,6 +76,7 @@ public class Game : MonoBehaviour
 		currentLevel = 1;//SaveManager.SaveData.currentLevel;
 
 		currentStack = SaveManager.SaveData.currentStack;
+        Debug.LogError("currentStack.ToString()"+ currentStack.ToString());
 		currentStackData = Resources.Load<StackData>("Stacks/" + currentStack.ToString());
 		LoadLevel(currentLevel);
 	}
@@ -97,6 +98,7 @@ public class Game : MonoBehaviour
     {
         var info = new DirectoryInfo("Assets/StackItUp/Resources/Levels");
         var fileInfo = info.GetFiles();
+
 		
  //   #if UNITY_EDITOR
  //       if (isTesting)
@@ -113,6 +115,31 @@ public class Game : MonoBehaviour
        
         return fileInfo[index % fileInfo.Length].Name.Split('.')[0];
     }
+
+    private static int genIndex = 0;
+
+    public LevelData GetNextGeneratedLevel()
+    {
+        //LevelData level = new LevelData();
+        //if(LevelsFiles == null || LevelsFiles.Length == 0)
+        //{
+        //    var info = new DirectoryInfo("Assets/StackItUp/Resources/generated");
+        //    LevelsFiles = new string[info.GetFiles().Length];
+        //    var files = info.GetFiles();
+        //    Debug.Log("files"+files.Length);
+        //    for (int i = 0; i < files.Length; i++)
+        //    {
+
+        //        LevelsFiles[i] = files[i].Name.Split('.')[0];
+        //    }
+        //}
+        //Debug.LogError("Assets/StackItUp/Resources/generated/" + LevelsFiles[0]);
+        //LevelsData levelsInfo = Resources.Load<LevelsData>("Assets/StackItUp/Resources/generated/"+LevelsFiles[0]);
+        //level = LevelData.TransformToLevelData(levelsInfo.AllLevels[0]);
+        //return level;
+
+        return GetComponent<LevelsManager>().GetTestLevel();
+    }
     public void LoadLevel(int level)
 	{
 		if (activeSetup != null)
@@ -121,7 +148,7 @@ public class Game : MonoBehaviour
 		currentLevel = level;
 
        // Debug.Log("file name"+ getLevelName(level));
-
+        currentLevelData = GetNextGeneratedLevel();// Resources.Load<LevelData>("Levels/" +getLevelName(level));
 //		if (isTesting)
 //		{
 //#if UNITY_EDITOR
@@ -129,7 +156,7 @@ public class Game : MonoBehaviour
 //#endif
 //		}
 //		else
-			currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+		//	currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
 
 		if (currentLevelData == null)
 		{
@@ -290,12 +317,13 @@ public class Game : MonoBehaviour
 		{
 			stack.Celebrate();
 		}
-		StartCoroutine(OnCelebrationComplete());
+		StartCoroutine("OnCelebrationComplete");
 	}
 
 	IEnumerator OnCelebrationComplete()
 	{
-		confettiSequence.RandomShoot();
+        Debug.Log("OnCelebrationComplete");
+        confettiSequence.RandomShoot();
 		yield return new WaitForSeconds(1.5f);
 		ActionManager.TriggerEvent(UIEvents.RESULT,new Hashtable() {
 			{ "event", UIEvents.RESULT},

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Types;
 using UnityEditor;
 using UnityEngine;
@@ -28,11 +29,15 @@ public class LevelsExporterEditor : EditorWindow
     private LevelsData dataObject = null;
     private LevelsData.Data selectedLevelData;
     private int selectedLevelIndex = -1;
+
+    private int configCode = 0;
     private void InitInfo()
     {
         GUIStyle style = GUI.skin.box;
         GUILayout.BeginArea(infoConfigSection);//***************************
+    
         EditorGUILayout.BeginVertical();
+
         EditorGUILayout.LabelField("Select Levels data object");
         dataObject = EditorGUILayout.ObjectField(dataObject, typeof(LevelsData),false) as LevelsData;
         if (dataObject != null)
@@ -45,18 +50,78 @@ public class LevelsExporterEditor : EditorWindow
 
         if (GUILayout.Button("Show level info"))
         {
-           if(selectedLevelIndex != -1)
+            ShowLevelInfo();
+        }
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("CONFIG CODE");
+        configCode = EditorGUILayout.IntField(configCode);
+
+        if (GUILayout.Button("Batch Export"))
+        {
+            //return fileInfo[index % fileInfo.Length].Name.Split('.')[0];
+
+            int _currentCode = configCode;
+            int pin = _currentCode / 1000;
+            _currentCode = _currentCode % 1000;
+
+            int Color = _currentCode / 100;
+            _currentCode = _currentCode % 100;
+
+            int size = _currentCode / 10;
+            int MaxMove = _currentCode % 10;
+
+            MaxMove = MaxMove == 0 ? 12 : MaxMove;
+            //string folderName = dataPath + "/" + dir + string.Format(FILE_NAME_FORMATTER, _pinCount, _uniqueColors, _tileSizes, _selectedLevel + 1)
+            for (int i = 0; i < MaxMove; i++)
             {
-                selectedLevelData = dataObject.AllLevels[selectedLevelIndex];
-                InitData();
-                showInfo = true;
+                dataObject = Resources.Load<LevelsData>(string.Format(dataPath, pin, Color, size) + string.Format(FILE_NAME_FORMATTER, pin, Color, size, i));
+
+                Debug.Log("files" + (string.Format(dataPath, pin, Color, size) + string.Format(FILE_NAME_FORMATTER, pin, Color, size, i)));
+                if (dataObject == null)
+                    continue;
+
+                for (int m = 0; m < ColorCount; m++)
+                {
+                    DiscColors[m] = colorMappingList.ColorMaps[m].name;
+                }
+
+                for (int j = 0; j < dataObject.AllLevels.Count; j++)
+                {
+                    selectedLevelIndex = j;
+                    ShowLevelInfo();
+                    SaveLevelData();
+                }
+
             }
 
         }
-        EditorGUILayout.EndVertical();
+        if (GUILayout.Button(" MOVE FILE"))
+        {
+            var info = new DirectoryInfo("Assets/StackItUp/Resources/Levels");
+            var fileInfo = info.GetFiles();
+            for (int i = 0; i < fileInfo.Length; i++)
+            {
+                fileInfo[i].MoveTo("Assets/StackItUp/Resources/MovedLevels/"+ fileInfo[i].Name);
+            }
+
+        }
+
+        EditorGUILayout.EndHorizontal();
+
         GUILayout.EndArea();//***************************
     }
 
+    private void ShowLevelInfo()
+    {
+        if (selectedLevelIndex != -1)
+        {
+            selectedLevelData = dataObject.AllLevels[selectedLevelIndex];
+            InitData();
+            showInfo = true;
+        }
+    }
     private bool showInfo = false;
     //============================================================//
     //Level config Section
@@ -250,9 +315,10 @@ public class LevelsExporterEditor : EditorWindow
                     GUILayout.Label("Unique Disc Colors");
                     GUILayout.BeginHorizontal();
                     //DiscColors = new List<Disc_Colors>(ColorCount);
+                    int colorIndex = 0;
                     while (DiscColors.Count < ColorCount)
                     {
-                        DiscColors.Add(Types.DiscColors.BLUE);
+                        DiscColors.Add(colorMappingList.ColorMaps[colorIndex++].name);
                     }
 
                     for (int i = 0; i < ColorCount; i++)
@@ -381,10 +447,14 @@ public class LevelsExporterEditor : EditorWindow
         {
             SaveLevelData();
         }
+
+       
+
         EditorGUILayout.EndVertical();
         GUILayout.EndArea();//***************************
     }
-
+    private string dataPath = "generated/{0}Pin{1}Colors{2}Size";
+    string FILE_NAME_FORMATTER = "/{0}Pin{1}Colors{2}Size{3}Moves";
     private void DrawPinState(int index)
     {
       
@@ -495,10 +565,36 @@ public class LevelsExporterEditor : EditorWindow
         }
         return null;
     }
+    int poolIndex = 0;
+    FileInfo[] pooledObjects = null;
+    private LevelData GetPooledLevelData(string fileName)
+    {
+        if(pooledObjects == null)
+        {
+            var info = new DirectoryInfo("Assets/StackItUp/Resources/Pool");
+            pooledObjects = info.GetFiles();
 
+        }
+
+        if (pooledObjects.Length>0)
+        {
+            var file=  pooledObjects[0];
+            //fileInfo[i].MoveTo("Assets/StackItUp/Resources/MovedLevels/" + fileInfo[i].Name);
+            Debug.Log("file"+file.FullName);
+            file.MoveTo("Assets/StackItUp/Resources/Levels/" + fileName+".asset" );
+            levelData = Resources.Load<LevelData>("Levels/" + fileName);
+        }
+        else
+        {
+            levelData = (LevelData)ScriptableObject.CreateInstance("LevelData");
+            AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
+        }
+
+        return levelData;
+    }
     private void SaveLevelData(bool isOverride = false)
     {
-        Debug.Log("SaveLevelData**");
+        //Debug.Log("SaveLevelData**");
         //VALIDATIONS
         //if (stackData == null)
         //{
@@ -506,21 +602,21 @@ public class LevelsExporterEditor : EditorWindow
         //    Debug.LogError("STACK DATA MISSING");
         //    return;
         //}
-        Debug.Log("stackData SaveLevelData**");
+        //Debug.Log("stackData SaveLevelData**");
         if (ColorCount == 0)
         {
             PopupWindow.ShowWindow("STACK COUNT CAN'T BE ZERO");
             Debug.LogError("STACK COUNT CAN'T BE ZERO");
             return;
         }
-        Debug.Log("MAX_DISC SaveLevelData**");
+        //Debug.Log("MAX_DISC SaveLevelData**");
         if (MAX_DISC == 0)
         {
             PopupWindow.ShowWindow("DISC COUNT CAN'T BE ZERO");
             Debug.LogError("DISC COUNT CAN'T BE ZERO");
             return;
         }
-        Debug.Log("DiscColors SaveLevelData**");
+       // Debug.Log("DiscColors SaveLevelData**");
         if (DiscColors.Count == 0)
         {
             PopupWindow.ShowWindow("COLORS COUNT CAN'T BE ZERO");
@@ -541,7 +637,7 @@ public class LevelsExporterEditor : EditorWindow
         //        }
         //    }
         //}
-        Debug.Log("PinConfigs SaveLevelData**");
+       // Debug.Log("PinConfigs SaveLevelData**");
         if (PinConfigs.Count == 0)
         {
             PopupWindow.ShowWindow("ARRANGE PINS FOR THE LEVEL");
@@ -549,7 +645,7 @@ public class LevelsExporterEditor : EditorWindow
             return;
         }
         levelData = GetLevelFromResources();
-        Debug.Log("level data"+(levelData == null));
+       // Debug.Log("level data"+(levelData == null));
         string fileName = dataObject.name + "_" + selectedLevelIndex;
         if (isOverride == false && null != levelData)
         {
@@ -558,10 +654,11 @@ public class LevelsExporterEditor : EditorWindow
         }
         else if (isOverride || levelData == null)
         {
-            levelData = (LevelData)ScriptableObject.CreateInstance("LevelData");
-            AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
+
+            levelData = GetPooledLevelData(fileName);// (LevelData)ScriptableObject.CreateInstance("LevelData");
+           // AssetDatabase.CreateAsset(levelData, SavedLevelDataPath + fileName + ".asset");
         }
-        Debug.Log("string level data" + (levelData.ToString()) + " path "+ SavedLevelDataPath + dataObject.name + "_" + selectedLevelIndex + ".asset");
+       // Debug.Log("string level data" + (levelData.ToString()) + " path "+ SavedLevelDataPath + dataObject.name + "_" + selectedLevelIndex + ".asset");
         //levelData.stack = stackData;
 
         levelData.stackCount = ColorCount;

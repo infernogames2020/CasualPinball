@@ -29,17 +29,24 @@ public class Generator : EditorWindow
     int selectedIndex = 0;
     string DIRECTORY_NAME_FORMATTER = "{0}Pin{1}Colors{2}Size";
     string FILE_NAME_FORMATTER = "/{0}Pin{1}Colors{2}Size{3}Moves.asset";
+
+    public ColorMaterialMap colorMappingList;
+
+    private void ResetGenerator()
+    {
+        loopCount = 0;
+        generatedLevels.Clear();
+        _defaultPinSetup.Clear();
+        LevelMap.Clear();
+        count = 0;
+    }
     private void InitInfo()
     {
         GUIStyle style = GUI.skin.box;
         EditorGUILayout.BeginVertical(style);
         if (GUILayout.Button("Reset"))
         {
-            loopCount = 0;
-            generatedLevels.Clear();
-            _defaultPinSetup.Clear();
-            LevelMap.Clear();
-            count = 0;
+            ResetGenerator();
         }
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("PINS");
@@ -54,15 +61,15 @@ public class Generator : EditorWindow
         _tileSizes = EditorGUILayout.IntField(_tileSizes);
         MAX_TILE_LIMIT = _tileSizes + 2;
         EditorGUILayout.EndHorizontal();
-       
-         EditorGUILayout.BeginVertical();
+        colorMappingList = Resources.Load<ColorMaterialMap>("ColorMaterialMapData");
+        EditorGUILayout.BeginVertical();
         EditorGUILayout.LabelField("CHOOSE COLORS");
         EditorGUILayout.BeginHorizontal();
         if(_colors.Length < _uniqueColors)
         {
           _colors = new DiscColors[_uniqueColors];
             for (int i = 0; i < _uniqueColors; i++)
-                _colors[i] = DiscColors.BLUE;
+                _colors[i] = colorMappingList.ColorMaps[i].name;
         }
         for (int i =0;i<_uniqueColors;i++)
             _colors[i] = (Types.DiscColors)EditorGUILayout.EnumPopup(_colors[i]);
@@ -125,6 +132,21 @@ public class Generator : EditorWindow
         selectedIndex = EditorGUILayout.Popup("MOVE INDEX", selectedIndex, moveIndices);
         if (GUILayout.Button("GENERATE LEVEL"))
         {
+            GenerateButtonTapped(selectedIndex);
+        }
+      
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.EndVertical();
+    }
+  
+    private void GenerateButtonTapped(int maxMoves)
+    {
+
+        ResetGenerator();
+        InitDefaultStates();
+        for (int _selectedLevel = 0; _selectedLevel <= maxMoves; _selectedLevel++)
+        {
             currentMoveIndexLevels = new List<GeneratedLevel>();
             if (generatedLevels.Count == 0)
                 GenerateLevel(0, _defaultPinSetup, new List<Moves>(), InitDefaultStates());
@@ -141,7 +163,7 @@ public class Generator : EditorWindow
                 int max = 0; //generatedLevels.Count;
                 foreach (var e in generatedLevels)
                 {
-                    if (e.AppliedMoves.Count == selectedIndex)
+                    if (e.AppliedMoves.Count == _selectedLevel)
                         max++;
                 }
                 int skipIndex = 1;
@@ -149,17 +171,17 @@ public class Generator : EditorWindow
                 {
                     skipIndex = (max / MAX_LEVELS_PER_MOVE) + 1;
                 }
-                Debug.LogError("skip"+skipIndex);
+                Debug.LogError("skip" + skipIndex);
                 int i = generatedLevels.Count - 1;
-                while (i >= 0 && generatedLevels[i].AppliedMoves.Count == selectedIndex)
+                while (i >= 0 && generatedLevels[i].AppliedMoves.Count == _selectedLevel)
                 {
-                    GenerateLevel(selectedIndex, generatedLevels[i].PinConfigs, generatedLevels[i].AppliedMoves, generatedLevels[i]);
+                    GenerateLevel(_selectedLevel, generatedLevels[i].PinConfigs, generatedLevels[i].AppliedMoves, generatedLevels[i]);
                     i = i - skipIndex;
                 }
 
             }
             //for(int k = 0;k< currentMoveIndexLevels.Count; k = k + 10)
-            if(currentMoveIndexLevels.Count > 0)
+            if (currentMoveIndexLevels.Count > 0)
             {
                 LevelsData data = new LevelsData();
                 data.AllLevels = new List<LevelsData.Data>();
@@ -169,19 +191,15 @@ public class Generator : EditorWindow
                     data.AllLevels.Add(new LevelsData.Data(currentMoveIndexLevels[i].PinConfigs, currentMoveIndexLevels[i].AppliedMoves, currentMoveIndexLevels[i].uniqueColors, currentMoveIndexLevels[i].pins, currentMoveIndexLevels[i].tileSizes));
                 }
                 string dir = string.Format(DIRECTORY_NAME_FORMATTER, _pinCount, _uniqueColors, _tileSizes);
-                if(false == AssetDatabase.IsValidFolder(dataPath+"/" + dir) )
+                if (false == AssetDatabase.IsValidFolder(dataPath + "/" + dir))
                     AssetDatabase.CreateFolder(dataPath, dir);
-                AssetDatabase.CreateAsset(data, dataPath+"/"+dir + string.Format(FILE_NAME_FORMATTER, _pinCount, _uniqueColors, _tileSizes,selectedIndex+1));
-                Debug.Log("LEVEL COUNT" + generatedLevels.Count + "selectedIndex" + selectedIndex + "data :" + data.AllLevels.Count);
-            }
-          
-        }
-      
-        EditorGUILayout.EndHorizontal();
+                AssetDatabase.CreateAsset(data, dataPath + "/" + dir + string.Format(FILE_NAME_FORMATTER, _pinCount, _uniqueColors, _tileSizes, _selectedLevel + 1));
+                Debug.Log("LEVEL COUNT" + generatedLevels.Count + "selectedIndex" + _selectedLevel + "data :" + data.AllLevels.Count);
 
-        EditorGUILayout.EndVertical();
+            }
+        }
+
     }
-  
     List<GeneratedLevel> generatedLevels = new List<GeneratedLevel>();
     private List<GeneratedLevel> currentMoveIndexLevels = null;
     private static int loopCount = 0;
@@ -191,9 +209,10 @@ public class Generator : EditorWindow
 
         Moves move ;
         int maxPinCount = Mathf.Min(index+2, _pinCount);
-        for (int i = 0; i < maxPinCount; i++)//Move from
+
+        for (int i = 0; i < _pinCount; i++)//Move from
         {
-            for(int j = 0; j < maxPinCount; j++)//Move to
+            for(int j = 0; j < _pinCount; j++)//Move to
             {
                 if (i == j)
                     continue;
@@ -231,12 +250,18 @@ public class Generator : EditorWindow
                 //GeneratedLevel lvl = SerializeLevel(pins: _pinCount, uniqueColors: _uniqueColors, tileSizes: _tileSizes, move,_pinSetup, _moves ,lv);
 
                 string key = lvl.GetHashKey();
-                if (false == LevelMap.Contains(key))
+                if (i < maxPinCount && j< maxPinCount&& false == LevelMap.Contains(key))
                 {
                     LevelMap.Add(key);
                     generatedLevels.Add(lvl);
                     currentMoveIndexLevels.Add(lvl);
                 }
+                else if(false == LevelMap.Contains(key))
+                {
+                    LevelMap.Add(key);
+                    Debug.Log("Adding dummy maps!!!");
+                }
+
                 else
                 {
                     Debug.Log("DuplicateFound!!!");
@@ -244,6 +269,8 @@ public class Generator : EditorWindow
                
             }
         }
+
+
 //        Debug.Log("generatedLevels "+ generatedLevels.Count);
         if(currentMoveIndexLevels.Count == 0)
         {

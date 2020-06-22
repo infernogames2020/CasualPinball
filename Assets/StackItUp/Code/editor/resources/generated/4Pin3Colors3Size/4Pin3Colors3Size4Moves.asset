@@ -929,59 +929,6 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
       to: 0
       tile:
         colorIndex: 1
@@ -1070,60 +1017,7 @@ MonoBehaviour:
       - colorIndex: 1
         size: 3
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 1
       tiles: []
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2625,7 +2519,7 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 1
-      to: 3
+      to: 2
       tile:
         colorIndex: 1
         size: 3
@@ -2657,10 +2551,10 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-    - pinIndex: 3
-      tiles:
       - colorIndex: 1
         size: 3
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2678,12 +2572,12 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 1
-      to: 3
+      to: 2
       tile:
         colorIndex: 1
         size: 3
     - from: 0
-      to: 3
+      to: 2
       tile:
         colorIndex: 1
         size: 2
@@ -2708,12 +2602,12 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-    - pinIndex: 3
-      tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2726,20 +2620,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 1
-      to: 0
+      to: 2
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
+    - from: 2
       to: 3
       tile:
         colorIndex: 1
-        size: 3
-    - from: 2
-      to: 1
+        size: 2
+    - from: 1
+      to: 0
       tile:
-        colorIndex: 2
-        size: 1
+        colorIndex: 1
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -2752,21 +2646,21 @@ MonoBehaviour:
       - colorIndex: 1
         size: 1
       - colorIndex: 1
-        size: 2
+        size: 3
     - pinIndex: 1
-      tiles:
-      - colorIndex: 2
-        size: 1
+      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
         size: 2
+      - colorIndex: 2
+        size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 1
-        size: 3
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2779,20 +2673,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 1
-      to: 0
+      to: 2
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
+    - from: 2
       to: 3
       tile:
         colorIndex: 1
-        size: 3
-    - from: 2
+        size: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 2
-        size: 1
+        colorIndex: 1
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -2804,8 +2698,6 @@ MonoBehaviour:
         size: 1
       - colorIndex: 1
         size: 1
-      - colorIndex: 1
-        size: 2
     - pinIndex: 1
       tiles: []
     - pinIndex: 2
@@ -2814,12 +2706,14 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
+      - colorIndex: 2
+        size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 1
+        size: 2
+      - colorIndex: 1
         size: 3
-      - colorIndex: 2
-        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2831,21 +2725,21 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 2
     - from: 1
       to: 2
       tile:
         colorIndex: 1
-        size: 3
-    - from: 0
-      to: 1
+        size: 2
+    - from: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 2
+    - from: 2
+      to: 3
+      tile:
+        colorIndex: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -2860,19 +2754,19 @@ MonoBehaviour:
     - pinIndex: 1
       tiles:
       - colorIndex: 1
-        size: 2
+        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
+        size: 2
+    - pinIndex: 3
+      tiles:
+      - colorIndex: 1
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 3
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2885,7 +2779,7 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 1
-      to: 0
+      to: 2
       tile:
         colorIndex: 1
         size: 2
@@ -2895,10 +2789,10 @@ MonoBehaviour:
         colorIndex: 1
         size: 3
     - from: 0
-      to: 2
+      to: 1
       tile:
         colorIndex: 1
-        size: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -2908,10 +2802,10 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
+    - pinIndex: 1
+      tiles:
       - colorIndex: 1
         size: 1
-    - pinIndex: 1
-      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -2921,9 +2815,9 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
       - colorIndex: 1
-        size: 3
-      - colorIndex: 1
         size: 2
+      - colorIndex: 1
+        size: 3
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -2937,21 +2831,21 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 2
     - from: 1
       to: 2
       tile:
         colorIndex: 1
-        size: 3
+        size: 2
     - from: 0
       to: 3
       tile:
         colorIndex: 1
-        size: 2
+        size: 1
+    - from: 0
+      to: 1
+      tile:
+        colorIndex: 0
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -2959,12 +2853,12 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
+    - pinIndex: 1
+      tiles:
       - colorIndex: 1
+        size: 3
+      - colorIndex: 0
         size: 1
-    - pinIndex: 1
-      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -2974,11 +2868,11 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
       - colorIndex: 1
-        size: 3
+        size: 2
     - pinIndex: 3
       tiles:
       - colorIndex: 1
-        size: 2
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -2995,16 +2889,16 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 2
+    - from: 0
       to: 3
       tile:
         colorIndex: 1
-        size: 2
-    - from: 1
-      to: 0
+        size: 1
+    - from: 0
+      to: 2
       tile:
-        colorIndex: 1
-        size: 3
+        colorIndex: 0
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3012,14 +2906,10 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
+    - pinIndex: 1
+      tiles:
       - colorIndex: 1
         size: 3
-    - pinIndex: 1
-      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3027,11 +2917,15 @@ MonoBehaviour:
       - colorIndex: 2
         size: 2
       - colorIndex: 2
+        size: 1
+      - colorIndex: 1
+        size: 2
+      - colorIndex: 0
         size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 1
-        size: 2
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3048,68 +2942,15 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 1
+    - from: 0
       to: 3
-      tile:
-        colorIndex: 1
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 2
+    - from: 0
       to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 0
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -3118,10 +2959,6 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -3130,14 +2967,18 @@ MonoBehaviour:
       tiles:
       - colorIndex: 2
         size: 3
+      - colorIndex: 2
+        size: 2
       - colorIndex: 2
+        size: 1
+      - colorIndex: 1
         size: 2
     - pinIndex: 3
       tiles:
       - colorIndex: 1
-        size: 2
-      - colorIndex: 2
         size: 1
+      - colorIndex: 0
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3154,69 +2995,16 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 3
     - from: 0
-      to: 1
+      to: 3
       tile:
         colorIndex: 1
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
     - from: 1
       to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 1
-      to: 3
       tile:
         colorIndex: 1
         size: 3
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3226,6 +3014,8 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
+      - colorIndex: 1
+        size: 3
     - pinIndex: 1
       tiles: []
     - pinIndex: 2
@@ -3238,12 +3028,10 @@ MonoBehaviour:
         size: 1
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
-        size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 1
-        size: 3
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3260,16 +3048,16 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
+    - from: 0
       to: 3
       tile:
         colorIndex: 1
-        size: 3
-    - from: 0
+        size: 1
+    - from: 1
       to: 3
       tile:
         colorIndex: 1
-        size: 1
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3293,10 +3081,10 @@ MonoBehaviour:
         size: 2
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
-        size: 3
       - colorIndex: 1
         size: 1
+      - colorIndex: 1
+        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3313,15 +3101,15 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
+    - from: 0
       to: 2
       tile:
         colorIndex: 1
-        size: 3
+        size: 1
     - from: 0
       to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 0
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -3330,11 +3118,11 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
+        size: 3
+      - colorIndex: 0
         size: 1
     - pinIndex: 2
       tiles:
@@ -3347,7 +3135,7 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
       - colorIndex: 1
-        size: 3
+        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -3366,15 +3154,15 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
-    - from: 1
+    - from: 0
       to: 2
       tile:
         colorIndex: 1
-        size: 3
+        size: 1
     - from: 0
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 0
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -3383,10 +3171,10 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
     - pinIndex: 1
-      tiles: []
+      tiles:
+      - colorIndex: 1
+        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3398,10 +3186,10 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
       - colorIndex: 1
-        size: 3
+        size: 1
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
+      - colorIndex: 0
         size: 1
     IsExported: 0
     ExportedFileName: 
@@ -3419,16 +3207,16 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 2
+    - from: 0
+      to: 2
+      tile:
+        colorIndex: 1
+        size: 1
     - from: 1
       to: 0
       tile:
         colorIndex: 1
         size: 3
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3437,15 +3225,11 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
-        size: 1
-      - colorIndex: 1
         size: 1
       - colorIndex: 1
         size: 3
     - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 2
+      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3453,6 +3237,10 @@ MonoBehaviour:
       - colorIndex: 2
         size: 2
       - colorIndex: 2
+        size: 1
+      - colorIndex: 1
+        size: 2
+      - colorIndex: 1
         size: 1
     - pinIndex: 3
       tiles: []
@@ -3473,7 +3261,7 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 0
-      to: 3
+      to: 1
       tile:
         colorIndex: 1
         size: 1
@@ -3493,6 +3281,8 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
+      - colorIndex: 1
+        size: 1
       - colorIndex: 0
         size: 1
     - pinIndex: 2
@@ -3506,9 +3296,7 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
     - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3526,7 +3314,7 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 0
-      to: 3
+      to: 1
       tile:
         colorIndex: 1
         size: 1
@@ -3546,6 +3334,8 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
+      - colorIndex: 1
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3559,9 +3349,7 @@ MonoBehaviour:
       - colorIndex: 0
         size: 1
     - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3579,7 +3367,7 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 0
-      to: 3
+      to: 1
       tile:
         colorIndex: 1
         size: 1
@@ -3599,6 +3387,8 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
+      - colorIndex: 1
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3611,8 +3401,6 @@ MonoBehaviour:
         size: 2
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
-        size: 1
       - colorIndex: 0
         size: 1
     IsExported: 0
@@ -3632,15 +3420,15 @@ MonoBehaviour:
         colorIndex: 1
         size: 2
     - from: 0
-      to: 3
+      to: 1
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 0
+    - from: 2
+      to: 1
       tile:
         colorIndex: 1
-        size: 3
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3650,10 +3438,14 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
+    - pinIndex: 1
+      tiles:
       - colorIndex: 1
         size: 3
-    - pinIndex: 1
-      tiles: []
+      - colorIndex: 1
+        size: 1
+      - colorIndex: 1
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -3662,12 +3454,8 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 2
     - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -3679,21 +3467,21 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 2
+    - from: 2
+      to: 0
       tile:
-        colorIndex: 1
+        colorIndex: 2
+        size: 1
+    - from: 2
+      to: 3
+      tile:
+        colorIndex: 2
         size: 2
     - from: 0
-      to: 3
+      to: 2
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -3702,820 +3490,25 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
+        size: 1
+      - colorIndex: 1
         size: 1
     - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 1
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 1
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 3
-    - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 1
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 1
-        size: 2
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 2
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 1
-        size: 2
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 2
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 1
-        size: 2
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 2
-        size: 3
-    - pinIndex: 2
-      tiles: []
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
     - pinIndex: 2
-      tiles: []
-    - pinIndex: 3
       tiles:
-      - colorIndex: 2
-        size: 2
       - colorIndex: 2
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
         size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 2
-        size: 2
-      - colorIndex: 2
         size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 2
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
       tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 2
         size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -4533,7 +3526,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -4558,8 +3551,6 @@ MonoBehaviour:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
-        size: 2
-      - colorIndex: 2
         size: 2
     - pinIndex: 2
       tiles:
@@ -4567,6 +3558,8 @@ MonoBehaviour:
         size: 3
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 2
       - colorIndex: 2
         size: 1
     IsExported: 0
@@ -4586,15 +3579,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
-    - from: 2
-      to: 1
+    - from: 1
+      to: 2
       tile:
-        colorIndex: 2
-        size: 3
+        colorIndex: 1
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -4610,71 +3603,18 @@ MonoBehaviour:
         size: 1
     - pinIndex: 1
       tiles:
-      - colorIndex: 1
-        size: 3
       - colorIndex: 1
-        size: 2
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
         size: 3
     - pinIndex: 2
-      tiles: []
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
       tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
       - colorIndex: 2
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
         size: 3
       - colorIndex: 1
-        size: 2
-      - colorIndex: 2
         size: 2
-    - pinIndex: 2
-      tiles: []
     - pinIndex: 3
       tiles:
       - colorIndex: 2
-        size: 3
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -4691,16 +3631,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
+    - from: 2
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
     - from: 1
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
-        size: 3
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -4715,17 +3655,17 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
     - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 3
+    - pinIndex: 2
+      tiles:
       - colorIndex: 2
-        size: 2
-      - colorIndex: 1
         size: 3
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 2
       - colorIndex: 1
         size: 2
     IsExported: 0
@@ -4744,15 +3684,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
+    - from: 2
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
-    - from: 1
-      to: 3
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 3
     PinConfigs:
     - pinIndex: 0
@@ -4768,19 +3708,19 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
     - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 3
-      - colorIndex: 2
+      - colorIndex: 1
         size: 2
+      - colorIndex: 2
+        size: 3
+    - pinIndex: 2
+      tiles: []
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
+      - colorIndex: 2
         size: 2
-      - colorIndex: 1
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -4797,16 +3737,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
+    - from: 2
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
-        size: 2
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -4824,16 +3764,16 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
-      - colorIndex: 2
+      - colorIndex: 1
         size: 2
     - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
+      tiles: []
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
+      - colorIndex: 2
         size: 2
+      - colorIndex: 2
+        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -4850,16 +3790,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 2
     - from: 2
-      to: 3
+      to: 1
       tile:
         colorIndex: 2
         size: 2
+    - from: 0
+      to: 1
+      tile:
+        colorIndex: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -4870,23 +3810,23 @@ MonoBehaviour:
       - colorIndex: 0
         size: 1
       - colorIndex: 1
-        size: 1
-      - colorIndex: 2
         size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
+      - colorIndex: 1
+        size: 2
+      - colorIndex: 2
+        size: 2
+      - colorIndex: 2
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 2
-        size: 2
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -4903,10 +3843,10 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 2
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
     - from: 0
       to: 2
@@ -4928,14 +3868,14 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
+      - colorIndex: 1
+        size: 2
+      - colorIndex: 2
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 1
-        size: 2
       - colorIndex: 2
         size: 1
     - pinIndex: 3
@@ -4956,16 +3896,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 2
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
-    - from: 1
-      to: 2
+    - from: 0
+      to: 3
       tile:
-        colorIndex: 1
-        size: 3
+        colorIndex: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -4976,23 +3916,23 @@ MonoBehaviour:
       - colorIndex: 0
         size: 1
       - colorIndex: 1
-        size: 1
-      - colorIndex: 2
         size: 1
     - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 3
-      - colorIndex: 2
-        size: 2
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
+      - colorIndex: 2
+        size: 2
+    - pinIndex: 2
+      tiles:
+      - colorIndex: 2
         size: 3
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5009,15 +3949,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 2
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 2
-    - from: 1
-      to: 3
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 3
     PinConfigs:
     - pinIndex: 0
@@ -5033,19 +3973,19 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
     - pinIndex: 1
-      tiles: []
-    - pinIndex: 2
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 3
-      - colorIndex: 2
-        size: 2
       - colorIndex: 1
         size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 1
+      - colorIndex: 2
+        size: 2
+      - colorIndex: 2
         size: 3
+    - pinIndex: 2
+      tiles: []
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5058,20 +3998,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
-    - from: 0
-      to: 1
+    - from: 1
+      to: 2
       tile:
         colorIndex: 1
-        size: 1
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5081,23 +4021,23 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
       - colorIndex: 1
-        size: 2
-      - colorIndex: 2
         size: 1
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
+    - pinIndex: 1
+      tiles: []
     - pinIndex: 2
       tiles:
+      - colorIndex: 2
+        size: 3
       - colorIndex: 2
+        size: 2
+      - colorIndex: 1
         size: 3
     - pinIndex: 3
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 2
     IsExported: 0
     ExportedFileName: 
@@ -5111,20 +4051,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
-    - from: 0
-      to: 2
+    - from: 1
+      to: 3
       tile:
         colorIndex: 1
-        size: 1
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5134,24 +4074,24 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
       - colorIndex: 1
-        size: 2
+        size: 1
       - colorIndex: 2
         size: 1
+    - pinIndex: 1
+      tiles: []
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 1
-        size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 3
       tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 2
+      - colorIndex: 1
+        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5164,20 +4104,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
-    - from: 0
-      to: 3
+    - from: 2
+      to: 1
       tile:
-        colorIndex: 1
-        size: 1
+        colorIndex: 2
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5186,25 +4126,25 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
+        size: 1
+      - colorIndex: 1
+        size: 1
+      - colorIndex: 2
         size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 2
-        size: 1
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
       tiles:
-      - colorIndex: 2
-        size: 2
       - colorIndex: 1
-        size: 1
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5217,20 +4157,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
-        size: 3
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5243,19 +4183,19 @@ MonoBehaviour:
       - colorIndex: 1
         size: 1
       - colorIndex: 2
-        size: 3
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 2
-        size: 1
     - pinIndex: 2
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 3
     - pinIndex: 3
       tiles:
+      - colorIndex: 1
+        size: 2
       - colorIndex: 2
         size: 2
     IsExported: 0
@@ -5270,20 +4210,20 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
-      to: 3
+    - from: 1
+      to: 2
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
-    - from: 2
-      to: 1
+    - from: 0
+      to: 2
       tile:
         colorIndex: 2
-        size: 3
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5298,19 +4238,19 @@ MonoBehaviour:
     - pinIndex: 1
       tiles:
       - colorIndex: 1
+        size: 3
+    - pinIndex: 2
+      tiles:
+      - colorIndex: 2
         size: 3
+      - colorIndex: 2
+        size: 2
       - colorIndex: 1
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 3
-    - pinIndex: 2
-      tiles: []
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 2
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5323,19 +4263,19 @@ MonoBehaviour:
         colorIndex: 1
         size: 1
     - from: 2
-      to: 1
+      to: 0
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
-      to: 3
+    - from: 1
+      to: 2
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 2
-    - from: 2
-      to: 3
+    - from: 1
+      to: 2
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 3
     PinConfigs:
     - pinIndex: 0
@@ -5348,22 +4288,22 @@ MonoBehaviour:
         size: 1
       - colorIndex: 1
         size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 2
         size: 1
-    - pinIndex: 2
+    - pinIndex: 1
       tiles: []
-    - pinIndex: 3
+    - pinIndex: 2
       tiles:
       - colorIndex: 2
-        size: 2
+        size: 3
       - colorIndex: 2
+        size: 2
+      - colorIndex: 1
+        size: 2
+      - colorIndex: 1
         size: 3
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5381,7 +4321,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5407,8 +4347,6 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
       - colorIndex: 1
         size: 1
     - pinIndex: 2
@@ -5416,7 +4354,9 @@ MonoBehaviour:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5434,7 +4374,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5460,8 +4400,6 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -5469,7 +4407,9 @@ MonoBehaviour:
       - colorIndex: 1
         size: 1
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5487,7 +4427,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5513,14 +4453,14 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 2
       - colorIndex: 1
         size: 1
     IsExported: 0
@@ -5540,7 +4480,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5570,12 +4510,12 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5593,7 +4533,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5621,14 +4561,14 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
       - colorIndex: 2
         size: 3
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5646,7 +4586,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 2
@@ -5674,13 +4614,13 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
       tiles:
       - colorIndex: 2
+        size: 2
+      - colorIndex: 2
         size: 3
     IsExported: 0
     ExportedFileName: 
@@ -5699,14 +4639,14 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 2
         size: 2
-    - from: 1
-      to: 2
+    - from: 0
+      to: 1
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -5716,23 +4656,23 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
-        size: 1
-      - colorIndex: 1
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
+        size: 2
+      - colorIndex: 2
+        size: 1
+      - colorIndex: 2
         size: 2
+      - colorIndex: 1
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -5752,14 +4692,14 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 2
         size: 2
-    - from: 1
-      to: 3
+    - from: 0
+      to: 2
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -5769,25 +4709,25 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
-        size: 1
-      - colorIndex: 1
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
+        size: 2
+      - colorIndex: 2
+        size: 1
+      - colorIndex: 2
         size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
+      - colorIndex: 1
         size: 1
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5805,15 +4745,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 2
         size: 2
-    - from: 2
-      to: 1
+    - from: 0
+      to: 3
       tile:
-        colorIndex: 2
-        size: 3
+        colorIndex: 1
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5822,11 +4762,7 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
-        size: 1
-      - colorIndex: 1
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -5836,11 +4772,15 @@ MonoBehaviour:
       - colorIndex: 2
         size: 1
       - colorIndex: 2
-        size: 3
+        size: 2
     - pinIndex: 2
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 3
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 1
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5858,12 +4798,12 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 2
         size: 2
     - from: 2
-      to: 3
+      to: 0
       tile:
         colorIndex: 2
         size: 3
@@ -5879,7 +4819,7 @@ MonoBehaviour:
       - colorIndex: 1
         size: 1
       - colorIndex: 2
-        size: 2
+        size: 3
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -5888,12 +4828,12 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5910,16 +4850,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
+    - from: 2
+      to: 1
       tile:
         colorIndex: 2
-        size: 1
-    - from: 0
+        size: 2
+    - from: 2
       to: 1
       tile:
-        colorIndex: 1
-        size: 1
+        colorIndex: 2
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -5929,24 +4869,24 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
+      - colorIndex: 1
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
       - colorIndex: 2
-        size: 3
+        size: 1
       - colorIndex: 2
         size: 2
-    - pinIndex: 3
-      tiles:
       - colorIndex: 2
-        size: 1
+        size: 3
+    - pinIndex: 2
+      tiles: []
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -5963,15 +4903,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
+    - from: 2
+      to: 0
       tile:
         colorIndex: 2
-        size: 1
-    - from: 0
+        size: 2
+    - from: 1
       to: 2
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -5981,7 +4921,11 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
+        size: 1
+      - colorIndex: 1
         size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -5993,13 +4937,9 @@ MonoBehaviour:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
-        size: 2
-      - colorIndex: 1
         size: 1
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6016,15 +4956,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
+    - from: 2
+      to: 0
       tile:
         colorIndex: 2
-        size: 1
-    - from: 0
+        size: 2
+    - from: 1
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -6034,7 +4974,11 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
+        size: 1
+      - colorIndex: 1
         size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -6045,14 +4989,10 @@ MonoBehaviour:
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
     - pinIndex: 3
       tiles:
       - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6069,16 +5009,16 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 3
+    - from: 2
+      to: 0
       tile:
         colorIndex: 2
-        size: 1
+        size: 2
     - from: 2
-      to: 3
+      to: 1
       tile:
         colorIndex: 2
-        size: 2
+        size: 3
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6090,54 +5030,7 @@ MonoBehaviour:
         size: 1
       - colorIndex: 1
         size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
       - colorIndex: 2
-        size: 3
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 2
-        size: 2
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 1
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
         size: 2
     - pinIndex: 1
       tiles:
@@ -6146,19 +5039,13 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
       - colorIndex: 2
-        size: 1
-      - colorIndex: 0
         size: 1
-    - pinIndex: 2
-      tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
+    - pinIndex: 2
+      tiles: []
     - pinIndex: 3
-      tiles:
-      - colorIndex: 1
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6175,15 +5062,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 0
+    - from: 1
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 1
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -6192,13 +5079,15 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
+      - colorIndex: 1
         size: 1
     - pinIndex: 2
       tiles:
@@ -6206,11 +5095,9 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 0
-        size: 1
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
     IsExported: 0
     ExportedFileName: 
@@ -6228,15 +5115,15 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 0
+    - from: 1
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
     - from: 0
-      to: 3
+      to: 2
       tile:
-        colorIndex: 0
+        colorIndex: 1
         size: 1
     PinConfigs:
     - pinIndex: 0
@@ -6245,25 +5132,25 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
         size: 2
-    - pinIndex: 3
-      tiles:
       - colorIndex: 1
         size: 1
-      - colorIndex: 0
+    - pinIndex: 3
+      tiles:
+      - colorIndex: 2
         size: 1
     IsExported: 0
     ExportedFileName: 
@@ -6278,6 +5165,11 @@ MonoBehaviour:
         size: 1
     - from: 2
       to: 1
+      tile:
+        colorIndex: 2
+        size: 1
+    - from: 1
+      to: 3
       tile:
         colorIndex: 2
         size: 1
@@ -6286,11 +5178,6 @@ MonoBehaviour:
       tile:
         colorIndex: 1
         size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6300,22 +5187,22 @@ MonoBehaviour:
         size: 2
       - colorIndex: 0
         size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
+      - colorIndex: 2
+        size: 2
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 1
       - colorIndex: 1
         size: 1
     IsExported: 0
@@ -6334,10 +5221,10 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 0
+    - from: 1
       to: 3
       tile:
-        colorIndex: 1
+        colorIndex: 2
         size: 1
     - from: 2
       to: 3
@@ -6352,6 +5239,8 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
       - colorIndex: 0
+        size: 1
+      - colorIndex: 1
         size: 1
     - pinIndex: 1
       tiles:
@@ -6359,15 +5248,13 @@ MonoBehaviour:
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
       tiles:
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
       - colorIndex: 2
         size: 2
@@ -6388,7 +5275,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 1
@@ -6420,10 +5307,10 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
+    - pinIndex: 3
+      tiles:
       - colorIndex: 1
         size: 1
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6441,7 +5328,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 1
@@ -6471,12 +5358,12 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 1
-        size: 1
       - colorIndex: 0
         size: 1
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 1
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6494,7 +5381,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 1
@@ -6524,10 +5411,10 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 1
-        size: 1
     - pinIndex: 3
       tiles:
+      - colorIndex: 1
+        size: 1
       - colorIndex: 0
         size: 1
     IsExported: 0
@@ -6547,15 +5434,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
+    - from: 2
       to: 0
       tile:
         colorIndex: 2
-        size: 1
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6566,23 +5453,23 @@ MonoBehaviour:
       - colorIndex: 0
         size: 1
       - colorIndex: 2
-        size: 1
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
+      - colorIndex: 2
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
+    - pinIndex: 3
+      tiles:
       - colorIndex: 1
         size: 1
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6600,15 +5487,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 2
+      to: 3
       tile:
         colorIndex: 1
         size: 1
-    - from: 1
-      to: 2
+    - from: 2
+      to: 3
       tile:
         colorIndex: 2
-        size: 1
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6624,18 +5511,18 @@ MonoBehaviour:
         size: 3
       - colorIndex: 1
         size: 2
+      - colorIndex: 2
+        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
+    - pinIndex: 3
+      tiles:
       - colorIndex: 1
         size: 1
       - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles: []
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -6653,7 +5540,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 1
         size: 1
@@ -6677,8 +5564,6 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 1
       - colorIndex: 0
         size: 1
     - pinIndex: 2
@@ -6687,6 +5572,8 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
+      - colorIndex: 1
+        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -6706,7 +5593,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 1
         size: 1
@@ -6729,8 +5616,6 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
       - colorIndex: 2
-        size: 1
-      - colorIndex: 1
         size: 1
     - pinIndex: 2
       tiles:
@@ -6738,6 +5623,8 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
+      - colorIndex: 1
+        size: 1
       - colorIndex: 0
         size: 1
     - pinIndex: 3
@@ -6759,7 +5646,7 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 1
         size: 1
@@ -6783,14 +5670,14 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 1
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
         size: 2
+      - colorIndex: 1
+        size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 0
@@ -6812,15 +5699,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 1
         size: 1
-    - from: 2
+    - from: 1
       to: 0
       tile:
         colorIndex: 2
-        size: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6831,21 +5718,21 @@ MonoBehaviour:
       - colorIndex: 0
         size: 1
       - colorIndex: 2
-        size: 2
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
+      - colorIndex: 2
+        size: 2
+      - colorIndex: 1
+        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -6865,15 +5752,15 @@ MonoBehaviour:
         colorIndex: 2
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 1
         size: 1
-    - from: 2
-      to: 1
+    - from: 1
+      to: 2
       tile:
         colorIndex: 2
-        size: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -6889,16 +5776,16 @@ MonoBehaviour:
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 2
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
+      - colorIndex: 2
+        size: 2
+      - colorIndex: 1
+        size: 1
+      - colorIndex: 2
+        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -6907,158 +5794,158 @@ MonoBehaviour:
     pins: 4
     tileSize: 3
     AppliedMoves:
-    - from: 0
+    - from: 1
+      to: 0
+      tile:
+        colorIndex: 1
+        size: 1
+    - from: 2
       to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 2
         size: 1
     - from: 0
       to: 1
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 2
-      to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
     - from: 0
-      to: 2
+      to: 1
       tile:
         colorIndex: 0
-        size: 3
+        size: 1
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 0
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
+      - colorIndex: 2
+        size: 1
       - colorIndex: 1
         size: 1
       - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 0
-        size: 3
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
     pins: 4
     tileSize: 3
     AppliedMoves:
-    - from: 0
+    - from: 1
+      to: 0
+      tile:
+        colorIndex: 1
+        size: 1
+    - from: 2
       to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 2
         size: 1
     - from: 0
       to: 1
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 2
-      to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
     - from: 0
-      to: 3
+      to: 2
       tile:
         colorIndex: 0
-        size: 3
+        size: 1
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 0
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
-      - colorIndex: 0
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
         size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
       - colorIndex: 0
-        size: 3
+        size: 1
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
     pins: 4
     tileSize: 3
     AppliedMoves:
-    - from: 0
+    - from: 1
+      to: 0
+      tile:
+        colorIndex: 1
+        size: 1
+    - from: 2
       to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 2
         size: 1
     - from: 0
       to: 1
       tile:
-        colorIndex: 0
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
-    - from: 1
-      to: 2
+    - from: 0
+      to: 3
       tile:
         colorIndex: 0
-        size: 2
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
         size: 3
+      - colorIndex: 0
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
       - colorIndex: 2
-        size: 2
-      - colorIndex: 0
         size: 2
     - pinIndex: 3
       tiles:
-      - colorIndex: 2
+      - colorIndex: 0
         size: 1
     IsExported: 0
     ExportedFileName: 
@@ -7066,76 +5953,76 @@ MonoBehaviour:
     pins: 4
     tileSize: 3
     AppliedMoves:
-    - from: 0
+    - from: 1
+      to: 0
+      tile:
+        colorIndex: 1
+        size: 1
+    - from: 2
       to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 2
         size: 1
     - from: 0
       to: 1
       tile:
-        colorIndex: 0
-        size: 2
+        colorIndex: 1
+        size: 1
     - from: 2
-      to: 3
+      to: 0
       tile:
         colorIndex: 2
-        size: 1
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 0
         size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
         size: 3
+      - colorIndex: 0
+        size: 2
+      - colorIndex: 0
+        size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
     pins: 4
     tileSize: 3
     AppliedMoves:
-    - from: 0
+    - from: 1
+      to: 0
+      tile:
+        colorIndex: 1
+        size: 1
+    - from: 2
       to: 1
       tile:
-        colorIndex: 0
+        colorIndex: 2
         size: 1
     - from: 0
       to: 1
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 2
-      to: 3
       tile:
-        colorIndex: 2
+        colorIndex: 1
         size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 2
         size: 2
@@ -7144,28 +6031,28 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 2
+      - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
+      - colorIndex: 2
         size: 1
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
-      - colorIndex: 0
+      - colorIndex: 2
         size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7187,16 +6074,14 @@ MonoBehaviour:
       tile:
         colorIndex: 2
         size: 1
-    - from: 2
-      to: 3
+    - from: 0
+      to: 2
       tile:
-        colorIndex: 2
-        size: 2
+        colorIndex: 0
+        size: 3
     PinConfigs:
     - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
+      tiles: []
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7211,14 +6096,16 @@ MonoBehaviour:
         size: 2
     - pinIndex: 2
       tiles:
+      - colorIndex: 2
+        size: 3
       - colorIndex: 2
+        size: 2
+      - colorIndex: 0
         size: 3
     - pinIndex: 3
       tiles:
       - colorIndex: 2
         size: 1
-      - colorIndex: 2
-        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7236,24 +6123,18 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
         size: 1
-    - from: 1
-      to: 0
+    - from: 0
+      to: 3
       tile:
         colorIndex: 0
-        size: 2
+        size: 3
     PinConfigs:
     - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
+      tiles: []
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7264,6 +6145,8 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
+      - colorIndex: 0
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -7271,7 +6154,11 @@ MonoBehaviour:
       - colorIndex: 2
         size: 2
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 1
+      - colorIndex: 0
+        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7289,7 +6176,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
         size: 1
@@ -7303,8 +6190,6 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 2
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7324,7 +6209,9 @@ MonoBehaviour:
       - colorIndex: 0
         size: 2
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7342,7 +6229,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
         size: 1
@@ -7356,8 +6243,6 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 2
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7376,6 +6261,8 @@ MonoBehaviour:
         size: 2
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 1
       - colorIndex: 0
         size: 2
     IsExported: 0
@@ -7395,7 +6282,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
         size: 1
@@ -7409,8 +6296,6 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 2
-        size: 1
       - colorIndex: 2
         size: 2
     - pinIndex: 1
@@ -7430,7 +6315,9 @@ MonoBehaviour:
       - colorIndex: 2
         size: 3
     - pinIndex: 3
-      tiles: []
+      tiles:
+      - colorIndex: 2
+        size: 1
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7448,7 +6335,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 2
-      to: 0
+      to: 3
       tile:
         colorIndex: 2
         size: 1
@@ -7462,8 +6349,6 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 2
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7482,6 +6367,8 @@ MonoBehaviour:
         size: 3
     - pinIndex: 3
       tiles:
+      - colorIndex: 2
+        size: 1
       - colorIndex: 2
         size: 2
     IsExported: 0
@@ -7500,11 +6387,11 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 3
+    - from: 2
+      to: 0
       tile:
-        colorIndex: 0
-        size: 3
+        colorIndex: 2
+        size: 1
     - from: 1
       to: 0
       tile:
@@ -7513,6 +6400,10 @@ MonoBehaviour:
     PinConfigs:
     - pinIndex: 0
       tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 2
+        size: 1
       - colorIndex: 0
         size: 2
     - pinIndex: 1
@@ -7531,12 +6422,8 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 2
-        size: 1
     - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7553,19 +6440,23 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 3
+    - from: 2
+      to: 0
       tile:
-        colorIndex: 0
-        size: 3
+        colorIndex: 2
+        size: 1
     - from: 1
-      to: 3
+      to: 2
       tile:
         colorIndex: 0
         size: 2
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 2
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7582,14 +6473,10 @@ MonoBehaviour:
         size: 3
       - colorIndex: 2
         size: 2
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 3
       - colorIndex: 0
         size: 2
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7606,19 +6493,21 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
     - from: 2
       to: 0
       tile:
         colorIndex: 2
         size: 1
+    - from: 1
+      to: 3
+      tile:
+        colorIndex: 0
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
+      - colorIndex: 0
+        size: 3
       - colorIndex: 2
         size: 1
     - pinIndex: 1
@@ -7631,8 +6520,6 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -7642,7 +6529,7 @@ MonoBehaviour:
     - pinIndex: 3
       tiles:
       - colorIndex: 0
-        size: 3
+        size: 2
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7659,19 +6546,25 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
     - from: 2
-      to: 3
+      to: 0
       tile:
         colorIndex: 2
         size: 1
+    - from: 2
+      to: 0
+      tile:
+        colorIndex: 2
+        size: 2
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 2
+        size: 1
+      - colorIndex: 2
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7688,14 +6581,8 @@ MonoBehaviour:
       tiles:
       - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
     - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 2
-        size: 1
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7712,21 +6599,23 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 3
-    - from: 1
+    - from: 2
       to: 0
       tile:
-        colorIndex: 0
+        colorIndex: 2
+        size: 1
+    - from: 2
+      to: 3
+      tile:
+        colorIndex: 2
         size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
-        size: 2
+        size: 3
+      - colorIndex: 2
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7737,18 +6626,16 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
+      - colorIndex: 0
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
         size: 3
+    - pinIndex: 3
+      tiles:
       - colorIndex: 2
         size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 3
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -7771,13 +6658,15 @@ MonoBehaviour:
         colorIndex: 0
         size: 3
     - from: 1
-      to: 2
+      to: 0
       tile:
         colorIndex: 0
         size: 2
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -7798,8 +6687,6 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 3
-      - colorIndex: 0
-        size: 2
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -7824,7 +6711,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 3
     - from: 1
-      to: 3
+      to: 2
       tile:
         colorIndex: 0
         size: 2
@@ -7851,10 +6738,10 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 3
-    - pinIndex: 3
-      tiles:
       - colorIndex: 0
         size: 2
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -8562,241 +7449,27 @@ MonoBehaviour:
         size: 2
     - from: 1
       to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 1
       tile:
         colorIndex: 0
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles: []
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 3
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
         size: 1
-    - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
     - from: 0
       to: 1
       tile:
         colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles: []
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
         size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
     PinConfigs:
     - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 3
       tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 1
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
-        size: 2
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 3
-      tiles:
       - colorIndex: 1
-        size: 1
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
         size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
       - colorIndex: 0
-        size: 1
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
+        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -8807,6 +7480,8 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 1
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -8826,12 +7501,12 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 1
-      to: 0
+      to: 2
       tile:
         colorIndex: 0
         size: 1
     - from: 1
-      to: 2
+      to: 0
       tile:
         colorIndex: 1
         size: 1
@@ -8840,7 +7515,7 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
     - pinIndex: 1
       tiles:
@@ -8858,7 +7533,7 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 2
-      - colorIndex: 1
+      - colorIndex: 0
         size: 1
     - pinIndex: 3
       tiles: []
@@ -8879,7 +7554,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 1
-      to: 0
+      to: 2
       tile:
         colorIndex: 0
         size: 1
@@ -8893,8 +7568,6 @@ MonoBehaviour:
       tiles:
       - colorIndex: 0
         size: 3
-      - colorIndex: 0
-        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -8911,6 +7584,8 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 1
     - pinIndex: 3
       tiles:
       - colorIndex: 1
@@ -8936,11 +7611,11 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 1
-    - from: 2
+    - from: 1
       to: 0
       tile:
-        colorIndex: 0
-        size: 2
+        colorIndex: 1
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -8948,16 +7623,14 @@ MonoBehaviour:
         size: 3
       - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 2
+      - colorIndex: 1
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -8966,6 +7639,8 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
+      - colorIndex: 0
+        size: 2
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -8989,11 +7664,11 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 1
-    - from: 2
-      to: 1
+    - from: 1
+      to: 2
       tile:
-        colorIndex: 0
-        size: 2
+        colorIndex: 1
+        size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
@@ -9005,11 +7680,7 @@ MonoBehaviour:
       tiles:
       - colorIndex: 1
         size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 1
-        size: 1
-      - colorIndex: 0
         size: 2
     - pinIndex: 2
       tiles:
@@ -9018,6 +7689,10 @@ MonoBehaviour:
       - colorIndex: 2
         size: 2
       - colorIndex: 2
+        size: 1
+      - colorIndex: 0
+        size: 2
+      - colorIndex: 1
         size: 1
     - pinIndex: 3
       tiles: []
@@ -9037,80 +7712,29 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
     - from: 1
       to: 0
       tile:
         colorIndex: 0
+        size: 1
+    - from: 1
+      to: 3
+      tile:
+        colorIndex: 1
         size: 1
     PinConfigs:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
         size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 3
-      tiles:
       - colorIndex: 0
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
-    - from: 1
-      to: 3
-      tile:
-        colorIndex: 0
         size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles: []
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
-      - colorIndex: 1
-        size: 1
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -9123,9 +7747,7 @@ MonoBehaviour:
         size: 2
     - pinIndex: 3
       tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
+      - colorIndex: 1
         size: 1
     IsExported: 0
     ExportedFileName: 
@@ -9143,21 +7765,25 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 3
     - from: 1
       to: 0
       tile:
         colorIndex: 0
         size: 1
+    - from: 2
+      to: 0
+      tile:
+        colorIndex: 0
+        size: 2
     PinConfigs:
     - pinIndex: 0
       tiles:
+      - colorIndex: 0
+        size: 3
       - colorIndex: 0
         size: 1
+      - colorIndex: 0
+        size: 2
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -9174,10 +7800,6 @@ MonoBehaviour:
         size: 2
       - colorIndex: 2
         size: 1
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 0
-        size: 3
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -9196,13 +7818,13 @@ MonoBehaviour:
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 1
+    - from: 1
+      to: 0
       tile:
         colorIndex: 0
-        size: 3
+        size: 1
     - from: 2
-      to: 0
+      to: 1
       tile:
         colorIndex: 0
         size: 2
@@ -9210,7 +7832,9 @@ MonoBehaviour:
     - pinIndex: 0
       tiles:
       - colorIndex: 0
-        size: 2
+        size: 3
+      - colorIndex: 0
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
@@ -9218,11 +7842,9 @@ MonoBehaviour:
       - colorIndex: 1
         size: 2
       - colorIndex: 1
-        size: 1
-      - colorIndex: 0
         size: 1
       - colorIndex: 0
-        size: 3
+        size: 2
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -10343,62 +8965,9 @@ MonoBehaviour:
     - pinIndex: 3
       tiles:
       - colorIndex: 0
-        size: 2
-      - colorIndex: 1
-        size: 1
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles: []
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
         size: 2
       - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 3
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 3
-      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -10417,80 +8986,27 @@ MonoBehaviour:
         size: 1
     - from: 0
       to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 0
-      to: 3
       tile:
         colorIndex: 0
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles: []
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 0
         size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 3
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
     - from: 0
       to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 1
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 0
-      to: 2
       tile:
         colorIndex: 0
-        size: 2
-    - from: 1
-      to: 0
-      tile:
-        colorIndex: 1
-        size: 1
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
         size: 3
-      - colorIndex: 1
-        size: 1
+    PinConfigs:
+    - pinIndex: 0
+      tiles: []
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
       - colorIndex: 1
         size: 2
+      - colorIndex: 1
+        size: 1
+      - colorIndex: 0
+        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -10522,30 +9038,28 @@ MonoBehaviour:
         colorIndex: 0
         size: 1
     - from: 0
-      to: 1
+      to: 2
       tile:
         colorIndex: 0
         size: 2
-    - from: 0
-      to: 1
+    - from: 1
+      to: 0
       tile:
-        colorIndex: 0
-        size: 3
+        colorIndex: 1
+        size: 1
     PinConfigs:
     - pinIndex: 0
-      tiles: []
+      tiles:
+      - colorIndex: 0
+        size: 3
+      - colorIndex: 1
+        size: 1
     - pinIndex: 1
       tiles:
       - colorIndex: 1
         size: 3
-      - colorIndex: 1
-        size: 2
       - colorIndex: 1
-        size: 1
-      - colorIndex: 0
         size: 2
-      - colorIndex: 0
-        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -10556,6 +9070,8 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
+      - colorIndex: 0
+        size: 2
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -10580,7 +9096,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 0
-      to: 2
+      to: 1
       tile:
         colorIndex: 0
         size: 3
@@ -10597,6 +9113,8 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 2
+      - colorIndex: 0
+        size: 3
     - pinIndex: 2
       tiles:
       - colorIndex: 2
@@ -10607,8 +9125,6 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
-      - colorIndex: 0
-        size: 3
     - pinIndex: 3
       tiles: []
     IsExported: 0
@@ -10633,7 +9149,7 @@ MonoBehaviour:
         colorIndex: 0
         size: 2
     - from: 0
-      to: 3
+      to: 2
       tile:
         colorIndex: 0
         size: 3
@@ -10660,10 +9176,10 @@ MonoBehaviour:
         size: 1
       - colorIndex: 0
         size: 1
-    - pinIndex: 3
-      tiles:
       - colorIndex: 0
         size: 3
+    - pinIndex: 3
+      tiles: []
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -11299,60 +9815,7 @@ MonoBehaviour:
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 2
-        size: 2
-    - pinIndex: 2
       tiles: []
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -11617,60 +10080,7 @@ MonoBehaviour:
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 2
-        size: 1
-      - colorIndex: 2
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 1
-    - pinIndex: 2
       tiles: []
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -12942,60 +11352,7 @@ MonoBehaviour:
     - pinIndex: 2
       tiles: []
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 2
-      to: 0
-      tile:
-        colorIndex: 2
-        size: 2
-    - from: 2
-      to: 3
-      tile:
-        colorIndex: 2
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
-      tiles:
-      - colorIndex: 0
-        size: 3
-      - colorIndex: 0
-        size: 2
-      - colorIndex: 2
-        size: 2
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 2
       tiles: []
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 2
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3
@@ -13366,60 +11723,7 @@ MonoBehaviour:
       - colorIndex: 0
         size: 3
     - pinIndex: 3
-      tiles: []
-    IsExported: 0
-    ExportedFileName: 
-  - colors: 3
-    pins: 4
-    tileSize: 3
-    AppliedMoves:
-    - from: 0
-      to: 1
-      tile:
-        colorIndex: 0
-        size: 1
-    - from: 2
-      to: 1
-      tile:
-        colorIndex: 2
-        size: 1
-    - from: 0
-      to: 2
-      tile:
-        colorIndex: 0
-        size: 2
-    - from: 0
-      to: 3
-      tile:
-        colorIndex: 0
-        size: 3
-    PinConfigs:
-    - pinIndex: 0
       tiles: []
-    - pinIndex: 1
-      tiles:
-      - colorIndex: 1
-        size: 3
-      - colorIndex: 1
-        size: 2
-      - colorIndex: 1
-        size: 1
-      - colorIndex: 0
-        size: 1
-      - colorIndex: 2
-        size: 1
-    - pinIndex: 2
-      tiles:
-      - colorIndex: 2
-        size: 3
-      - colorIndex: 2
-        size: 2
-      - colorIndex: 0
-        size: 2
-    - pinIndex: 3
-      tiles:
-      - colorIndex: 0
-        size: 3
     IsExported: 0
     ExportedFileName: 
   - colors: 3

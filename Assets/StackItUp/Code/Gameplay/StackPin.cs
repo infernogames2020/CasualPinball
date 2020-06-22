@@ -27,7 +27,8 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 
 	public void Init()
 	{
-		gameObject.GetComponent<MeshFilter>().sharedMesh = stackData.stackBase;
+        GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.GetComponent<MeshFilter>().sharedMesh = stackData.stackBase;
 		gameObject.GetComponent<MeshRenderer>().sharedMaterial= stackData.stackBaseMaterial;
 		pin.GetComponent<MeshFilter>().sharedMesh = stackData.pinMesh;
 		pin.GetComponent<MeshRenderer>().sharedMaterial = stackData.stackBaseMaterial;

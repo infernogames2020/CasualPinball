@@ -112,4 +112,31 @@ public class LevelData : ScriptableObject
         }
         return builder.ToString();
     }
+
+    public static LevelData TransformToLevelData(LevelsData.Data data)
+    {
+        LevelData levelData = new LevelData();
+        levelData.pins = data.pins;
+        levelData.stackCount = data.colors;
+        levelData.pinConfig = new List<PinConfig>();
+       
+        for (int i = 0; i < data.PinConfigs.Count; i++)
+        {
+             levelData.pinConfig.Add((PinConfig)data.PinConfigs[i].Clone());
+        }
+        ColorMaterialMap colorMappingList = Resources.Load<ColorMaterialMap>("ColorMaterialMapData");
+        levelData.colors = new List<Material>();
+
+        for (int i = 0; i < data.colors; i++)
+        {
+            levelData.colors.Add(colorMappingList.ColorMaps[i].material);
+        }
+        levelData.sequence = new List<int>();
+        for (int i = 0; i < data.tileSize; i++)
+        {
+            levelData.sequence.Add(i+1);
+        }
+
+        return levelData;
+    }
 }
