@@ -55,6 +55,7 @@ public class Game : MonoBehaviour
 			stack.stackData = currentStackData;
 			stack.StackChanged();
 		}
+		stackPins[0].UpdateSelectedTile();
 	}
 
 	private void PatternChange(Hashtable parameters)
@@ -118,8 +119,8 @@ public class Game : MonoBehaviour
 
     private static int genIndex = 0;
 
-    public LevelData GetNextGeneratedLevel()
-    {
+//    public LevelData GetNextGeneratedLevel()
+//    {
         //LevelData level = new LevelData();
         //if(LevelsFiles == null || LevelsFiles.Length == 0)
         //{
@@ -138,8 +139,8 @@ public class Game : MonoBehaviour
         //level = LevelData.TransformToLevelData(levelsInfo.AllLevels[0]);
         //return level;
 
-        return GetComponent<LevelsManager>().GetTestLevel();
-    }
+        //return GetComponent<LevelsManager>().GetTestLevel();
+//    }
     public void LoadLevel(int level)
 	{
 		if (activeSetup != null)
@@ -147,8 +148,8 @@ public class Game : MonoBehaviour
 
 		currentLevel = level;
 
-       // Debug.Log("file name"+ getLevelName(level));
-        currentLevelData = GetNextGeneratedLevel();// Resources.Load<LevelData>("Levels/" +getLevelName(level));
+		// Debug.Log("file name"+ getLevelName(level));
+//		Resources.Load<LevelData>("Levels/" + getLevelName(level));
 //		if (isTesting)
 //		{
 //#if UNITY_EDITOR
@@ -156,11 +157,12 @@ public class Game : MonoBehaviour
 //#endif
 //		}
 //		else
-		//	currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+			currentLevelData = Resources.Load<LevelData>("Levels/" + level.ToString());
+		// currentLevelData = GetNextGeneratedLevel();
 
 		if (currentLevelData == null)
 		{
-			Debug.LogError("No More Levels Available " + level);
+			//Debug.LogError("No More Levels Available " + level);
 			currentLevel = 1;
 			currentLevelData = Resources.Load<LevelData>("Levels/" + currentLevel.ToString());
 			//return;
@@ -313,10 +315,10 @@ public class Game : MonoBehaviour
 			{"level",currentLevel+1},
 			{"score",10 }
 		});
-		foreach (StackPin stack in stackPins)
-		{
-			stack.Celebrate();
-		}
+		//foreach (StackPin stack in stackPins)
+		//{
+		//	stack.Celebrate();
+		//}
 		StartCoroutine("OnCelebrationComplete");
 	}
 

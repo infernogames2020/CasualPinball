@@ -50,11 +50,6 @@ public class SaveManager : MonoBehaviour
 		}
 	}
 
-	private void Awake()
-	{
-		
-	}
-
 	private void Start()
 	{
 		ActionManager.SubscribeToEvent(GameEvents.SAVE_GAME, UpdateState);
@@ -98,6 +93,7 @@ public class SaveManager : MonoBehaviour
 		{
 			SaveData.noads = (bool)data["sound"];
 		}
+
 		if (data.ContainsKey("pattern"))
 		{
 			SaveData.currentPattern = data["pattern"].ToString();

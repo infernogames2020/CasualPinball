@@ -50,7 +50,7 @@ public class ViewController : MonoBehaviour
 
 	private void ShowScreen(Hashtable paramaters)
 	{
-        Debug.Log("SHOW SCREEN");
+        //Debug.Log("SHOW SCREEN");
         string eventId = paramaters["event"].ToString();
 		lookupMap[eventId].viewObject.Init(paramaters);
 		lookupMap[eventId].viewObject.Show();

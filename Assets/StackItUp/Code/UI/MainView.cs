@@ -59,7 +59,8 @@ public class MainView : View
 	{
 		ActionManager.TriggerEvent(UIEvents.SETTINGS, new Hashtable() {
 			{ "event", UIEvents.SETTINGS},
-			{ "heptic", SaveManager.SaveData.heptic}
+			{ "heptic", SaveManager.SaveData.heptic},
+			{ "sound", SaveManager.SaveData.sound}
 		});
 	}
 	public void RemoveAds()

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPointerClickHandler
+public class StackPin : MonoBehaviour,IPointerUpHandler,IPointerDownHandler,IPointerClickHandler
 {
 	public static GameObject SelectedTile;
 	public  GameObject pin;
@@ -35,7 +35,6 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		baseBounds = gameObject.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pinBounds  = pin.GetComponent<MeshFilter>().sharedMesh.bounds;
 		pin.transform.position = transform.position;
-			
 		startPoint = transform.InverseTransformPoint(transform.position     + (Vector3.up * baseBounds.extents.y));
 		entryPoint = transform.InverseTransformPoint(pin.transform.position + (Vector3.up * pinBounds.size.y));
 		celebrationDone = true;
@@ -69,13 +68,26 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 		foreach (GameObject tile in stack)
 		{
 			var stackTile = tile.GetComponent<StackTile>();
-			stackTile.GetComponent<StackTile>().SetData(stackData);
+			stackTile.SetData(stackData);
 			stackTile.SetMesh(stackData.meshes[stackTile.index - 1].mesh);
 			stackTile.SetMaterials(stackData.materials.ToArray());
 			stackTile.SetMaterialColor(levelData.colors[stackTile.colorCode]);
 		}
-
 	}
+
+	public void UpdateSelectedTile()
+	{
+		if(SelectedTile != null)
+		{
+			var stackTile = SelectedTile.GetComponent<StackTile>();
+			stackTile.SetData(stackData);
+			stackTile.SetMesh(stackData.meshes[stackTile.index - 1].mesh);
+			stackTile.SetMaterials(stackData.materials.ToArray());
+			stackTile.SetMaterialColor(levelData.colors[stackTile.colorCode]);
+		}
+	}
+
+	
 
 	public void PopTile()
 	{
@@ -150,8 +162,7 @@ public class StackPin : MonoBehaviour, IPointerUpHandler,IPointerDownHandler,IPo
 			}
 			count++;
 		}
-
-		Debug.LogError("4> stack complete " + gameObject.name);
+		//Debug.LogError("4> stack complete " + gameObject.name);
 		return true;
 	}
 
