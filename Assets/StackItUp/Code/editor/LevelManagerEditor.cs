@@ -9,7 +9,7 @@ public class LevelManagerEditor : Editor
     {
         return base.CreateInspectorGUI();
     }
-
+    private string levelIndex = "";
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -18,6 +18,15 @@ public class LevelManagerEditor : Editor
         {
             ReloadFolder();
         }
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(" MAX : " + ((LevelsManager)target).GetMaxLevels());
+        levelIndex = GUILayout.TextField(levelIndex);
+
+        if (GUILayout.Button("DIRECT LOAD"))
+        {
+            DirectLoadLevel();
+        }
+        GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("<<Previous"))
@@ -72,5 +81,14 @@ public class LevelManagerEditor : Editor
     {
         LevelsManager levelsManager = (LevelsManager)target;
         levelsManager.ReloadFolder();
+    }
+
+    void DirectLoadLevel()
+    {
+        int selectedLevel;
+        if (int.TryParse(levelIndex, out selectedLevel))
+        {
+            ((LevelsManager)target).LoadLevelDirectly(selectedLevel);
+        }
     }
 }

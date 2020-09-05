@@ -48,7 +48,11 @@ public class LevelsManager : MonoBehaviour
     public LevelData GetTestLevel()
     {
         if (levelsInfo == null)
+        {
             levelsInfo = Resources.Load<LevelsData>(string.Format(fileFormater, Pins, Colors, DiscSizes, Moves));
+            _maxLevels = levelsInfo.AllLevels.Count;
+        }
+       
         if (currentLevelIndex >= levelsInfo.AllLevels.Count)
             Debug.LogError("ALL LEVELS EXPLORED!!!");
         IsSelected = SavedLevelData.ContainsKey(key);
@@ -62,6 +66,7 @@ public class LevelsManager : MonoBehaviour
 
         levelsInfo = Resources.Load<LevelsData>(string.Format(fileFormater, Pins, Colors, DiscSizes, Moves));
         currentLevelIndex = 0;
+        _maxLevels = levelsInfo.AllLevels.Count;
         ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
     }
     private string LevelDataExportPath
@@ -103,7 +108,14 @@ public class LevelsManager : MonoBehaviour
         ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
     }
 
+    public void LoadLevelDirectly(int index)
+    {
+        if (index < 0 || index >= GetMaxLevels())
+            return;
 
+        currentLevelIndex = index;
+        ActionManager.TriggerEvent(GameEvents.RELOAD_LEVEL);
+    }
     public void DeleteLevel()
     {
         PopupWindow.ShowWindow("Do you want to delete level?", status =>
@@ -162,6 +174,12 @@ public class LevelsManager : MonoBehaviour
             PlayerPrefs.SetInt("totalLevels", value);
             PlayerPrefs.Save();
         }
+    }
+
+    private int _maxLevels = -1;
+    public int GetMaxLevels()
+    {
+        return _maxLevels;
     }
 }
 [Serializable]
